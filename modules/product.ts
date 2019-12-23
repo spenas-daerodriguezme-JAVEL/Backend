@@ -3,7 +3,7 @@ import config from 'config'
 import jwt from 'jsonwebtoken';
 import Joi from 'joi';
 
-const productSchema = new mongoose.Schema({
+export const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -20,6 +20,7 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Types.Decimal128,
         required: true
     },
+    
     classificator: {
         type: Number,
         required: true
