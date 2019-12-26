@@ -6,7 +6,7 @@ const router = express.Router();
 router.get(
   [
     "/",
-    "/businessline/:businessLine",
+    "/businessline/:businessline",
     "/price/:price",
     "/businessline/:businessLine/price/:price"
   ],
@@ -18,7 +18,8 @@ router.get(
     const findObj: { [key: string]: any } = {};
 
     if (params["businessline"]) {
-      findObj["businessline"] = params["businessline"];
+      let regexp = new RegExp(params["businessline"], 'i');
+      findObj["businessLine"] = regexp;
     }
 
     if (params["price"]) {
@@ -30,18 +31,32 @@ router.get(
       findObj["price"] = price_obj;
     }
 
-    const products = Product.find(findObj)
+    Product.find(findObj)
       .skip(from)
-      .limit(11);
+      .limit(11)
+      .exec((err, productos) =>{
+        if (err) {
+          return res.status(500).json({
+              ok: false,
+              err
+          });
+      }
 
-    console.log(req.params);
-    res.send(`Data: ${req.params}`).status(200);
+      res.json({
+          ok: true,
+          productos
+      });
+      });
+
+    // console.log(req.params);
+    //res.send(`Data: ${req.params.price}`).status(200);
+   
   }
 );
 
 router.post(
   "/product",
-  async (req: express.Request, res: express.Response) => {}
+  async (req: express.Request, res: express.Response) => { }
 );
 
 export default {
