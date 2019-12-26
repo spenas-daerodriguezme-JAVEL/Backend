@@ -25,24 +25,6 @@ router.post('/seeds', async (req: express.Request, res: express.Response) => {
   });
 });
 
-// const data = [
-//   {
-//     "name": "OXIGENO ACTIVO",
-//     "businessLine": "Cuidado textil",
-//     "model": "200 gr",
-//     "price": 4000,
-//     "classificator": 1,
-//     "description": "Limpiador natural. Blanqueador para ropas. Quita manchas orgánicas. Desinfectante. Elimina el moho. Desodorante. Desengrasante. Aumenta la eficacia de los detergentes. Producto biodegradable",
-//     "physicalAspect": "Granulado",
-//     "smell": "No aplica",
-//     "color": "Blanco",
-//     "fragance": "No aplica",
-//     "gravity": "No aplica",
-//     "viscosity": "No aplica",
-//     "solubility": "Total",
-//   }
-// ];
-
 export default {
   router,
 }

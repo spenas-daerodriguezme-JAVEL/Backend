@@ -39,6 +39,7 @@ const orderSchema = new mongoose.Schema({
 
     },
     products: Array,
+    created_at: Date,
     total: Number,
 
 
