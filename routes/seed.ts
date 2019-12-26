@@ -1,4 +1,4 @@
-import { Product } from "../modules/product";
+import { Product } from "../models/product";
 import express from "express";
 import productList from "../seeds/products.json";
 
