@@ -8,7 +8,7 @@ router.get(
     "/",
     "/businessline/:businessline",
     "/price/:price",
-    "/businessline/:businessLine/price/:price"
+    "/businessline/:businessline/price/:price"
   ],
   async (req: express.Request, res: express.Response) => {
     const params = req.params;
@@ -30,6 +30,9 @@ router.get(
       };
       findObj["price"] = price_obj;
     }
+
+    console.log(params)
+    console.log(findObj)
 
     Product.find(findObj)
       .skip(from)
