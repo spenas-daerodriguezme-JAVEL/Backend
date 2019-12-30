@@ -31,8 +31,7 @@ router.get(
       findObj["price"] = price_obj;
     }
 
-    console.log(params)
-    console.log(findObj)
+
 
     Product.find(findObj)
       .skip(from)
