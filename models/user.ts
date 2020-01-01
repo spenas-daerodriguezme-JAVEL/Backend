@@ -41,7 +41,11 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 1024
   },
-  isAdmin: Boolean
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  } 
+
 });
 
 userSchema.methods.generateAuthToken = function() {
@@ -75,7 +79,7 @@ export const validate = (user: Schema) => {
       .required(),
     telephone: Joi.string()
       .min(7)
-      .required()
+      .required(),
   };
 
   return Joi.validate(user, schema);

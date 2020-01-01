@@ -3,7 +3,7 @@ import users from '../routes/user';
 import products from '../routes/product';
 import auth from '../routes/auth';
 import seed from '../routes/seed';
-import upload from '../routes/upload';
+// import upload from '../routes/upload';
 
 export default function(app: express.Express) {
   app.use(express.json());
@@ -12,5 +12,5 @@ export default function(app: express.Express) {
   app.use('/auth', auth.router);
   app.use('/auth', auth.router);
   app.use('/secret', seed.router);
-  app.use('/', upload.router);
+  // app.use('/', upload.router);
 }
