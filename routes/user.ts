@@ -13,7 +13,7 @@ router.get("/me", auth, async (req: express.Request, res: express.Response) => {
 
 router.post("/", async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(201).send(error.details[0].message);
 
   let user = (await User.findOne({ email: req.body.email })) as any;
   if (user) return res.status(400).send("User already registered.");
@@ -21,12 +21,13 @@ router.post("/", async (req: express.Request, res: express.Response) => {
   user = new User(
     _.pick(req.body, [
       "name",
-      "lastName",
+      "lastname",
       "email",
       "telephone",
       "address",
       "city",
-      "password"
+      "password",
+      "state"
     ])
   );
   const salt = await bcrypt.genSalt(10);
@@ -36,7 +37,7 @@ router.post("/", async (req: express.Request, res: express.Response) => {
   const token = user.generateAuthToken();
   res
     .header("x-auth-token", token)
-    .send(_.pick(user, ["_id", "name", "email"]));
+    .send({..._.pick(user, ["_id", "name", "email"]), token });
 });
 
 export default {

@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 50
   },
-  lastName: {
+  lastname: {
     type: String,
     required: true,
     minlength: 5,
@@ -32,6 +32,9 @@ const userSchema = new mongoose.Schema({
   address: {
     type: String
   },
+  state: {
+    type: String
+  },
   city: {
     type: String
   },
@@ -47,7 +50,8 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin },
-    config.get("jwtPrivateKey")
+    config.get("jwtPrivateKey"),
+    { expiresIn: "2h" }
   );
   return token;
 };
@@ -60,7 +64,7 @@ export const validate = (user: Schema) => {
       .min(3)
       .max(50)
       .required(),
-    lastName: Joi.string()
+    lastname: Joi.string()
       .min(5)
       .max(50)
       .required(),
@@ -75,7 +79,10 @@ export const validate = (user: Schema) => {
       .required(),
     telephone: Joi.string()
       .min(7)
-      .required()
+      .required(),
+    state: Joi.string(),
+    city: Joi.string(),
+    address: Joi.string()
   };
 
   return Joi.validate(user, schema);
