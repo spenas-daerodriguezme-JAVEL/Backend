@@ -8,4 +8,5 @@ export interface IUser {
     city: string;
     password: string;
     isAdmin: boolean;
+    role: boolean;
 }
