@@ -1,7 +1,7 @@
 import express from "express";
 import { Product, validate } from "../models/product";
-import adminAuth from '../middleware/adminAuth';
-import auth from '../middleware/auth';
+import adminAuth from "../middleware/adminAuth";
+import auth from "../middleware/auth";
 import _ from "lodash";
 import user from "./user";
 
@@ -37,9 +37,9 @@ let pickParams = (req: express.Request) => {
     "paragraph4",
     "stepTitle",
     "steps",
-    "promoTitle",
-  ])
-}
+    "promoTitle"
+  ]);
+};
 
 router.get(
   [
@@ -56,7 +56,7 @@ router.get(
     const findObj: { [key: string]: any } = {};
 
     if (params["businessline"]) {
-      let regexp = new RegExp(params["businessline"], 'i');
+      let regexp = new RegExp(params["businessline"], "i");
       findObj["businessLine"] = regexp;
     }
 
@@ -68,8 +68,6 @@ router.get(
       };
       findObj["price"] = price_obj;
     }
-
-
 
     Product.find(findObj)
       .skip(from)
@@ -89,42 +87,32 @@ router.get(
       });
 
     // console.log(req.params);
-    //res.send(`Data: ${req.params.price}`).status(200); 
+    //res.send(`Data: ${req.params.price}`).status(200);
+  }
+);
+
+router.post("/", async (req: express.Request, res: express.Response) => {
+  console.log("req.body");
+  console.log(req.body);
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  let product = new Product(pickParams(req));
+
+  await product.save();
+  res.status(200).send({
+    message: "Product created succesfully",
+    product
   });
+});
 
+router.put("/:id", async (req: express.Request, res: express.Response) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
-router.post(
-  "/",
+  let product = await Product.findByIdAndUpdate(req.params.id, pickParams(req));
 
-  async (req: express.Request, res: express.Response) => {
-
-
-    const { error } = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-    let product = new Product(
-      pickParams(req)
-    );
-
-    await product.save();
-    res.status(200).send({
-      message: 'Product created succesfully',
-      product
-    });
-
-  });
-
-router.put(
-  "/:id",
-  async (req: express.Request, res: express.Response) => {
-
-    const { error } = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-
-    let product = await Product.findByIdAndUpdate(req.params.id, pickParams(req))
-
-    if (!product) return res.status(404).send('The product cannot be found.');
-
-  })
+  if (!product) return res.status(404).send("The product cannot be found.");
+});
 
 export default {
   router
