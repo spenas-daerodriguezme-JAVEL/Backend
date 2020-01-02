@@ -42,7 +42,7 @@ FROM node:12.13.0-slim
 
 WORKDIR /app
 ENV NODE_ENV=production
-
+ENV javel_jwtPrivateKey=casa
 COPY package*.json ./
 # RUN apk --no-cache add --virtual builds-deps build-base python
 RUN npm ci --quiet --only=production
