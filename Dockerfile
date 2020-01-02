@@ -8,7 +8,7 @@ COPY package*.json ./
 
 USER node
 
-RUN sudo apt-get install -y build-essential python && npm install
+RUN apt-get install -y build-essential python && npm install
 
 COPY --chown=node:node . .
 
