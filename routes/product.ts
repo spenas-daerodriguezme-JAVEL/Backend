@@ -72,17 +72,20 @@ router.get(
     Product.find(findObj)
       .skip(from)
       .limit(11)
-      .exec((err, products) => {
+      .exec(async (err, products) => {
         if (err) {
           return res.status(500).json({
             ok: false,
             err
           });
         }
-
-        res.json({
-          ok: true,
-          products
+        Product.countDocuments({}, function(err: any, count: number) {
+         
+          res.json({
+            ok: true,
+            products,
+            pages: Math.ceil(count / 11),
+          });
         });
       });
 
@@ -114,9 +117,9 @@ router.put("/:id", async (req: express.Request, res: express.Response) => {
   if (!product) return res.status(404).send("The product cannot be found.");
 
   res.status(200).send({
-      message: "Updated succesfully",
-      product
-    }
+    message: "Updated succesfully",
+    product
+  }
   )
 
 });
