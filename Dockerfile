@@ -31,7 +31,6 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY tsconfig*.json ./
 COPY . .
-RUN apk --no-cache add --virtual builds-deps build-base python
 RUN npm ci --quiet && npm run build
 
 #
@@ -45,6 +44,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 COPY package*.json ./
+RUN apk --no-cache add --virtual builds-deps build-base python
 RUN npm ci --quiet --only=production
 
 ## We just need the build to execute the command
