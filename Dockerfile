@@ -8,7 +8,7 @@ COPY package*.json ./
 
 USER node
 
-RUN npm install
+RUN npm install --global windows-build-tools && npm install
 
 COPY --chown=node:node . .
 
