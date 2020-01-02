@@ -6,11 +6,13 @@ WORKDIR /home/node/app
 
 COPY package*.json ./
 
-USER node
+
 
 RUN apk --no-cache add --virtual builds-deps build-base python
 
 RUN  npm install
+
+USER node
 
 COPY --chown=node:node . .
 
