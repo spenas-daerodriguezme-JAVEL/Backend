@@ -44,7 +44,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 COPY package*.json ./
-RUN apk --no-cache add --virtual builds-deps build-base python
+# RUN apk --no-cache add --virtual builds-deps build-base python
 RUN npm ci --quiet --only=production
 
 ## We just need the build to execute the command
