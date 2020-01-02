@@ -8,7 +8,9 @@ COPY package*.json ./
 
 USER node
 
-RUN apt-get install -y build-essential python && npm install
+RUN apk --no-cache add --virtual builds-deps build-base python
+
+RUN  npm install
 
 COPY --chown=node:node . .
 
