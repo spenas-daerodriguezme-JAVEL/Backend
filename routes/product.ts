@@ -80,11 +80,10 @@ router.get(
           });
         }
         Product.countDocuments({}, function(err: any, count: number) {
-         
           res.json({
             ok: true,
             products,
-            pages: Math.ceil(count / 11),
+            pages: Math.ceil(count / 11)
           });
         });
       });
@@ -94,9 +93,7 @@ router.get(
   }
 );
 
-router.post("/", async (req: express.Request, res: express.Response) => {
-  console.log("req.body");
-  console.log(req.body);
+router.post("/", [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   let product = new Product(pickParams(req));
@@ -108,7 +105,7 @@ router.post("/", async (req: express.Request, res: express.Response) => {
   });
 });
 
-router.put("/:id", async (req: express.Request, res: express.Response) => {
+router.put("/:id", [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -119,11 +116,8 @@ router.put("/:id", async (req: express.Request, res: express.Response) => {
   res.status(200).send({
     message: "Updated succesfully",
     product
-  }
-  )
-
+  });
 });
-
 
 export default {
   router

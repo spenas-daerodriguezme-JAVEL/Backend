@@ -2,12 +2,11 @@ import express from "express";
 import { IUser } from "../types/user-type";
 
 export default function(
-  req: express.JRequest,
+  req: express.Request,
   res: express.Response,
   next: Function
 ) {
-
-  const user = req.user;
+  const user = (req as express.JRequest).user;
 
   if (user.isAdmin === true) {
     next();
