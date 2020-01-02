@@ -93,7 +93,29 @@ router.get(
   }
 );
 
-// x
+router.get('/search/:search', async (req: express.Request, res: express.Response) => {
+  const params = req.params;
+  let search = new RegExp(params["search"], "i");
+  await Product.find({
+    $or: [
+      { "name": search},
+      {"businessLine": search},
+      {"model": search},
+      {"description": search}
+    ]
+    // "name": search
+  }, (err, products) => {
+      if (err) res.status(500).send({
+        err
+      })
+      if (!products) res.status(404).send();
+      res.status(200).send({
+        ok: true,
+        products
+      })
+  })
+});
+
 router.get('/businesslinelist', (req: express.Request, res: express.Response) => {
 
   const businesslines = Product.find()

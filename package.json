@@ -5,9 +5,11 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "./node_modules/ts-node/dist/index.js index.ts",
+        "start": "ts-node index.ts",
+        "pm": "pm2 start ts-node -- -P tsconfig.json index.ts",
         "seed": "ts-node seeds/seed.ts"
     },
+
     "keywords": [],
     "author": "Santi",
     "license": "ISC",
