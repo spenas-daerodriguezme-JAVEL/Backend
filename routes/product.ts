@@ -79,7 +79,7 @@ router.get(
             err
           });
         }
-        Product.countDocuments({}, function(err: any, count: number) {
+        Product.countDocuments({}, function (err: any, count: number) {
           res.json({
             ok: true,
             products,
@@ -93,7 +93,22 @@ router.get(
   }
 );
 
-router.post("/",  async (req: express.Request, res: express.Response) => {
+// x
+router.get('/businesslinelist', (req: express.Request, res: express.Response) => {
+
+  const businesslines = Product.find()
+    .distinct("businessLine", (err, businessLines) => {
+      if (err) res.status(500).send()
+      res.status(200).send({
+        ok: true,
+        businessLines
+      });
+
+    })
+
+});
+
+router.post("/", async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   let product = new Product(pickParams(req));
