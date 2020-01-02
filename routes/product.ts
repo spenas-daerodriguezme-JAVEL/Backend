@@ -93,7 +93,7 @@ router.get(
   }
 );
 
-router.post("/", [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.post("/",  async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   let product = new Product(pickParams(req));
@@ -105,7 +105,7 @@ router.post("/", [auth, adminAuth], async (req: express.Request, res: express.Re
   });
 });
 
-router.put("/:id", [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.put("/:id", async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 

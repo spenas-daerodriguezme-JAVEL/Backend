@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
     maxlength: 50
   },
   price: {
-    type: mongoose.Types.Decimal128,
+    type: Number,
     required: true
   },
   classificator: {
