@@ -6,8 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "ts-node index.ts",
-        "pm": "pm2 start ts-node -- -P tsconfig.json index.ts",
-        "seed": "ts-node seeds/seed.ts"
+        "seed": "ts-node seeds/seed.ts",
+        "build": "tsc"
     },
 
     "keywords": [],
