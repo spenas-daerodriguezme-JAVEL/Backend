@@ -12,7 +12,7 @@ RUN apk --no-cache add --virtual builds-deps build-base python
 
 RUN  npm install
 
-USER node
+USER root
 
 COPY --chown=node:node . .
 
