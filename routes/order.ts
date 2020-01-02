@@ -22,16 +22,16 @@ router.get('/', [auth, adminAuth], async (req: express.Request, res: express.Res
 
 })
 
-router.post('/', async (req: express.Request, res: express.Response) => {
+// router.post('/', async (req: express.Request, res: express.Response) => {
 
-  const products = req.body.products as any[];
-  const findProduct: { [key: string]:any } = {};
-  products.forEach((item) => {
+//   const products = req.body.products as any[];
+//   const findProduct: { [key: string]:any } = {};
+//   products.forEach((item) => {
 
-  })
+//   })
 
-  let order = new Order({
-    user: pickParams(req),
-    products: 
-    })
-})
+//   let order = new Order({
+//     user: pickParams(req),
+//     products: 
+//     })
+// })
