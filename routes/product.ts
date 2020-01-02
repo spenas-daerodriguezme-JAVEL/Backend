@@ -72,7 +72,7 @@ router.get(
     Product.find(findObj)
       .skip(from)
       .limit(11)
-      .exec((err, productos) => {
+      .exec((err, products) => {
         if (err) {
           return res.status(500).json({
             ok: false,
@@ -82,7 +82,7 @@ router.get(
 
         res.json({
           ok: true,
-          productos
+          products
         });
       });
 
@@ -112,7 +112,15 @@ router.put("/:id", async (req: express.Request, res: express.Response) => {
   let product = await Product.findByIdAndUpdate(req.params.id, pickParams(req));
 
   if (!product) return res.status(404).send("The product cannot be found.");
+
+  res.status(200).send({
+      message: "Updated succesfully",
+      product
+    }
+  )
+
 });
+
 
 export default {
   router
