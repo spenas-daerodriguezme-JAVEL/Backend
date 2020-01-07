@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export default function() {
   mongoose
-    .connect("mongodb://spenas:casa@db:27017/javel", {
+    .connect("mongodb://localhost:27017/javel", {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true

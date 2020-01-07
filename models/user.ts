@@ -47,6 +47,10 @@ const userSchema = new mongoose.Schema({
   isAdmin: {
     type: Boolean,
     default: false,
+  },
+  isActive: {
+    type: Boolean,
+    default: true
   } 
 
 });
@@ -66,27 +70,22 @@ export const validate = (user: Schema) => {
   const schema = {
     name: Joi.string()
       .min(3)
-      .max(50)
-      .required(),
+      .max(50),
     lastname: Joi.string()
       .min(5)
-      .max(50)
-      .required(),
+      .max(50),
     email: Joi.string()
       .min(5)
       .max(255)
-      .required()
       .email(),
     password: Joi.string()
       .min(5)
-      .max(255)
-      .required(),
+      .max(255),
     telephone: Joi.string()
-      .min(7)
-      .required(),
+      .min(7),
     state: Joi.string(),
     city: Joi.string(),
-    address: Joi.string()
+    address: Joi.string(),
   };
 
   return Joi.validate(user, schema);

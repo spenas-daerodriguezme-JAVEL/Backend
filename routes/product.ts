@@ -88,7 +88,7 @@ router.get(
         });
       });
 
-    // console.log(req.params);
+
     //res.send(`Data: ${req.params.price}`).status(200);
   }
 );
@@ -103,7 +103,7 @@ router.get('/search/:search', async (req: express.Request, res: express.Response
       {"model": search},
       {"description": search}
     ]
-    // "name": search
+
   }, (err, products) => {
       if (err) res.status(500).send({
         err
@@ -130,7 +130,8 @@ router.get('/businesslinelist', (req: express.Request, res: express.Response) =>
 
 });
 
-router.post("/", async (req: express.Request, res: express.Response) => {
+// router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
+router.post("/",   async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   let product = new Product(pickParams(req));
@@ -142,7 +143,8 @@ router.post("/", async (req: express.Request, res: express.Response) => {
   });
 });
 
-router.put("/:id", async (req: express.Request, res: express.Response) => {
+router.put("/:id", [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+// router.put("/:id", async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -155,6 +157,19 @@ router.put("/:id", async (req: express.Request, res: express.Response) => {
     product
   });
 });
+
+// router.delete("/:id", [auth, adminAuth], async(req: express.Request, res: express.Response) => {
+router.delete("/:id", async(req: express.Request, res: express.Response) => {
+
+  const product = await Product.findByIdAndDelete(req.params.id);
+
+  if(!product) res.status(404).send('The product cannot be found');
+
+  res.status(200).send({
+    message: "Element deleted succesfully",
+    product
+  })
+})
 
 export default {
   router
