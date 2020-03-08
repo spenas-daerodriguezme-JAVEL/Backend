@@ -1,6 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import config from "config";
-import jwt from "jsonwebtoken";
 import Joi from "joi";
 
 const productSchema = new mongoose.Schema({
@@ -17,7 +15,7 @@ const productSchema = new mongoose.Schema({
     maxlength: 50
   },
   price: {
-    type: mongoose.Types.Decimal128,
+    type: Number,
     required: true
   },
   classificator: {
@@ -71,7 +69,7 @@ export const validate = (product: Schema) => {
       .max(50)
       .required(),
     price: Joi.number().required(),
-    clasificator: Joi.number().required(),
+    classificator: Joi.number().required(),
     model: Joi.string().required()
   };
 

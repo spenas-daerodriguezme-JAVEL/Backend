@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 50
   },
-  lastName: {
+  lastname: {
     type: String,
     required: true,
     minlength: 5,
@@ -32,6 +32,9 @@ const userSchema = new mongoose.Schema({
   address: {
     type: String
   },
+  state: {
+    type: String
+  },
   city: {
     type: String
   },
@@ -41,13 +44,22 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 1024
   },
-  isAdmin: Boolean
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  isActive: {
+    type: Boolean,
+    default: true
+  } 
+
 });
 
 userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin },
-    config.get("jwtPrivateKey")
+    "casa",
+    { expiresIn: "2h" }
   );
   return token;
 };
@@ -58,24 +70,22 @@ export const validate = (user: Schema) => {
   const schema = {
     name: Joi.string()
       .min(3)
-      .max(50)
-      .required(),
-    lastName: Joi.string()
+      .max(50),
+    lastname: Joi.string()
       .min(5)
-      .max(50)
-      .required(),
+      .max(50),
     email: Joi.string()
       .min(5)
       .max(255)
-      .required()
       .email(),
     password: Joi.string()
       .min(5)
-      .max(255)
-      .required(),
+      .max(255),
     telephone: Joi.string()
-      .min(7)
-      .required()
+      .min(7),
+    state: Joi.string(),
+    city: Joi.string(),
+    address: Joi.string(),
   };
 
   return Joi.validate(user, schema);

@@ -8,8 +8,6 @@ router.post("/seeds", async (req: express.Request, res: express.Response) => {
   productList.data.forEach(async (element: any, idx: number) => {
     try {
       // element.steps = JSON.parse(element.steps);
-      console.error(element);
-
       const product = new Product(element);
       await Product.remove({});
       await product.save();

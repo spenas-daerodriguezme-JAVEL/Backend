@@ -3,8 +3,24 @@ import express from "express";
 import bcrypt from "bcrypt";
 import { User, validate } from "../models/user";
 import _ from "lodash";
+import adminAuth from "../middleware/adminAuth";
 
 const router = express.Router();
+
+const pickParams = (req: express.Request, isPost: Boolean) => {
+
+  let parameters = [
+    "name",
+    "lastname",
+    "email",
+    "telephone",
+    "address",
+    "city",
+    "state"
+  ]
+  if (isPost) parameters.push("password")
+  return _.pick(req.body, parameters)
+}
 
 router.get("/me", auth, async (req: express.Request, res: express.Response) => {
   const user = await User.findById(req.body._id).select("-password");
@@ -17,18 +33,10 @@ router.post("/", async (req: express.Request, res: express.Response) => {
 
   let user = (await User.findOne({ email: req.body.email })) as any;
   if (user) return res.status(400).send("User already registered.");
-
-  user = new User(
-    _.pick(req.body, [
-      "name",
-      "lastName",
-      "email",
-      "telephone",
-      "address",
-      "city",
-      "password"
-    ])
+user = new User(
+  pickParams(req, true)
   );
+  
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
@@ -36,8 +44,47 @@ router.post("/", async (req: express.Request, res: express.Response) => {
   const token = user.generateAuthToken();
   res
     .header("x-auth-token", token)
-    .send(_.pick(user, ["_id", "name", "email"]));
+    .send({ ..._.pick(user, ["_id", "name", "email"]), token });
 });
+
+
+router.put("/", auth, async (req: express.Request, res: express.Response) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  const userId = (req as express.JRequest).user._id;
+  
+  let user = await User.findByIdAndUpdate(userId, pickParams(req, false))
+  
+  if (!user) return res.status(404).send("The user cannot be found");
+  
+  res.status(204).send({
+    message: "Updated succesfully",
+  });
+})
+
+router.put("/deactivate", auth , async(req: express.Request, res: express.Response) => {
+  
+  const userId = (req as express.JRequest).user._id;
+  let user = await User.findByIdAndUpdate(userId, {
+    "isActive": false,
+  });
+  
+  if (!user) return res.status(404).send("The user cannot be found");
+
+  res.status(204).send("User deactivated succesfully");
+
+})
+
+router.delete("/:id", [auth, adminAuth], async(req: express.Request, res: express.Response) => {
+
+  let user = await User.findByIdAndDelete(req.params.id);
+
+  if (!user) return res.status(404).send("The user cannot be found");
+
+  res.status(204).send("User deleted succesfully");
+
+})
+
 
 export default {
   router
