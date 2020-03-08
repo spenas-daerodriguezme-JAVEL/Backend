@@ -9,7 +9,6 @@
         "seed": "ts-node seeds/seed.ts",
         "build": "tsc"
     },
-
     "keywords": [],
     "author": "Santi",
     "license": "ISC",
