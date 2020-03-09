@@ -51,7 +51,7 @@ router.get(
   async (req: express.Request, res: express.Response) => {
     const params = req.params;
     let from = req.query.from | 0;
-    from = Number(from);
+    from = Number(from * 11);
 
     const findObj: { [key: string]: any } = {};
 
@@ -79,7 +79,8 @@ router.get(
             err
           });
         }
-        Product.countDocuments({}, function (err: any, count: number) {
+        Product.countDocuments(findObj , function (err: any, count: number) {
+          console.log(count);
           res.json({
             ok: true,
             products,
