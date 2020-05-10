@@ -50,7 +50,7 @@ router.get(
   ],
   async (req: express.Request, res: express.Response) => {
     const params = req.params;
-    let from = req.query.from | 0;
+    let from: any = req.query.from  || 0;
     from = Number(from * 11);
 
     const findObj: { [key: string]: any } = {};
@@ -75,14 +75,13 @@ router.get(
       .exec(async (err, products) => {
         if (err) {
           return res.status(500).json({
-            ok: false,
             err
           });
         }
+
         Product.countDocuments(findObj , function (err: any, count: number) {
           console.log(count);
           res.json({
-            ok: true,
             products,
             pages: Math.ceil(count / 11)
           });
@@ -95,8 +94,11 @@ router.get(
 );
 
 router.get('/search/:search', async (req: express.Request, res: express.Response) => {
+  let from: any = req.query.from  || 0;
+  from = Number(from * 11);
   const params = req.params;
   let search = new RegExp(params["search"], "i");
+
   await Product.find({
     $or: [
       { "name": search},
@@ -104,15 +106,23 @@ router.get('/search/:search', async (req: express.Request, res: express.Response
       {"model": search},
       {"description": search}
     ]
-
-  }, (err, products) => {
+  },)
+  .skip(from)
+  .limit(11)
+  .exec(async  (err, products) => {
       if (err) res.status(500).send({
         err
       })
       if (!products) res.status(404).send();
-      res.status(200).send({
-        ok: true,
-        products
+      
+        Product.countDocuments(function (err: any, count: number) {
+          console.log(count);
+          
+          res.json({
+            products,
+            pages: Math.ceil(count / 11)
+          });
+        
       })
   })
 });
@@ -123,7 +133,6 @@ router.get('/businesslinelist', (req: express.Request, res: express.Response) =>
     .distinct("businessLine", (err, businessLines) => {
       if (err) res.status(500).send()
       res.status(200).send({
-        ok: true,
         businessLines
       });
 
