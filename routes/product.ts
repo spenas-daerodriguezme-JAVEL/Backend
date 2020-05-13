@@ -99,25 +99,25 @@ router.get('/search/:search', async (req: express.Request, res: express.Response
   const params = req.params;
   let search = new RegExp(params["search"], "i");
 
-  await Product.find({
-    $or: [
-      { "name": search},
-      {"businessLine": search},
-      {"model": search},
-      {"description": search}
-    ]
-  },)
+  let findObj =  {$or: [
+    {"name": search},
+    {"businessLine": search},
+    {"model": search},
+    {"description": search}
+  ]}
+
+  await Product.find(findObj,)
   .skip(from)
   .limit(11)
-  .exec(async  (err, products) => {
+  .exec(  (err, products) => {
+    console.log(products);
       if (err) res.status(500).send({
         err
       })
       if (!products) res.status(404).send();
       
-        Product.countDocuments(function (err: any, count: number) {
-          console.log(count);
-          
+        Product.countDocuments(findObj, function (err: any, count: number) {
+         
           res.json({
             products,
             pages: Math.ceil(count / 11)
