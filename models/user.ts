@@ -29,6 +29,15 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 7
   },
+  identificationType: {
+    type: String,
+    required: true,
+  },
+  identificationNumber: {
+    type: Number,
+    required: true,
+    minlength: 7
+  },
   address: {
     type: String
   },
@@ -82,6 +91,10 @@ export const validate = (user: Schema) => {
       .min(5)
       .max(255),
     telephone: Joi.string()
+      .min(7),
+    identificationType: Joi.string(),
+  
+    identificationNumber: Joi.number()
       .min(7),
     state: Joi.string(),
     city: Joi.string(),
