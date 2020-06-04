@@ -14,7 +14,7 @@ export default function(app: express.Express) {
   app.use('/secret', seed.router);
   app.use('/healthcheck', express.Router() 
     .post('/', async(req: express.Request, res: express.Response) => {
-      res.send('Javel OK');
+      res.send('Javel OK xD');
     })
   )
 }
