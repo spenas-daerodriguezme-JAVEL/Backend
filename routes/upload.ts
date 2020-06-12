@@ -1,58 +1,64 @@
 import express from 'express';
-import  fileUpload  from "express-fileupload";
+import fileUpload from 'express-fileupload';
 // import  Product  from "../models/product";
 // import  User  from "../models/user";
-import  fs  from "fs";
-import  path  from "path";
+import fs from 'fs';
+import path from 'path';
 
-const router = express()
+const router = express();
 
 router.use(fileUpload());
 
-// router.put('/upload/product/:id', function(req, res){
-//     let tipo = req.params.tipo;
-//     let id = req.params.id;
+router.post('/upload/product/', (req, res) => {
+  const { tipo } = req.params;
+  const { id } = req.params;
 
-//     if(!req.files){
-//         return res.status(400)
-//             .json({
-//                 ok: false,
-//                 err: {
-//                     message: 'None files were selected'
-//                 }
-//             });
+  if (!req.files) {
+    return res.status(400)
+      .json({
+        ok: false,
+        err: {
+          message: 'None files were selected',
+        },
+      });
+  }
 
-//     }
+  const images = req.files.images as any;
+  const validExtensions = ['PNG', 'png', 'jpg', 'jpeg'];
 
+  try {
+    for (let index = 0; index < images.length; index += 1) {
+      const currentImage = images[index];
+      const extFile = currentImage.name.split('.')[1];
 
-// let images = req.files.images;
-// let extFile = images.name.split('.');
+      if (validExtensions.indexOf(extFile) < 0) {
+        return res.status(400)
+          .json({
+            ok: false,
+            error: {
+              message: `Valid file extensions are: ${validExtensions}`,
+            },
+          });
+      }
 
-// let validExtensions = ['png', 'jpg', 'jpeg'];
+      currentImage.mv(`images/product/${currentImage.name}`, (err: any) => {
+        if (err) {
+          throw new Error(`There was an error moving the file: ${err}`);
+        }
+      });
+    }
 
-// if(validExtensions.indexOf(extFile) < 0){
-//     return res.status(400).json({
-//         ok: false,
-//         err:{
-//             message: 'Valid file extensions are: ' + validExtensions,
-//             ext: extFile
-//         }
-//     })
-// }
-
-// images.mv(`images/product/${extFile}`, (err: any) => {
-//     if(err)
-//         return res.status(500).json({
-//             ok:false,
-//             err
-//         });
-
-
-// });
-
-
-// })
+    return res.send('File uploaded');
+  } catch (error) {
+    return res.status(500).json({
+      ok: false,
+      err: {
+        message: error.message,
+      },
+    });
+  }
+});
 
 export default {
-    router
-  };
+  router,
+};
