@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 50
       },
-      lastName: {
+      lastname: {
         type: String,
         required: true,
         minlength: 5,
@@ -28,16 +28,46 @@ const orderSchema = new mongoose.Schema({
         required: true,
         minlength: 7
       },
+      identificationType: {
+        type: String,
+        required: true,
+      },
+      identificationNumber: {
+        type: Number,
+        required: true,
+        minlength: 7
+      },
       address: {
+        type: String
+      },
+      state: {
         type: String
       },
       city: {
         type: String
-      }
+      },
+      password: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 1024
+      },
+   
     })
   },
-  products: Array,
-  total: Number
+
+  products: [{
+    productId: {type: Schema.Types.ObjectId, ref: 'Product'},
+    qty: {
+      type: Number,
+      required: true
+    }
+  }],
+
+  totalPrice: {
+    type: Number,
+    required: true
+  }
 });
 
 const Order = mongoose.model("Order", orderSchema);
