@@ -1,72 +1,70 @@
-import express from "express";
-import { Product, validate } from "../models/product";
-import adminAuth from "../middleware/adminAuth";
-import auth from "../middleware/auth";
-import _ from "lodash";
-import user from "./user";
+import express from 'express';
+import _ from 'lodash';
+import { Product, validate } from '../models/product';
+import adminAuth from '../middleware/adminAuth';
+import auth from '../middleware/auth';
+import user from './user';
 
 const router = express.Router();
 
-let pickParams = (req: express.Request) => {
-  return _.pick(req.body, [
-    "name",
-    "businessLine",
-    "price",
-    "classificator",
-    "quantity",
-    "description",
-    "model",
-    "physicalAspect",
-    "smell",
-    "color",
-    "fragance",
-    "gravity",
-    "viscosity",
-    "solubility",
-    "flammable",
-    "density",
-    "ph",
-    "activeComponent",
-    "weight",
-    "refractionIndex",
-    "dilution",
-    "isToxic",
-    "paragraph1",
-    "paragraph2",
-    "paragraph3",
-    "paragraph4",
-    "stepTitle",
-    "steps",
-    "promoTitle"
-  ]);
-};
+const pickParams = (req: express.Request) => _.pick(req.body, [
+  'name',
+  'businessLine',
+  'price',
+  'classificator',
+  'quantity',
+  'description',
+  'model',
+  'physicalAspect',
+  'smell',
+  'color',
+  'fragance',
+  'gravity',
+  'viscosity',
+  'solubility',
+  'flammable',
+  'density',
+  'ph',
+  'activeComponent',
+  'weight',
+  'refractionIndex',
+  'dilution',
+  'isToxic',
+  'paragraph1',
+  'paragraph2',
+  'paragraph3',
+  'paragraph4',
+  'stepTitle',
+  'steps',
+  'promoTitle',
+]);
 
 router.get(
   [
-    "/",
-    "/businessline/:businessline",
-    "/price/:price",
-    "/businessline/:businessline/price/:price"
+    '/',
+    '/businessline/:businessline',
+    '/price/:price',
+    '/businessline/:businessline/price/:price',
   ],
   async (req: express.Request, res: express.Response) => {
-    const params = req.params;
-    let from: any = req.query.from  || 0;
+    const { params } = req;
+    let from: any = req.query.from || 0;
     from = Number(from * 11);
 
     const findObj: { [key: string]: any } = {};
 
-    if (params["businessline"]) {
-      let regexp = new RegExp(params["businessline"], "i");
-      findObj["businessLine"] = regexp;
+    if (params.businessline) {
+      const regexp = new RegExp(params.businessline, 'i');
+      findObj.businessLine = regexp;
     }
 
-    if (params["price"]) {
-      let splitter = params["price"].split("-");
-      const price_obj = {
+    if (params.price) {
+      const splitter = params.price.split('-');
+      const priceObj = {
         $gte: splitter[0],
-        $lte: splitter[1]
+        $lte: splitter[1],
       };
-      findObj["price"] = price_obj;
+      findObj.price = priceObj;
     }
 
     Product.find(findObj)
@@ -75,112 +73,107 @@ router.get(
       .exec(async (err, products) => {
         if (err) {
           return res.status(500).json({
-            err
+            err,
           });
         }
 
-        Product.countDocuments(findObj , function (err: any, count: number) {
-          console.log(count);
+        Product.countDocuments(findObj, (err: any, count: number) => {
           res.json({
             products,
-            pages: Math.ceil(count / 11)
+            pages: Math.ceil(count / 11),
           });
         });
       });
 
-
-    //res.send(`Data: ${req.params.price}`).status(200);
-  }
+    // res.send(`Data: ${req.params.price}`).status(200);
+  },
 );
 
 router.get('/search/:search', async (req: express.Request, res: express.Response) => {
-  let from: any = req.query.from  || 0;
+  let from: any = req.query.from || 0;
   from = Number(from * 11);
-  const params = req.params;
-  let search = new RegExp(params["search"], "i");
+  const { params } = req;
+  const search = new RegExp(params.search, 'i');
 
-  let findObj =  {$or: [
-    {"name": search},
-    {"businessLine": search},
-    {"model": search},
-    {"description": search}
-  ]}
+  const findObj = {
+    $or: [
+      { name: search },
+      { businessLine: search },
+      { model: search },
+      { description: search },
+    ],
+  };
 
-  await Product.find(findObj,)
-  .skip(from)
-  .limit(11)
-  .exec(  (err, products) => {
-    console.log(products);
-      if (err) res.status(500).send({
-        err
-      })
+  await Product.find(findObj)
+    .skip(from)
+    .limit(11)
+    .exec((err, products) => {
+      if (err) {
+        res.status(500).send({
+          err,
+        });
+      }
       if (!products) res.status(404).send();
-      
-        Product.countDocuments(findObj, function (err: any, count: number) {
-         
-          res.json({
-            products,
-            pages: Math.ceil(count / 11)
-          });
-        
-      })
-  })
+
+      Product.countDocuments(findObj, (err: any, count: number) => {
+        res.json({
+          products,
+          pages: Math.ceil(count / 11),
+        });
+      });
+    });
 });
 
 router.get('/businesslinelist', (req: express.Request, res: express.Response) => {
-
-  const businesslines = Product.find()
-    .distinct("businessLine", (err, businessLines) => {
-      if (err) res.status(500).send()
+  Product.find()
+    .distinct('businessLine', (err, businessLines) => {
+      if (err) res.status(500).send();
       res.status(200).send({
-        businessLines
+        businessLines,
       });
-
-    })
-
+    });
 });
 
 // router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
-router.post("/",   async (req: express.Request, res: express.Response) => {
+router.post('/', async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
-  let product = new Product(pickParams(req));
+  const product = new Product(pickParams(req));
 
   await product.save();
   res.status(200).send({
-    message: "Product created succesfully",
-    product
+    message: 'Product created succesfully',
+    product,
   });
 });
 
-router.put("/:id", [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 // router.put("/:id", async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  let product = await Product.findByIdAndUpdate(req.params.id, pickParams(req));
+  const product = await Product.findByIdAndUpdate(req.params.id, pickParams(req));
 
-  if (!product) return res.status(404).send("The product cannot be found.");
+  if (!product) return res.status(404).send('The product cannot be found.');
 
   res.status(200).send({
-    message: "Updated succesfully",
-    product
+    message: 'Updated succesfully',
+    product,
   });
 });
 
 // router.delete("/:id", [auth, adminAuth], async(req: express.Request, res: express.Response) => {
-router.delete("/:id", async(req: express.Request, res: express.Response) => {
-
+router.delete('/:id', async (req: express.Request, res: express.Response) => {
   const product = await Product.findByIdAndDelete(req.params.id);
 
-  if(!product) res.status(404).send('The product cannot be found');
+  if (!product) res.status(404).send('The product cannot be found');
 
   res.status(200).send({
-    message: "Element deleted succesfully",
-    product
-  })
-})
+    message: 'Element deleted succesfully',
+    product,
+  });
+});
 
 export default {
-  router
+  router,
 };

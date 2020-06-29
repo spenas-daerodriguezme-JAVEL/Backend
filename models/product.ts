@@ -1,40 +1,41 @@
-import mongoose, { Schema } from "mongoose";
-import Joi from "joi";
+import mongoose, { Schema } from 'mongoose';
+import Joi from 'joi';
 
 const productSchema = new mongoose.Schema({
+  SKU: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 50
+    maxlength: 50,
   },
   businessLine: {
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 50
+    maxlength: 50,
+  },
+  capacity: {
+    type: String,
+    required: true,
+  },
+  measurementUnit: {
+    type: String,
+    required: true,
   },
   price: {
     type: Number,
-    required: true
-  },
-  classificator: {
-    type: Number,
-    required: true
+    required: true,
   },
   quantity: Number,
-  description: {
-    type: String,
-    maxlength: 255
-  },
-  model: {
-    type: String,
-    required: true
-  },
-  
+  description: { type: Schema.Types.ObjectId, ref: 'Description' },
+
 });
 
-export const Product = mongoose.model("Product", productSchema);
+export const Product = mongoose.model('Product', productSchema);
 
 export const validate = (product: Schema) => {
   const schema = {
@@ -48,7 +49,7 @@ export const validate = (product: Schema) => {
       .required(),
     price: Joi.number().required(),
     classificator: Joi.number().required(),
-    model: Joi.string().required()
+    model: Joi.string().required(),
   };
 
   return Joi.validate(product, schema);

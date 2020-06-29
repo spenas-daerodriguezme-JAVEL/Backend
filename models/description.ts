@@ -1,8 +1,9 @@
-import mongoose, { Schema } from "mongoose";
-import Joi from "joi";
+import mongoose, { Schema } from 'mongoose';
+import Joi from 'joi';
 
 const descriptionSchema = new mongoose.Schema({
 
+  description: String,
   physicalAspect: String,
   smell: String,
   color: String,
@@ -10,7 +11,7 @@ const descriptionSchema = new mongoose.Schema({
   gravity: String,
   viscosity: String,
   solubility: String,
-  flammable: Boolean,
+  flammable: String,
   density: String,
   ph: String,
   activeComponent: String,
@@ -25,9 +26,8 @@ const descriptionSchema = new mongoose.Schema({
   stepTitle: String,
   steps: Array,
   promoTitle: String,
-  images: Array
+  images: Array,
+  descriptionIdx: Number,
 });
 
-export const Description = mongoose.model("Description", descriptionSchema);
-
-
+export const Description = mongoose.model('Description', descriptionSchema);

@@ -1,5 +1,5 @@
-import mongoose, { Schema } from "mongoose";
-import Joi from "joi";
+import mongoose, { Schema } from 'mongoose';
+import Joi from 'joi';
 
 const orderSchema = new mongoose.Schema({
   user: {
@@ -8,25 +8,25 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 5,
-        maxlength: 50
+        maxlength: 50,
       },
       lastname: {
         type: String,
         required: true,
         minlength: 5,
-        maxlength: 50
+        maxlength: 50,
       },
       email: {
         type: String,
         required: true,
         minlength: 8,
         maxlength: 255,
-        unique: true
+        unique: true,
       },
       telephone: {
         type: String,
         required: true,
-        minlength: 7
+        minlength: 7,
       },
       identificationType: {
         type: String,
@@ -35,43 +35,43 @@ const orderSchema = new mongoose.Schema({
       identificationNumber: {
         type: Number,
         required: true,
-        minlength: 7
+        minlength: 7,
       },
       address: {
-        type: String
+        type: String,
       },
       state: {
-        type: String
+        type: String,
       },
       city: {
-        type: String
+        type: String,
       },
       password: {
         type: String,
         required: true,
         minlength: 5,
-        maxlength: 1024
+        maxlength: 1024,
       },
-   
-    })
+
+    }),
   },
 
   products: [{
-    productId: {type: Schema.Types.ObjectId, ref: 'Product'},
+    productId: { type: Schema.Types.ObjectId, ref: 'Product' },
     qty: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   }],
 
   totalPrice: {
     type: Number,
-    required: true
-  }
+    required: true,
+  },
 });
 
-const Order = mongoose.model("Order", orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 export default {
-  Order
+  Order,
 };
