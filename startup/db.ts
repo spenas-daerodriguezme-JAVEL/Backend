@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-export default function() {
+export default function () {
   mongoose
-    .connect("mongodb://localhost:27017/javel", {
+    .connect('mongodb://mongo:27017/javel', {
       useNewUrlParser: true,
       useCreateIndex: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
     })
-    .then(() => console.log("connected to MongoDB..."));
+    .then(() => console.log('connected to MongoDB...'));
 }
