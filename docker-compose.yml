@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   web:
-    build: .
+    image: daerodriguezme/javel_back
     ports:
       - "3000:3000"
     depends_on:
