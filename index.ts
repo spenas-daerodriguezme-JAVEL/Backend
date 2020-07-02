@@ -12,7 +12,7 @@ db();
 config();
 const port = process.env.PORT || 3000;
 
-console.log('Test');
+console.log('Test image dockerhub');
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
