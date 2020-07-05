@@ -69,6 +69,7 @@ router.get(
 
     Product.find(findObj)
       .skip(from)
+      .populate('description')
       .limit(11)
       .exec(async (err, products) => {
         if (err) {

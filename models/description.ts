@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import Joi from 'joi';
 
 const descriptionSchema = new mongoose.Schema({

@@ -1,33 +1,33 @@
-import mongoose, { Schema } from "mongoose";
-import config from "config";
-import jwt from "jsonwebtoken";
-import Joi from "joi";
+import mongoose, { Schema } from 'mongoose';
+import config from 'config';
+import jwt from 'jsonwebtoken';
+import Joi from 'joi';
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 50
+    maxlength: 50,
   },
   lastname: {
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 50
+    maxlength: 50,
   },
   email: {
     type: String,
     required: true,
     minlength: 8,
     maxlength: 255,
-    unique: true
+    unique: true,
   },
   birthday: Date,
   telephone: {
     type: String,
     required: true,
-    minlength: 7
+    minlength: 7,
   },
   identificationType: {
     type: String,
@@ -36,22 +36,22 @@ const userSchema = new mongoose.Schema({
   identificationNumber: {
     type: Number,
     required: true,
-    minlength: 7
+    minlength: 7,
   },
   address: {
-    type: String
+    type: String,
   },
   state: {
-    type: String
+    type: String,
   },
   city: {
-    type: String
+    type: String,
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 1024
+    maxlength: 1024,
   },
   isAdmin: {
     type: Boolean,
@@ -59,21 +59,21 @@ const userSchema = new mongoose.Schema({
   },
   isActive: {
     type: Boolean,
-    default: true
-  } 
+    default: true,
+  },
 
 });
 
-userSchema.methods.generateAuthToken = function() {
+userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin },
-    "casa",
-    { expiresIn: "2h" }
+    'casa',
+    { expiresIn: '2h' },
   );
   return token;
 };
 
-export const User = mongoose.model("User", userSchema);
+export const User = mongoose.model('User', userSchema);
 
 export const validate = (user: Schema) => {
   const schema = {
@@ -93,7 +93,7 @@ export const validate = (user: Schema) => {
     telephone: Joi.string()
       .min(7),
     identificationType: Joi.string(),
-  
+
     identificationNumber: Joi.number()
       .min(7),
     state: Joi.string(),

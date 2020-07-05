@@ -46,13 +46,6 @@ const orderSchema = new mongoose.Schema({
       city: {
         type: String,
       },
-      password: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 1024,
-      },
-
     }),
   },
 
