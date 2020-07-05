@@ -13,7 +13,7 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
   'price',
   'classificator',
   'quantity',
-  'description',
+  'properties',
   'model',
   'physicalAspect',
   'smell',
@@ -69,7 +69,7 @@ router.get(
 
     Product.find(findObj)
       .skip(from)
-      .populate('description')
+      .populate('properties')
       .limit(11)
       .exec(async (err, products) => {
         if (err) {

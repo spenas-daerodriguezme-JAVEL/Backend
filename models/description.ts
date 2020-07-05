@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import Joi from 'joi';
 
 const descriptionSchema = new mongoose.Schema({
-
+  _id: Number,
   description: String,
   physicalAspect: String,
   smell: String,

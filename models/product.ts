@@ -31,7 +31,7 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   quantity: Number,
-  description: { type: Schema.Types.ObjectId, ref: 'Description' },
+  properties: { type: Number, ref: 'Description' },
 
 });
 

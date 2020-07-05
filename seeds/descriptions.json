@@ -1,6 +1,7 @@
 {
     "data": [
         {
+            "_id": 1,
             "description": "Limpiador natural. Blanqueador para ropas. Quita manchas orgánicas. Desinfectante. Elimina el moho. Desodorante. Desengrasante. Aumenta la eficacia de los detergentes. Producto biodegradable",
             "physicalAspect": "Granulado",
             "smell": "No aplica",
@@ -19,7 +20,7 @@
             "isToxic": "No",
             "paragraph1": "Compuesto de adición de carbonato de sodio y peróxido de hidrógeno. Fácil de disolver en agua y se descompone rápidamente como carbonato de sodio, agua y oxígeno activo, todos los cuales son materiales naturales y proporciona una limpieza poderosa, blanquear, elimina manchas, con capacidades de desodorización y desinfección",
             "paragraph2": "Limpieza natural, blanqueamiento de ropas, quita manchas, desinfectante, elimina moho, desodorante, limpiador y desengrasante, ablanda el agua, aumenta eficacia de los detergentes",
-            "paragraph3": "Mantener en el embalaje original, en lugar fresco y ventilado (si fuera necesario utilizar ventilación forzada). Apartar de la luz directa, fuentes de calor y materiales incompatibles. Evitar almacenar junto a gases comprimidos y combustibles. Mantener alejado del alcance de los niños. No ingerir. Evitar el contacto con ojos y piel. Es recomendable el uso de guantes para manipular el oxígeno activo puro o en mezcla. Inflamable. Mantener alejado de productos inflamables o focos de calor. Evitar la mezcla de aceites esenciales en mezclas 'en polvo' con oxígeno activo. Una vez este disuelto en agua, podemos añadir los aceites esenciales de nuestra elección. No mezclar con ácidos en un recipiente cerrado (desprende gases). No aplicar sobre el aluminio ni madera. No aplicar sobre superficies enceradas, laxadas o pintadas (a excepción de quererlo usar como decapante). Para la ropa, atención a los textiles delicados o a la ropa de color. Puede decolorar los colores más sensibles, por lo que debemos tener cuidado con los colores menos estables (por ejemplo, con algunos colorantes naturales) en soluciones muy concentradas. Puede hacer una prueba en una parte no visible del tejido",
+            "paragraph3": "Mantener en el embalaje original, en lugar fresco y ventilado (si fuera necesario utilizar ventilación forzada). Apartar de la luz directa, fuentes de calor y materiales incompatibles. Evitar almacenar junto a gases comprimidos y combustibles. Mantener alejado del alcance de los niños. No ingerir. Evitar el contacto con ojos y piel. Es recomendable el uso de guantes para manipular el oxígeno activo puro o en mezcla. Inflamable. Mantener alejado de productos inflamables o focos de calor. Evitar la mezcla de aceites esenciales en mezclas en polvo con oxígeno activo. Una vez este disuelto en agua, podemos añadir los aceites esenciales de nuestra elección. No mezclar con ácidos en un recipiente cerrado (desprende gases). No aplicar sobre el aluminio ni madera. No aplicar sobre superficies enceradas, laxadas o pintadas (a excepción de quererlo usar como decapante). Para la ropa, atención a los textiles delicados o a la ropa de color. Puede decolorar los colores más sensibles, por lo que debemos tener cuidado con los colores menos estables (por ejemplo, con algunos colorantes naturales) en soluciones muy concentradas. Puede hacer una prueba en una parte no visible del tejido",
             "paragraph4": "Disponible por bulto, kilo, libra",
             "stepTitle": "Blanquea extraordinariamente",
             "steps": [
@@ -33,6 +34,7 @@
             "descriptionIdx": 1
         },
         {
+            "_id": 2,
             "description": "Remueve manchas de productos industriales y alimenticios (comidas, bebidas, grasas, aceites). Elimina fácilmente las manchas causadas por desodorantes en fibras textiles",
             "physicalAspect": "Líquido viscoso",
             "smell": "Característico",
@@ -64,6 +66,7 @@
             "descriptionIdx": 2
         },
         {
+            "_id": 3,
             "description": "Elimina las manchas causadas por la tinta en fibras textiles y superficies",
             "physicalAspect": "Líquido transparente",
             "smell": "Dulce",
@@ -96,6 +99,7 @@
             "descriptionIdx": 3
         },
         {
+            "_id": 4,
             "description": "Reactivo básico que elimina instantáneamente la mancha de óxido en ropa y superficies",
             "physicalAspect": "Líquido transparente",
             "smell": "No aplica",
@@ -127,6 +131,7 @@
             "descriptionIdx": 4
         },
         {
+            "_id": 5,
             "description": "Compuesto ionico, antibacterial, antimicrobiano, desodorizador, desmanchador, blanqueador para fibras textiles",
             "physicalAspect": "Polvo fino",
             "smell": "No aplica",
@@ -156,6 +161,7 @@
             "descriptionIdx": 5
         },
         {
+            "_id": 6,
             "description": "Agente de limpieza para lavar ropa en máquina o a mano",
             "physicalAspect": "Líquido viscoso",
             "smell": "Sin partículas",
@@ -185,6 +191,7 @@
             "descriptionIdx": 6
         },
         {
+            "_id": 7,
             "description": "",
             "physicalAspect": "Líquido viscoso",
             "smell": "Sin partículas",
@@ -212,6 +219,7 @@
             "descriptionIdx": 7
         },
         {
+            "_id": 8,
             "description": "",
             "physicalAspect": "",
             "smell": "",
@@ -239,6 +247,7 @@
             "descriptionIdx": 8
         },
         {
+            "_id": 9,
             "description": "Jabón líquido para lavar ropa en máquina o a mano",
             "physicalAspect": "Líquido viscoso traslucido",
             "smell": "Citronela",
@@ -272,6 +281,7 @@
             "descriptionIdx": 9
         },
         {
+            "_id": 10,
             "description": "Suavizante con fragancia para todo tipo de fibras textiles",
             "physicalAspect": "Líquido cremoso",
             "smell": "Característico",
@@ -302,6 +312,7 @@
             "descriptionIdx": 10
         },
         {
+            "_id": 11,
             "description": "Copa plástica dosificadora para detergente líquido",
             "physicalAspect": "Plástico",
             "smell": "No aplica",
@@ -332,6 +343,7 @@
             "descriptionIdx": 11
         },
         {
+            "_id": 12,
             "description": "Solvente hidrosoluble y biodegradable para remover grasa, carbón, hollín, productos industriales y alimenticios en textiles y superficies",
             "physicalAspect": "Líquido viscoso",
             "smell": "Característico",
@@ -365,6 +377,7 @@
             "descriptionIdx": 12
         },
         {
+            "_id": 15,
             "description": "Desincrustante, desengrasante, desmanchador, removedor que penetra y afloja ceras, grasas, aceites, selladores presentes en pisos de madera, cemento, granito, vinilos o en superficies metálicas, equipos, estructuras, fogones, estufas, paredes, baños, etc.",
             "physicalAspect": "Líquido traslucido",
             "smell": "Característico",
@@ -396,6 +409,7 @@
             "descriptionIdx": 15
         },
         {
+            "_id": 16,
             "description": "Emulsión transparente de agentes poliméricos plastificantes y  emulsificantes que crean una capa anti - deslizante y otra capa auto - brillante en los pisos contra el trafico pesado en interiores y exteriores",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico",
@@ -430,6 +444,7 @@
             "descriptionIdx": 16
         },
         {
+            "_id": 17,
             "description": "Emulsión roja de agentes poliméricos plastificantes y  emulsificantes que crean una capa anti - deslizante y otra capa auto - brillante en los pisos contra el trafico pesado en interiores y exteriores",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico",
@@ -464,6 +479,7 @@
             "descriptionIdx": 17
         },
         {
+            "_id": 18,
             "description": "Emulsión amarilla de agentes poliméricos plastificantes y  emulsificantes que crean una capa anti - deslizante y otra capa auto - brillante en los pisos contra el trafico pesado en interiores y exteriores",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico",
@@ -498,6 +514,7 @@
             "descriptionIdx": 18
         },
         {
+            "_id": 19,
             "description": "Emulsión marrón de agentes poliméricos plastificantes y  emulsificantes que crean una capa anti - deslizante y otra capa auto - brillante en los pisos contra el trafico pesado en interiores y exteriores",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico",
@@ -532,6 +549,7 @@
             "descriptionIdx": 19
         },
         {
+            "_id": 20,
             "description": "Emulsión negra de agentes poliméricos plastificantes y  emulsificantes que crean una capa anti - deslizante y otra capa auto - brillante en los pisos contra el trafico pesado en interiores y exteriores",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico",
@@ -566,6 +584,7 @@
             "descriptionIdx": 20
         },
         {
+            "_id": 21,
             "description": "Silicona al 60%",
             "physicalAspect": "Líquido viscoso",
             "smell": "Variable",
@@ -597,6 +616,7 @@
             "descriptionIdx": 21
         },
         {
+            "_id": 22,
             "description": "Limpia todo tipo de alfombras y muebles protegiendo los colores y dejando un agradable aroma",
             "physicalAspect": "Líquido viscoso",
             "smell": "Variable",
@@ -631,6 +651,7 @@
             "descriptionIdx": 22
         },
         {
+            "_id": 23,
             "description": "Lubrica, limpia, protege, brilla superficies de madera, formica, acero, mármol, porcelana, etc. No es grasoso ni aceitoso. Deja una agradable fragancia",
             "physicalAspect": "Líquido opaco cremoso",
             "smell": "Vainilla",
@@ -662,6 +683,7 @@
             "descriptionIdx": 23
         },
         {
+            "_id": 24,
             "description": "Limpia, desengrasa y desinfecta pisos, paredes, muebles, puertas, ventanas, textiles, overoles, escritorios, sillas en oficinas, cojinería, tableros de vehículos",
             "physicalAspect": "Líquido viscoso",
             "smell": "Varsol",
@@ -693,6 +715,7 @@
             "descriptionIdx": 24
         },
         {
+            "_id": 25,
             "description": "Disolvente alifatico para limpieza en general",
             "physicalAspect": "Líquido",
             "smell": "Varsol",
@@ -723,6 +746,7 @@
             "descriptionIdx": 25
         },
         {
+            "_id": 26,
             "description": "Lava y desengrasa utensilios de cocina",
             "physicalAspect": "Líquido viscoso",
             "smell": "Característico",
@@ -755,6 +779,7 @@
             "descriptionIdx": 26
         },
         {
+            "_id": 27,
             "description": "Es un producto que corta la grasa, limpia vidrios, porcelanas, fórmica y otras superficies sin enjuagar y sin dejar residuos minerales. Aporta claridad y brillo en el acabado",
             "physicalAspect": "Líquido traslucido",
             "smell": "Característico",
@@ -787,6 +812,7 @@
             "descriptionIdx": 27
         },
         {
+            "_id": 28,
             "description": "Emulsión transparente de agentes plastificantes, emulsificantes y parafinas que protege y embellece todo tipo de pisos. Deja un agradable aroma a canela",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico a parafinas",
@@ -818,6 +844,7 @@
             "descriptionIdx": 28
         },
         {
+            "_id": 29,
             "description": "Emulsión roja de agentes plastificantes, emulsificantes y parafinas que protege y embellece todo tipo de pisos. Deja un agradable aroma a canela",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico a parafinas",
@@ -849,6 +876,7 @@
             "descriptionIdx": 29
         },
         {
+            "_id": 30,
             "description": "Emulsión amarilla de agentes plastificantes, emulsificantes y parafinas que protege y embellece todo tipo de pisos. Deja un agradable aroma a canela",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico a parafinas",
@@ -880,6 +908,7 @@
             "descriptionIdx": 30
         },
         {
+            "_id": 31,
             "description": "Emulsión marrón de agentes plastificantes, emulsificantes y parafinas que protege y embellece todo tipo de pisos. Deja un agradable aroma a canela",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico a parafinas",
@@ -911,6 +940,7 @@
             "descriptionIdx": 31
         },
         {
+            "_id": 32,
             "description": "Emulsión negra de agentes plastificantes, emulsificantes y parafinas que protege y embellece todo tipo de pisos. Deja un agradable aroma a canela",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico a parafinas",
@@ -942,6 +972,7 @@
             "descriptionIdx": 32
         },
         {
+            "_id": 33,
             "description": "Hipoclorito de sodio al 15%",
             "physicalAspect": "Líquido traslucido",
             "smell": "Picante",
@@ -979,6 +1010,7 @@
             "descriptionIdx": 33
         },
         {
+            "_id": 34,
             "description": "Reodorante concentrado con moléculas aromáticas para el control de olores desagradables",
             "physicalAspect": "Líquido viscoso",
             "smell": "Tomillo, clavo, canela y gaulteria",
@@ -1008,6 +1040,7 @@
             "descriptionIdx": 34
         },
         {
+            "_id": 35,
             "description": "Poderoso desinfectante, decolorante y desodorizador para tanques de agua, sanitarios y orinales",
             "physicalAspect": "Pastillla",
             "smell": "Característico a cloro",
@@ -1037,6 +1070,7 @@
             "descriptionIdx": 35
         },
         {
+            "_id": 36,
             "description": "Mezcla de productos de alta calidad que combinan la acción de detergentes, limpiadores y emulsionantes con la de un poderoso bactericida para limpiar y sanitizar pisos, paredes, planchones, baños y en general, cualquier superficie dejando un agradable aroma cítrico",
             "physicalAspect": "Líquido viscoso traslucido",
             "smell": "Citronela",
@@ -1071,6 +1105,7 @@
             "descriptionIdx": 36
         },
         {
+            "_id": 37,
             "description": "Mezcla de productos de alta calidad que combinan la acción de detergentes, limpiadores y emulsionantes con la de un poderoso bactericida para limpiar y sanitizar pisos, paredes, planchones, baños y en general, cualquier superficie dejando un agradable aroma fresco",
             "physicalAspect": "",
             "smell": "Brisa marina",
@@ -1105,6 +1140,7 @@
             "descriptionIdx": 37
         },
         {
+            "_id": 38,
             "description": "Mezcla de productos de alta calidad que combinan la acción de detergentes, limpiadores y emulsionantes con la de un poderoso bactericida para limpiar y sanitizar pisos, paredes, planchones, baños y en general, cualquier superficie dejando un agradable aroma floral",
             "physicalAspect": "",
             "smell": "Galante",
@@ -1139,6 +1175,7 @@
             "descriptionIdx": 38
         },
         {
+            "_id": 39,
             "description": "Mezcla de productos de alta calidad que combinan la acción de detergentes, limpiadores y emulsionantes con la de un poderoso bactericida para limpiar y sanitizar pisos, paredes, planchones, baños y en general, cualquier superficie dejando un agradable aroma maderado",
             "physicalAspect": "",
             "smell": "Pino",
@@ -1173,6 +1210,7 @@
             "descriptionIdx": 39
         },
         {
+            "_id": 40,
             "description": "Mezcla de productos de alta calidad que combinan la acción de detergentes, limpiadores y emulsionantes con la de un poderoso bactericida para limpiar y sanitizar pisos, paredes, planchones, baños y en general, cualquier superficie dejando un agradable aroma masculino",
             "physicalAspect": "",
             "smell": "Extreme",
@@ -1207,6 +1245,7 @@
             "descriptionIdx": 40
         },
         {
+            "_id": 41,
             "description": "Mezcla de productos de alta calidad que combinan la acción de detergentes, limpiadores y emulsionantes con la de un poderoso bactericida para limpiar y sanitizar pisos, paredes, planchones, baños y en general, cualquier superficie dejando un agradable aroma moderado dulce y algo picante",
             "physicalAspect": "",
             "smell": "Canela",
@@ -1241,6 +1280,7 @@
             "descriptionIdx": 41
         },
         {
+            "_id": 42,
             "description": "Desinfectante de origen natural para limpiar paredes en galpones, gallineros, porquerizas, baños, pisos y cualquier superficie inanimada que necesite desinfección",
             "physicalAspect": "Líquido lechoso",
             "smell": "Característico a fenoles",
@@ -1271,6 +1311,7 @@
             "descriptionIdx": 42
         },
         {
+            "_id": 43,
             "description": "Gel antibacterial para limpiar y desinfectar las manos",
             "physicalAspect": "Gel traslucido",
             "smell": "Leve a alcohol",
@@ -1302,6 +1343,7 @@
             "descriptionIdx": 43
         },
         {
+            "_id": 44,
             "description": "Jabón líquido antibacterial para lavar, limpiar, desinfectar, humectar, proteger y suavizar las manos con aroma avena",
             "physicalAspect": "Líquido viscoso traslucido",
             "smell": "Avena",
@@ -1335,6 +1377,7 @@
             "descriptionIdx": 44
         },
         {
+            "_id": 45,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Floral, exótica",
@@ -1364,6 +1407,7 @@
             "descriptionIdx": 45
         },
         {
+            "_id": 46,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Floral, acuosa, ozonica",
@@ -1393,6 +1437,7 @@
             "descriptionIdx": 46
         },
         {
+            "_id": 47,
             "description": "Mezcla de sustancias odoríferas que cumplen con las normas del código de practicas dictadas por la Asociación Internacional de Fragancias (IFRA).",
             "physicalAspect": "Líquido traslucido",
             "smell": "Cítrico, fresco",
@@ -1422,6 +1467,7 @@
             "descriptionIdx": 47
         },
         {
+            "_id": 48,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Punzante, dulce, picante, canela",
@@ -1451,6 +1497,7 @@
             "descriptionIdx": 48
         },
         {
+            "_id": 49,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Frutal, dulce, coco",
@@ -1480,6 +1527,7 @@
             "descriptionIdx": 49
         },
         {
+            "_id": 50,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Frutal, frambuesa, cereza",
@@ -1509,6 +1557,7 @@
             "descriptionIdx": 50
         },
         {
+            "_id": 51,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Maderada, fresca, bambú",
@@ -1538,6 +1587,7 @@
             "descriptionIdx": 51
         },
         {
+            "_id": 52,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Frutal, tropical",
@@ -1568,6 +1618,7 @@
             "descriptionIdx": 52
         },
         {
+            "_id": 53,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "",
@@ -1598,6 +1649,7 @@
             "descriptionIdx": 53
         },
         {
+            "_id": 54,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "",
@@ -1628,6 +1680,7 @@
             "descriptionIdx": 54
         },
         {
+            "_id": 55,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Fresca, oceanica",
@@ -1658,6 +1711,7 @@
             "descriptionIdx": 55
         },
         {
+            "_id": 56,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural y/o sintetico",
             "physicalAspect": "Líquido traslucido",
             "smell": "Frutal,, tropical",
@@ -1688,6 +1742,7 @@
             "descriptionIdx": 56
         },
         {
+            "_id": 57,
             "description": "Dispositivo eléctrico que aromatiza constantemente todos los espacios del hogar y la oficina",
             "physicalAspect": "Madera y plástico",
             "smell": "No aplica",
@@ -1724,6 +1779,7 @@
             "descriptionIdx": 57
         },
         {
+            "_id": 58,
             "description": "Mezcla de productos químicos naturales y sintéticos para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido transparente fluido",
             "smell": "Frutal, manzana, canela",
@@ -1758,6 +1814,7 @@
             "descriptionIdx": 58
         },
         {
+            "_id": 59,
             "description": "Mezcla de sustancias químicas aromáticas de origen natural e idéntico al natural",
             "physicalAspect": "Líquido traslucido",
             "smell": "Chocolate, dulce, cremoso",
@@ -1792,6 +1849,7 @@
             "descriptionIdx": 59
         },
         {
+            "_id": 60,
             "description": "Mezcla de productos químicos naturales y sintéticos para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido transparente fluido",
             "smell": "",
@@ -1826,6 +1884,7 @@
             "descriptionIdx": 60
         },
         {
+            "_id": 61,
             "description": "Mezcla de sustancias aromáticas y dipropilenglicol metil éter (DOWANOL) para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido limpio traslucido",
             "smell": "Dulce",
@@ -1860,6 +1919,7 @@
             "descriptionIdx": 61
         },
         {
+            "_id": 62,
             "description": "Mezcla de productos químicos naturales y sintéticos para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido transparente fluido",
             "smell": "Cítrico, floral, frutal",
@@ -1894,6 +1954,7 @@
             "descriptionIdx": 62
         },
         {
+            "_id": 63,
             "description": "Mezcla de productos químicos naturales y sintéticos para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido transparente fluido",
             "smell": "Rojo, frutal, cítrico",
@@ -1928,6 +1989,7 @@
             "descriptionIdx": 63
         },
         {
+            "_id": 64,
             "description": "Mezcla de productos químicos naturales y sintéticos para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido transparente fluido",
             "smell": "Frutal, floral, verde",
@@ -1962,6 +2024,7 @@
             "descriptionIdx": 64
         },
         {
+            "_id": 65,
             "description": "Mezcla de productos químicos naturales y sintéticos para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido transparente fluido",
             "smell": "Cítrico, floral, fresco, verde",
@@ -1996,6 +2059,7 @@
             "descriptionIdx": 65
         },
         {
+            "_id": 66,
             "description": "Mezcla de productos químicos naturales y sintéticos para perfumar todos los espacios del hogar, la oficina o la industria",
             "physicalAspect": "Líquido transparente fluido",
             "smell": "Atalcado, almendrado, aldehídico",
@@ -2030,6 +2094,7 @@
             "descriptionIdx": 66
         },
         {
+            "_id": 67,
             "description": "Esencia frutos rojos de alta calidad para aromatizar el hogar, la oficina, la industria y el vehículo",
             "physicalAspect": "Líquido traslucido",
             "smell": "Variable",
@@ -2059,6 +2124,7 @@
             "descriptionIdx": 67
         },
         {
+            "_id": 68,
             "description": "Esencia masculina de alta calidad para aromatizar el hogar, la oficina, la industria y el vehículo",
             "physicalAspect": "Líquido traslucido",
             "smell": "Variable",
@@ -2088,6 +2154,7 @@
             "descriptionIdx": 68
         },
         {
+            "_id": 69,
             "description": "Esencia cítrica de alta calidad para aromatizar el hogar, la oficina, la industria y el vehículo",
             "physicalAspect": "Líquido traslucido",
             "smell": "Variable",
@@ -2117,6 +2184,7 @@
             "descriptionIdx": 69
         },
         {
+            "_id": 70,
             "description": "Esencia dulce de alta calidad para aromatizar el hogar, la oficina, la industria y el vehículo",
             "physicalAspect": "Líquido traslucido",
             "smell": "Variable",
@@ -2146,6 +2214,7 @@
             "descriptionIdx": 70
         },
         {
+            "_id": 71,
             "description": "Esencia maderada dulce y algo picante de alta calidad para aromatizar el hogar, la oficina, la industria y el vehículo",
             "physicalAspect": "Líquido traslucido",
             "smell": "Variable",
@@ -2175,6 +2244,7 @@
             "descriptionIdx": 71
         },
         {
+            "_id": 72,
             "description": "Esencia floral de alta calidad para aromatizar el hogar, la oficina, la industria y el vehículo",
             "physicalAspect": "Líquido traslucido",
             "smell": "Variable",

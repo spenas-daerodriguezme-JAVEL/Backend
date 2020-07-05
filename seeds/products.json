@@ -8,7 +8,7 @@
             "measurementUnit": "BL",
             "price": 103200,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96a8"
+            "properties": "1"
         },
         {
             "SKU": "IMPOXI0002",
@@ -18,7 +18,7 @@
             "measurementUnit": "KG",
             "price": 4800,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96a8"
+            "properties": "1"
         },
         {
             "SKU": "IMPOXI0003",
@@ -28,7 +28,7 @@
             "measurementUnit": "LB",
             "price": 2484,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96a8"
+            "properties": "1"
         },
         {
             "SKU": "FABQUI0243",
@@ -38,7 +38,7 @@
             "measurementUnit": "TB",
             "price": 1501837,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96a9"
+            "properties": "2"
         },
         {
             "SKU": "FABQUI0244",
@@ -48,7 +48,7 @@
             "measurementUnit": "GF",
             "price": 157747,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96a9"
+            "properties": "2"
         },
         {
             "SKU": "FABQUI0245",
@@ -58,7 +58,7 @@
             "measurementUnit": "GL",
             "price": 30012,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96a9"
+            "properties": "2"
         },
         {
             "SKU": "FABQUI0246",
@@ -68,7 +68,7 @@
             "measurementUnit": "LT",
             "price": 8151,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96a9"
+            "properties": "2"
         },
         {
             "SKU": "FABQTI0405",
@@ -78,7 +78,7 @@
             "measurementUnit": "LT",
             "price": 29633,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96aa"
+            "properties": "3"
         },
         {
             "SKU": "FABQTI0406",
@@ -88,7 +88,7 @@
             "measurementUnit": "OZ",
             "price": 4807,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96aa"
+            "properties": "3"
         },
         {
             "SKU": "FABQOX0407",
@@ -98,7 +98,7 @@
             "measurementUnit": "LT",
             "price": 21836,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ab"
+            "properties": "4"
         },
         {
             "SKU": "FABQOX0408",
@@ -108,7 +108,7 @@
             "measurementUnit": "OZ",
             "price": 4185,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ab"
+            "properties": "4"
         },
         {
             "SKU": "IMPBIC0004",
@@ -118,7 +118,7 @@
             "measurementUnit": "BL",
             "price": 48833,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ac"
+            "properties": "5"
         },
         {
             "SKU": "IMPBIC0005",
@@ -128,7 +128,7 @@
             "measurementUnit": "KG",
             "price": 2458,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ac"
+            "properties": "5"
         },
         {
             "SKU": "FABDBM0227",
@@ -138,7 +138,7 @@
             "measurementUnit": "TB",
             "price": 612602,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ad"
+            "properties": "6"
         },
         {
             "SKU": "FABDBM0228",
@@ -148,7 +148,7 @@
             "measurementUnit": "GF",
             "price": 51750,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ad"
+            "properties": "6"
         },
         {
             "SKU": "FABDBM0229",
@@ -158,7 +158,7 @@
             "measurementUnit": "GL",
             "price": 13014,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ad"
+            "properties": "6"
         },
         {
             "SKU": "FABDBM0230",
@@ -168,7 +168,7 @@
             "measurementUnit": "LT",
             "price": 4279,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ad"
+            "properties": "6"
         },
         {
             "SKU": "FABDET0005",
@@ -178,7 +178,7 @@
             "measurementUnit": "TB",
             "price": 855599,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ae"
+            "properties": "7"
         },
         {
             "SKU": "FABDET0006",
@@ -188,7 +188,7 @@
             "measurementUnit": "GF",
             "price": 77950,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ae"
+            "properties": "7"
         },
         {
             "SKU": "FABDET0007",
@@ -198,7 +198,7 @@
             "measurementUnit": "GL",
             "price": 15712,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ae"
+            "properties": "7"
         },
         {
             "SKU": "FABDET0008",
@@ -208,7 +208,7 @@
             "measurementUnit": "LT",
             "price": 4583,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ae"
+            "properties": "7"
         },
         {
             "SKU": "FABDCO0223",
@@ -218,7 +218,7 @@
             "measurementUnit": "TB",
             "price": 855599,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96af"
+            "properties": "8"
         },
         {
             "SKU": "FABDCO0224",
@@ -228,7 +228,7 @@
             "measurementUnit": "GF",
             "price": 77950,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96af"
+            "properties": "8"
         },
         {
             "SKU": "FABDCO0225",
@@ -238,7 +238,7 @@
             "measurementUnit": "GL",
             "price": 15712,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96af"
+            "properties": "8"
         },
         {
             "SKU": "FABDCO0226",
@@ -248,7 +248,7 @@
             "measurementUnit": "LT",
             "price": 4583,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96af"
+            "properties": "8"
         },
         {
             "SKU": "FABJSB0231",
@@ -258,7 +258,7 @@
             "measurementUnit": "TB",
             "price": 470588,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b0"
+            "properties": "9"
         },
         {
             "SKU": "FABJSB0232",
@@ -268,7 +268,7 @@
             "measurementUnit": "GF",
             "price": 47899,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b0"
+            "properties": "9"
         },
         {
             "SKU": "FABJSB0233",
@@ -278,7 +278,7 @@
             "measurementUnit": "GL",
             "price": 10924,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b0"
+            "properties": "9"
         },
         {
             "SKU": "FABJSB0234",
@@ -288,7 +288,7 @@
             "measurementUnit": "LT",
             "price": 4202,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b0"
+            "properties": "9"
         },
         {
             "SKU": "FABSUA0235",
@@ -298,7 +298,7 @@
             "measurementUnit": "TB",
             "price": 428571,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b1"
+            "properties": "10"
         },
         {
             "SKU": "FABSUA0236",
@@ -308,7 +308,7 @@
             "measurementUnit": "GF",
             "price": 43697,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b1"
+            "properties": "10"
         },
         {
             "SKU": "FABSUA0237",
@@ -318,7 +318,7 @@
             "measurementUnit": "GL",
             "price": 9110,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b1"
+            "properties": "10"
         },
         {
             "SKU": "FABSUA0238",
@@ -328,7 +328,7 @@
             "measurementUnit": "LT",
             "price": 2491,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b1"
+            "properties": "10"
         },
         {
             "SKU": "IMPCOP0006",
@@ -338,7 +338,7 @@
             "measurementUnit": "ML",
             "price": 1641,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b2"
+            "properties": "11"
         },
         {
             "SKU": "FABDEI0239",
@@ -348,7 +348,7 @@
             "measurementUnit": "TB",
             "price": 494958,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b3"
+            "properties": "12"
         },
         {
             "SKU": "FABDEI0240",
@@ -358,7 +358,7 @@
             "measurementUnit": "GF",
             "price": 49580,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b3"
+            "properties": "12"
         },
         {
             "SKU": "FABDEI0241",
@@ -368,7 +368,7 @@
             "measurementUnit": "GL",
             "price": 12605,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b3"
+            "properties": "12"
         },
         {
             "SKU": "FABDEI0242",
@@ -378,7 +378,7 @@
             "measurementUnit": "LT",
             "price": 5798,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b3"
+            "properties": "12"
         },
         {
             "SKU": "FABDAC0021",
@@ -388,7 +388,7 @@
             "measurementUnit": "TB",
             "price": 549406,
             "quantity": 0,
-            "description": ""
+            "properties": "13"
         },
         {
             "SKU": "FABDAC0022",
@@ -398,7 +398,7 @@
             "measurementUnit": "GF",
             "price": 47445,
             "quantity": 0,
-            "description": ""
+            "properties": "13"
         },
         {
             "SKU": "FABDAC0023",
@@ -408,7 +408,7 @@
             "measurementUnit": "GL",
             "price": 9782,
             "quantity": 0,
-            "description": ""
+            "properties": "13"
         },
         {
             "SKU": "FABDAC0024",
@@ -418,7 +418,7 @@
             "measurementUnit": "LT",
             "price": 3052,
             "quantity": 0,
-            "description": ""
+            "properties": "13"
         },
         {
             "SKU": "FABDES0001",
@@ -428,7 +428,7 @@
             "measurementUnit": "TB",
             "price": 577930,
             "quantity": 0,
-            "description": ""
+            "properties": "14"
         },
         {
             "SKU": "FABDES0002",
@@ -438,7 +438,7 @@
             "measurementUnit": "GF",
             "price": 50297,
             "quantity": 0,
-            "description": ""
+            "properties": "14"
         },
         {
             "SKU": "FABDES0003",
@@ -448,7 +448,7 @@
             "measurementUnit": "GL",
             "price": 10353,
             "quantity": 0,
-            "description": ""
+            "properties": "14"
         },
         {
             "SKU": "FABDES0004",
@@ -458,7 +458,7 @@
             "measurementUnit": "LT",
             "price": 3195,
             "quantity": 0,
-            "description": ""
+            "properties": "14"
         },
         {
             "SKU": "FABREM0247",
@@ -468,7 +468,7 @@
             "measurementUnit": "TB",
             "price": 494958,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b4"
+            "properties": "15"
         },
         {
             "SKU": "FABREM0248",
@@ -478,7 +478,7 @@
             "measurementUnit": "GF",
             "price": 49580,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b4"
+            "properties": "15"
         },
         {
             "SKU": "FABREM0249",
@@ -488,7 +488,7 @@
             "measurementUnit": "GL",
             "price": 12605,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b4"
+            "properties": "15"
         },
         {
             "SKU": "FABREM0250",
@@ -498,7 +498,7 @@
             "measurementUnit": "LT",
             "price": 5798,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b4"
+            "properties": "15"
         },
         {
             "SKU": "FABSEB0251",
@@ -508,7 +508,7 @@
             "measurementUnit": "TB",
             "price": 1092437,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b5"
+            "properties": "16"
         },
         {
             "SKU": "FABSEB0252",
@@ -518,7 +518,7 @@
             "measurementUnit": "GF",
             "price": 114286,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b5"
+            "properties": "16"
         },
         {
             "SKU": "FABSEB0253",
@@ -528,7 +528,7 @@
             "measurementUnit": "GL",
             "price": 21629,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b5"
+            "properties": "16"
         },
         {
             "SKU": "FABSEB0254",
@@ -538,7 +538,7 @@
             "measurementUnit": "LT",
             "price": 5714,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b5"
+            "properties": "16"
         },
         {
             "SKU": "FABSER0255",
@@ -548,7 +548,7 @@
             "measurementUnit": "TB",
             "price": 1092437,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b6"
+            "properties": "17"
         },
         {
             "SKU": "FABSER0256",
@@ -558,7 +558,7 @@
             "measurementUnit": "GF",
             "price": 114286,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b6"
+            "properties": "17"
         },
         {
             "SKU": "FABSER0257",
@@ -568,7 +568,7 @@
             "measurementUnit": "GL",
             "price": 21629,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b6"
+            "properties": "17"
         },
         {
             "SKU": "FABSER0258",
@@ -578,7 +578,7 @@
             "measurementUnit": "LT",
             "price": 5714,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b6"
+            "properties": "17"
         },
         {
             "SKU": "FABSEA0259",
@@ -588,7 +588,7 @@
             "measurementUnit": "TB",
             "price": 1092437,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b7"
+            "properties": "18"
         },
         {
             "SKU": "FABSEA0260",
@@ -598,7 +598,7 @@
             "measurementUnit": "GF",
             "price": 114286,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b7"
+            "properties": "18"
         },
         {
             "SKU": "FABSEA0261",
@@ -608,7 +608,7 @@
             "measurementUnit": "GL",
             "price": 21629,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b7"
+            "properties": "18"
         },
         {
             "SKU": "FABSEA0262",
@@ -618,7 +618,7 @@
             "measurementUnit": "LT",
             "price": 5714,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b7"
+            "properties": "18"
         },
         {
             "SKU": "FABSEM0263",
@@ -628,7 +628,7 @@
             "measurementUnit": "TB",
             "price": 1092437,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b8"
+            "properties": "19"
         },
         {
             "SKU": "FABSEM0264",
@@ -638,7 +638,7 @@
             "measurementUnit": "GF",
             "price": 114286,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b8"
+            "properties": "19"
         },
         {
             "SKU": "FABSEM0265",
@@ -648,7 +648,7 @@
             "measurementUnit": "GL",
             "price": 21629,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b8"
+            "properties": "19"
         },
         {
             "SKU": "FABSEM0266",
@@ -658,7 +658,7 @@
             "measurementUnit": "LT",
             "price": 5714,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b8"
+            "properties": "19"
         },
         {
             "SKU": "FABSEN0267",
@@ -668,7 +668,7 @@
             "measurementUnit": "TB",
             "price": 1092437,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b9"
+            "properties": "20"
         },
         {
             "SKU": "FABSEN0268",
@@ -678,7 +678,7 @@
             "measurementUnit": "GF",
             "price": 114286,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b9"
+            "properties": "20"
         },
         {
             "SKU": "FABSEN0269",
@@ -688,7 +688,7 @@
             "measurementUnit": "GL",
             "price": 21629,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b9"
+            "properties": "20"
         },
         {
             "SKU": "FABSEN0270",
@@ -698,7 +698,7 @@
             "measurementUnit": "LT",
             "price": 5714,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96b9"
+            "properties": "20"
         },
         {
             "SKU": "FABSIL0271",
@@ -708,7 +708,7 @@
             "measurementUnit": "TB",
             "price": 2426891,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ba"
+            "properties": "21"
         },
         {
             "SKU": "FABSIL0272",
@@ -718,7 +718,7 @@
             "measurementUnit": "GF",
             "price": 209244,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ba"
+            "properties": "21"
         },
         {
             "SKU": "FABSIL0273",
@@ -728,7 +728,7 @@
             "measurementUnit": "GL",
             "price": 39758,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ba"
+            "properties": "21"
         },
         {
             "SKU": "FABSIL0274",
@@ -738,7 +738,7 @@
             "measurementUnit": "LT",
             "price": 11345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ba"
+            "properties": "21"
         },
         {
             "SKU": "FABCHA0275",
@@ -748,7 +748,7 @@
             "measurementUnit": "TB",
             "price": 415966,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bb"
+            "properties": "22"
         },
         {
             "SKU": "FABCHA0276",
@@ -758,7 +758,7 @@
             "measurementUnit": "GF",
             "price": 42017,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bb"
+            "properties": "22"
         },
         {
             "SKU": "FABCHA0277",
@@ -768,7 +768,7 @@
             "measurementUnit": "GL",
             "price": 10084,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bb"
+            "properties": "22"
         },
         {
             "SKU": "FABCHA0278",
@@ -778,7 +778,7 @@
             "measurementUnit": "LT",
             "price": 5882,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bb"
+            "properties": "22"
         },
         {
             "SKU": "FABLUM0017",
@@ -788,7 +788,7 @@
             "measurementUnit": "TB",
             "price": 894340,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bc"
+            "properties": "23"
         },
         {
             "SKU": "FABLUM0018",
@@ -798,7 +798,7 @@
             "measurementUnit": "GF",
             "price": 78034,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bc"
+            "properties": "23"
         },
         {
             "SKU": "FABLUM0019",
@@ -808,7 +808,7 @@
             "measurementUnit": "GL",
             "price": 15900,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bc"
+            "properties": "23"
         },
         {
             "SKU": "FABLUM0020",
@@ -818,7 +818,7 @@
             "measurementUnit": "LT",
             "price": 4582,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bc"
+            "properties": "23"
         },
         {
             "SKU": "FABBIO0279",
@@ -828,7 +828,7 @@
             "measurementUnit": "TB",
             "price": 554622,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bd"
+            "properties": "24"
         },
         {
             "SKU": "FABBIO0280",
@@ -838,7 +838,7 @@
             "measurementUnit": "GF",
             "price": 56303,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bd"
+            "properties": "24"
         },
         {
             "SKU": "FABBIO0281",
@@ -848,7 +848,7 @@
             "measurementUnit": "GL",
             "price": 12605,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bd"
+            "properties": "24"
         },
         {
             "SKU": "FABBIO0282",
@@ -858,7 +858,7 @@
             "measurementUnit": "LT",
             "price": 7143,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bd"
+            "properties": "24"
         },
         {
             "SKU": "FABVAR0283",
@@ -868,7 +868,7 @@
             "measurementUnit": "TB",
             "price": 705882,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96be"
+            "properties": "25"
         },
         {
             "SKU": "FABVAR0284",
@@ -878,7 +878,7 @@
             "measurementUnit": "GF",
             "price": 71429,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96be"
+            "properties": "25"
         },
         {
             "SKU": "FABVAR0285",
@@ -888,7 +888,7 @@
             "measurementUnit": "GL",
             "price": 15126,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96be"
+            "properties": "25"
         },
         {
             "SKU": "FABVAR0286",
@@ -898,7 +898,7 @@
             "measurementUnit": "LT",
             "price": 7983,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96be"
+            "properties": "25"
         },
         {
             "SKU": "FABLAV0409",
@@ -908,7 +908,7 @@
             "measurementUnit": "TB",
             "price": 464215,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bf"
+            "properties": "26"
         },
         {
             "SKU": "FABLAV0410",
@@ -918,7 +918,7 @@
             "measurementUnit": "GF",
             "price": 38926,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bf"
+            "properties": "26"
         },
         {
             "SKU": "FABLAV0411",
@@ -928,7 +928,7 @@
             "measurementUnit": "GL",
             "price": 8078,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bf"
+            "properties": "26"
         },
         {
             "SKU": "FABLAV0412",
@@ -938,7 +938,7 @@
             "measurementUnit": "LT",
             "price": 2626,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96bf"
+            "properties": "26"
         },
         {
             "SKU": "FABLIV0013",
@@ -948,7 +948,7 @@
             "measurementUnit": "TB",
             "price": 353882,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c0"
+            "properties": "27"
         },
         {
             "SKU": "FABLIV0014",
@@ -958,7 +958,7 @@
             "measurementUnit": "GF",
             "price": 27892,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c0"
+            "properties": "27"
         },
         {
             "SKU": "FABLIV0015",
@@ -968,7 +968,7 @@
             "measurementUnit": "GL",
             "price": 5677,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c0"
+            "properties": "27"
         },
         {
             "SKU": "FABLIV0016",
@@ -978,7 +978,7 @@
             "measurementUnit": "LT",
             "price": 2075,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c0"
+            "properties": "27"
         },
         {
             "SKU": "FABCEB0291",
@@ -988,7 +988,7 @@
             "measurementUnit": "TB",
             "price": 386555,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c1"
+            "properties": "28"
         },
         {
             "SKU": "FABCEB0292",
@@ -998,7 +998,7 @@
             "measurementUnit": "GF",
             "price": 39496,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c1"
+            "properties": "28"
         },
         {
             "SKU": "FABCEB0293",
@@ -1008,7 +1008,7 @@
             "measurementUnit": "GL",
             "price": 9244,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c1"
+            "properties": "28"
         },
         {
             "SKU": "FABCEB0294",
@@ -1018,7 +1018,7 @@
             "measurementUnit": "LT",
             "price": 4123,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c1"
+            "properties": "28"
         },
         {
             "SKU": "FABCER0295",
@@ -1028,7 +1028,7 @@
             "measurementUnit": "TB",
             "price": 386555,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c2"
+            "properties": "29"
         },
         {
             "SKU": "FABCER0296",
@@ -1038,7 +1038,7 @@
             "measurementUnit": "GF",
             "price": 39496,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c2"
+            "properties": "29"
         },
         {
             "SKU": "FABCER0297",
@@ -1048,7 +1048,7 @@
             "measurementUnit": "GL",
             "price": 9244,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c2"
+            "properties": "29"
         },
         {
             "SKU": "FABCER0298",
@@ -1058,7 +1058,7 @@
             "measurementUnit": "LT",
             "price": 4123,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c2"
+            "properties": "29"
         },
         {
             "SKU": "FABCEA0299",
@@ -1068,7 +1068,7 @@
             "measurementUnit": "TB",
             "price": 386555,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c3"
+            "properties": "30"
         },
         {
             "SKU": "FABCEA0300",
@@ -1078,7 +1078,7 @@
             "measurementUnit": "GF",
             "price": 39496,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c3"
+            "properties": "30"
         },
         {
             "SKU": "FABCEA0301",
@@ -1088,7 +1088,7 @@
             "measurementUnit": "GL",
             "price": 9244,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c3"
+            "properties": "30"
         },
         {
             "SKU": "FABCEA0302",
@@ -1098,7 +1098,7 @@
             "measurementUnit": "LT",
             "price": 4123,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c3"
+            "properties": "30"
         },
         {
             "SKU": "FABCEM0303",
@@ -1108,7 +1108,7 @@
             "measurementUnit": "TB",
             "price": 386555,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c4"
+            "properties": "31"
         },
         {
             "SKU": "FABCEM0304",
@@ -1118,7 +1118,7 @@
             "measurementUnit": "GF",
             "price": 39496,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c4"
+            "properties": "31"
         },
         {
             "SKU": "FABCEM0305",
@@ -1128,7 +1128,7 @@
             "measurementUnit": "GL",
             "price": 9244,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c4"
+            "properties": "31"
         },
         {
             "SKU": "FABCEM0306",
@@ -1138,7 +1138,7 @@
             "measurementUnit": "LT",
             "price": 4123,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c4"
+            "properties": "31"
         },
         {
             "SKU": "FABCEN0307",
@@ -1148,7 +1148,7 @@
             "measurementUnit": "TB",
             "price": 386555,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c5"
+            "properties": "32"
         },
         {
             "SKU": "FABCEN0308",
@@ -1158,7 +1158,7 @@
             "measurementUnit": "GF",
             "price": 39496,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c5"
+            "properties": "32"
         },
         {
             "SKU": "FABCEN0309",
@@ -1168,7 +1168,7 @@
             "measurementUnit": "GL",
             "price": 9244,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c5"
+            "properties": "32"
         },
         {
             "SKU": "FABCEN0310",
@@ -1178,7 +1178,7 @@
             "measurementUnit": "LT",
             "price": 4123,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c5"
+            "properties": "32"
         },
         {
             "SKU": "FABHIP0311",
@@ -1188,7 +1188,7 @@
             "measurementUnit": "TB",
             "price": 429624,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c6"
+            "properties": "33"
         },
         {
             "SKU": "FABHIP0312",
@@ -1198,7 +1198,7 @@
             "measurementUnit": "GF",
             "price": 35191,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c6"
+            "properties": "33"
         },
         {
             "SKU": "FABHIP0313",
@@ -1208,7 +1208,7 @@
             "measurementUnit": "GL",
             "price": 7086,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c6"
+            "properties": "33"
         },
         {
             "SKU": "FABHIP0314",
@@ -1218,7 +1218,7 @@
             "measurementUnit": "LT",
             "price": 2149,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c6"
+            "properties": "33"
         },
         {
             "SKU": "FABELI0315",
@@ -1228,7 +1228,7 @@
             "measurementUnit": "TB",
             "price": 4184874,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c7"
+            "properties": "34"
         },
         {
             "SKU": "FABELI0316",
@@ -1238,7 +1238,7 @@
             "measurementUnit": "GF",
             "price": 420736,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c7"
+            "properties": "34"
         },
         {
             "SKU": "FABELI0317",
@@ -1248,7 +1248,7 @@
             "measurementUnit": "GL",
             "price": 80260,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c7"
+            "properties": "34"
         },
         {
             "SKU": "FABELI0318",
@@ -1258,7 +1258,7 @@
             "measurementUnit": "LT",
             "price": 21427,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c7"
+            "properties": "34"
         },
         {
             "SKU": "IMPCLO0007",
@@ -1268,7 +1268,7 @@
             "measurementUnit": "KG",
             "price": 7857,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c8"
+            "properties": "35"
         },
         {
             "SKU": "IMPCLO0008",
@@ -1278,7 +1278,7 @@
             "measurementUnit": "LB",
             "price": 4769,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c8"
+            "properties": "35"
         },
         {
             "SKU": "FABLCI0319",
@@ -1288,7 +1288,7 @@
             "measurementUnit": "TB",
             "price": 336134,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c9"
+            "properties": "36"
         },
         {
             "SKU": "FABLCI0320",
@@ -1298,7 +1298,7 @@
             "measurementUnit": "GF",
             "price": 34454,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c9"
+            "properties": "36"
         },
         {
             "SKU": "FABLCI0321",
@@ -1308,7 +1308,7 @@
             "measurementUnit": "GL",
             "price": 7361,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c9"
+            "properties": "36"
         },
         {
             "SKU": "FABLCI0322",
@@ -1318,7 +1318,7 @@
             "measurementUnit": "LT",
             "price": 2785,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96c9"
+            "properties": "36"
         },
         {
             "SKU": "FABLBM0323",
@@ -1328,7 +1328,7 @@
             "measurementUnit": "TB",
             "price": 336134,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ca"
+            "properties": "37"
         },
         {
             "SKU": "FABLBM0324",
@@ -1338,7 +1338,7 @@
             "measurementUnit": "GF",
             "price": 34454,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ca"
+            "properties": "37"
         },
         {
             "SKU": "FABLBM0325",
@@ -1348,7 +1348,7 @@
             "measurementUnit": "GL",
             "price": 7361,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ca"
+            "properties": "37"
         },
         {
             "SKU": "FABLBM0326",
@@ -1358,7 +1358,7 @@
             "measurementUnit": "LT",
             "price": 2785,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ca"
+            "properties": "37"
         },
         {
             "SKU": "FABLGA0327",
@@ -1368,7 +1368,7 @@
             "measurementUnit": "TB",
             "price": 336134,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cb"
+            "properties": "38"
         },
         {
             "SKU": "FABLGA0328",
@@ -1378,7 +1378,7 @@
             "measurementUnit": "GF",
             "price": 34454,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cb"
+            "properties": "38"
         },
         {
             "SKU": "FABLGA0329",
@@ -1388,7 +1388,7 @@
             "measurementUnit": "GL",
             "price": 7361,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cb"
+            "properties": "38"
         },
         {
             "SKU": "FABLGA0330",
@@ -1398,7 +1398,7 @@
             "measurementUnit": "LT",
             "price": 2785,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cb"
+            "properties": "38"
         },
         {
             "SKU": "FABLPI0331",
@@ -1408,7 +1408,7 @@
             "measurementUnit": "TB",
             "price": 336134,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cc"
+            "properties": "39"
         },
         {
             "SKU": "FABLPI0332",
@@ -1418,7 +1418,7 @@
             "measurementUnit": "GF",
             "price": 34454,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cc"
+            "properties": "39"
         },
         {
             "SKU": "FABLPI0333",
@@ -1428,7 +1428,7 @@
             "measurementUnit": "GL",
             "price": 7361,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cc"
+            "properties": "39"
         },
         {
             "SKU": "FABLPI0334",
@@ -1438,7 +1438,7 @@
             "measurementUnit": "LT",
             "price": 2785,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cc"
+            "properties": "39"
         },
         {
             "SKU": "FABLEX0335",
@@ -1448,7 +1448,7 @@
             "measurementUnit": "TB",
             "price": 336134,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cd"
+            "properties": "40"
         },
         {
             "SKU": "FABLEX0336",
@@ -1458,7 +1458,7 @@
             "measurementUnit": "GF",
             "price": 34454,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cd"
+            "properties": "40"
         },
         {
             "SKU": "FABLEX0337",
@@ -1468,7 +1468,7 @@
             "measurementUnit": "GL",
             "price": 7361,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cd"
+            "properties": "40"
         },
         {
             "SKU": "FABLEX0338",
@@ -1478,7 +1478,7 @@
             "measurementUnit": "LT",
             "price": 2785,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cd"
+            "properties": "40"
         },
         {
             "SKU": "FABLCA0339",
@@ -1488,7 +1488,7 @@
             "measurementUnit": "TB",
             "price": 336134,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ce"
+            "properties": "41"
         },
         {
             "SKU": "FABLCA0340",
@@ -1498,7 +1498,7 @@
             "measurementUnit": "GF",
             "price": 34454,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ce"
+            "properties": "41"
         },
         {
             "SKU": "FABLCA0341",
@@ -1508,7 +1508,7 @@
             "measurementUnit": "GL",
             "price": 7361,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ce"
+            "properties": "41"
         },
         {
             "SKU": "FABLCA0342",
@@ -1518,7 +1518,7 @@
             "measurementUnit": "LT",
             "price": 2785,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ce"
+            "properties": "41"
         },
         {
             "SKU": "FABCRE0343",
@@ -1528,7 +1528,7 @@
             "measurementUnit": "TB",
             "price": 840336,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cf"
+            "properties": "42"
         },
         {
             "SKU": "FABCRE0344",
@@ -1538,7 +1538,7 @@
             "measurementUnit": "GF",
             "price": 86555,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cf"
+            "properties": "42"
         },
         {
             "SKU": "FABCRE0345",
@@ -1548,7 +1548,7 @@
             "measurementUnit": "GL",
             "price": 18901,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cf"
+            "properties": "42"
         },
         {
             "SKU": "FABCRE0346",
@@ -1558,7 +1558,7 @@
             "measurementUnit": "LT",
             "price": 6008,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96cf"
+            "properties": "42"
         },
         {
             "SKU": "FABGEL0347",
@@ -1568,7 +1568,7 @@
             "measurementUnit": "TB",
             "price": 1115966,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d0"
+            "properties": "43"
         },
         {
             "SKU": "FABGEL0348",
@@ -1578,7 +1578,7 @@
             "measurementUnit": "GF",
             "price": 100000,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d0"
+            "properties": "43"
         },
         {
             "SKU": "FABGEL0349",
@@ -1588,7 +1588,7 @@
             "measurementUnit": "GL",
             "price": 22101,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d0"
+            "properties": "43"
         },
         {
             "SKU": "FABGEL0350",
@@ -1598,7 +1598,7 @@
             "measurementUnit": "LT",
             "price": 13277,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d0"
+            "properties": "43"
         },
         {
             "SKU": "FABJAB0009",
@@ -1608,7 +1608,7 @@
             "measurementUnit": "TB",
             "price": 1126597,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d1"
+            "properties": "44"
         },
         {
             "SKU": "FABJAB0010",
@@ -1618,7 +1618,7 @@
             "measurementUnit": "GF",
             "price": 105164,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d1"
+            "properties": "44"
         },
         {
             "SKU": "FABJAB0011",
@@ -1628,7 +1628,7 @@
             "measurementUnit": "GL",
             "price": 21326,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d1"
+            "properties": "44"
         },
         {
             "SKU": "FABJAB0012",
@@ -1638,7 +1638,7 @@
             "measurementUnit": "LT",
             "price": 5938,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d1"
+            "properties": "44"
         },
         {
             "SKU": "FABFTA0351",
@@ -1648,7 +1648,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d2"
+            "properties": "45"
         },
         {
             "SKU": "FABFTA0352",
@@ -1658,7 +1658,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d2"
+            "properties": "45"
         },
         {
             "SKU": "FABFWI0353",
@@ -1668,7 +1668,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d3"
+            "properties": "46"
         },
         {
             "SKU": "FABFWI0354",
@@ -1678,7 +1678,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d3"
+            "properties": "46"
         },
         {
             "SKU": "FABFMA0355",
@@ -1688,7 +1688,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d4"
+            "properties": "47"
         },
         {
             "SKU": "FABFMA0356",
@@ -1698,7 +1698,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d4"
+            "properties": "47"
         },
         {
             "SKU": "FABFCA0357",
@@ -1708,7 +1708,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d5"
+            "properties": "48"
         },
         {
             "SKU": "FABFCA0358",
@@ -1718,7 +1718,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d5"
+            "properties": "48"
         },
         {
             "SKU": "FABFCO0359",
@@ -1728,7 +1728,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d6"
+            "properties": "49"
         },
         {
             "SKU": "FABFCO0360",
@@ -1738,7 +1738,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d6"
+            "properties": "49"
         },
         {
             "SKU": "FABFFR0361",
@@ -1748,7 +1748,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d7"
+            "properties": "50"
         },
         {
             "SKU": "FABFFR0362",
@@ -1758,7 +1758,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d7"
+            "properties": "50"
         },
         {
             "SKU": "FABFBA0363",
@@ -1768,7 +1768,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d8"
+            "properties": "51"
         },
         {
             "SKU": "FABFBA0364",
@@ -1778,7 +1778,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d8"
+            "properties": "51"
         },
         {
             "SKU": "FABFTU0365",
@@ -1788,7 +1788,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d9"
+            "properties": "52"
         },
         {
             "SKU": "FABFTU0366",
@@ -1798,7 +1798,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96d9"
+            "properties": "52"
         },
         {
             "SKU": "FABFJA0367",
@@ -1808,7 +1808,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96da"
+            "properties": "53"
         },
         {
             "SKU": "FABFJA0368",
@@ -1818,7 +1818,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96da"
+            "properties": "53"
         },
         {
             "SKU": "FABFDA0369",
@@ -1828,7 +1828,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96db"
+            "properties": "54"
         },
         {
             "SKU": "FABFDA0370",
@@ -1838,7 +1838,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96db"
+            "properties": "54"
         },
         {
             "SKU": "FABFAQ0371",
@@ -1848,7 +1848,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96dc"
+            "properties": "55"
         },
         {
             "SKU": "FABFAQ0372",
@@ -1858,7 +1858,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96dc"
+            "properties": "55"
         },
         {
             "SKU": "FABFMP0373",
@@ -1868,7 +1868,7 @@
             "measurementUnit": "LB",
             "price": 21345,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96dd"
+            "properties": "56"
         },
         {
             "SKU": "FABFMP0374",
@@ -1878,7 +1878,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11513,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96dd"
+            "properties": "56"
         },
         {
             "SKU": "IMPDIF0009",
@@ -1888,7 +1888,7 @@
             "measurementUnit": "ML",
             "price": 25073,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96de"
+            "properties": "57"
         },
         {
             "SKU": "FABDMC0375",
@@ -1898,7 +1898,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96df"
+            "properties": "58"
         },
         {
             "SKU": "FABDMC0376",
@@ -1908,7 +1908,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96df"
+            "properties": "58"
         },
         {
             "SKU": "FABDCH0377",
@@ -1918,7 +1918,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e0"
+            "properties": "59"
         },
         {
             "SKU": "FABDCH0378",
@@ -1928,7 +1928,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e0"
+            "properties": "59"
         },
         {
             "SKU": "FABDVA0379",
@@ -1938,7 +1938,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e1"
+            "properties": "60"
         },
         {
             "SKU": "FABDVA0380",
@@ -1948,7 +1948,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e1"
+            "properties": "60"
         },
         {
             "SKU": "FABDCI0381",
@@ -1958,7 +1958,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e2"
+            "properties": "61"
         },
         {
             "SKU": "FABDCI0382",
@@ -1968,7 +1968,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e2"
+            "properties": "61"
         },
         {
             "SKU": "FABDEX0383",
@@ -1978,7 +1978,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e3"
+            "properties": "62"
         },
         {
             "SKU": "FABDEX0384",
@@ -1988,7 +1988,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e3"
+            "properties": "62"
         },
         {
             "SKU": "FABDFR0385",
@@ -1998,7 +1998,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e4"
+            "properties": "63"
         },
         {
             "SKU": "FABDFR0386",
@@ -2008,7 +2008,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e4"
+            "properties": "63"
         },
         {
             "SKU": "FABDMN0387",
@@ -2018,7 +2018,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e5"
+            "properties": "64"
         },
         {
             "SKU": "FABDMN0388",
@@ -2028,7 +2028,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e5"
+            "properties": "64"
         },
         {
             "SKU": "FABDCT0389",
@@ -2038,7 +2038,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e6"
+            "properties": "65"
         },
         {
             "SKU": "FABDCT0390",
@@ -2048,7 +2048,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e6"
+            "properties": "65"
         },
         {
             "SKU": "FABDBB0391",
@@ -2058,7 +2058,7 @@
             "measurementUnit": "1/2 LB",
             "price": 11482,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e7"
+            "properties": "66"
         },
         {
             "SKU": "FABDBB0392",
@@ -2068,7 +2068,7 @@
             "measurementUnit": "CC ",
             "price": 4434,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e7"
+            "properties": "66"
         },
         {
             "SKU": "FABAFR0393",
@@ -2078,7 +2078,7 @@
             "measurementUnit": "LB",
             "price": 4570,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e8"
+            "properties": "67"
         },
         {
             "SKU": "FABAFR0394",
@@ -2088,7 +2088,7 @@
             "measurementUnit": "1/2 LB",
             "price": 2705,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e8"
+            "properties": "67"
         },
         {
             "SKU": "FABAEX0395",
@@ -2098,7 +2098,7 @@
             "measurementUnit": "LB",
             "price": 4570,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e9"
+            "properties": "68"
         },
         {
             "SKU": "FABAEX0396",
@@ -2108,7 +2108,7 @@
             "measurementUnit": "1/2 LB",
             "price": 2705,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96e9"
+            "properties": "68"
         },
         {
             "SKU": "FABACI0397",
@@ -2118,7 +2118,7 @@
             "measurementUnit": "LB",
             "price": 4570,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ea"
+            "properties": "69"
         },
         {
             "SKU": "FABACI0398",
@@ -2128,7 +2128,7 @@
             "measurementUnit": "1/2 LB",
             "price": 2705,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ea"
+            "properties": "69"
         },
         {
             "SKU": "FABADU0399",
@@ -2138,7 +2138,7 @@
             "measurementUnit": "LB",
             "price": 4570,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96eb"
+            "properties": "70"
         },
         {
             "SKU": "FABADU0400",
@@ -2148,7 +2148,7 @@
             "measurementUnit": "1/2 LB",
             "price": 2705,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96eb"
+            "properties": "70"
         },
         {
             "SKU": "FABACA0401",
@@ -2158,7 +2158,7 @@
             "measurementUnit": "LB",
             "price": 4570,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ec"
+            "properties": "71"
         },
         {
             "SKU": "FABACA0402",
@@ -2168,7 +2168,7 @@
             "measurementUnit": "1/2 LB",
             "price": 2705,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ec"
+            "properties": "71"
         },
         {
             "SKU": "FABAFF0403",
@@ -2178,7 +2178,7 @@
             "measurementUnit": "LB",
             "price": 4570,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ed"
+            "properties": "72"
         },
         {
             "SKU": "FABAFF0404",
@@ -2188,7 +2188,7 @@
             "measurementUnit": "1/2 LB",
             "price": 2705,
             "quantity": 0,
-            "description": "5ef8c6ecfe1e035410db96ed"
+            "properties": "72"
         },
         {
             "SKU": "FABPER0025",
@@ -2198,7 +2198,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "73"
         },
         {
             "SKU": "FABPER0026",
@@ -2208,7 +2208,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "74"
         },
         {
             "SKU": "FABPER0027",
@@ -2218,7 +2218,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "75"
         },
         {
             "SKU": "FABPER0028",
@@ -2228,7 +2228,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "76"
         },
         {
             "SKU": "FABPER0029",
@@ -2238,7 +2238,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "77"
         },
         {
             "SKU": "FABPER0030",
@@ -2248,7 +2248,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "78"
         },
         {
             "SKU": "FABPER0031",
@@ -2258,7 +2258,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "79"
         },
         {
             "SKU": "FABPER0032",
@@ -2268,7 +2268,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "80"
         },
         {
             "SKU": "FABPER0033",
@@ -2278,7 +2278,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "81"
         },
         {
             "SKU": "FABPER0034",
@@ -2288,7 +2288,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "82"
         },
         {
             "SKU": "FABPER0035",
@@ -2298,7 +2298,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "83"
         },
         {
             "SKU": "FABPER0036",
@@ -2308,7 +2308,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "84"
         },
         {
             "SKU": "FABPER0037",
@@ -2318,7 +2318,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "85"
         },
         {
             "SKU": "FABPER0038",
@@ -2328,7 +2328,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "86"
         },
         {
             "SKU": "FABPER0039",
@@ -2338,7 +2338,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "87"
         },
         {
             "SKU": "FABPER0040",
@@ -2348,7 +2348,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "88"
         },
         {
             "SKU": "FABPER0041",
@@ -2358,7 +2358,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "89"
         },
         {
             "SKU": "FABPER0042",
@@ -2368,7 +2368,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "90"
         },
         {
             "SKU": "FABPER0043",
@@ -2378,7 +2378,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "91"
         },
         {
             "SKU": "FABPER0044",
@@ -2388,7 +2388,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "92"
         },
         {
             "SKU": "FABPER0045",
@@ -2398,7 +2398,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "93"
         },
         {
             "SKU": "FABPER0046",
@@ -2408,7 +2408,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "94"
         },
         {
             "SKU": "FABPER0047",
@@ -2418,7 +2418,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "95"
         },
         {
             "SKU": "FABPER0048",
@@ -2428,7 +2428,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "96"
         },
         {
             "SKU": "FABPER0049",
@@ -2438,7 +2438,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "97"
         },
         {
             "SKU": "FABPER0050",
@@ -2448,7 +2448,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "98"
         },
         {
             "SKU": "FABPER0051",
@@ -2458,7 +2458,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "99"
         },
         {
             "SKU": "FABPER0052",
@@ -2468,7 +2468,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "100"
         },
         {
             "SKU": "FABPER0053",
@@ -2478,7 +2478,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "101"
         },
         {
             "SKU": "FABPER0054",
@@ -2488,7 +2488,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "102"
         },
         {
             "SKU": "FABPER0055",
@@ -2498,7 +2498,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "103"
         },
         {
             "SKU": "FABPER0056",
@@ -2508,7 +2508,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "104"
         },
         {
             "SKU": "FABPER0057",
@@ -2518,7 +2518,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "105"
         },
         {
             "SKU": "FABPER0058",
@@ -2528,7 +2528,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "106"
         },
         {
             "SKU": "FABPER0059",
@@ -2538,7 +2538,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "107"
         },
         {
             "SKU": "FABPER0060",
@@ -2548,7 +2548,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "108"
         },
         {
             "SKU": "FABPER0061",
@@ -2558,7 +2558,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "109"
         },
         {
             "SKU": "FABPER0062",
@@ -2568,7 +2568,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "110"
         },
         {
             "SKU": "FABPER0063",
@@ -2578,7 +2578,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "111"
         },
         {
             "SKU": "FABPER0064",
@@ -2588,7 +2588,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "112"
         },
         {
             "SKU": "FABPER0065",
@@ -2598,7 +2598,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "113"
         },
         {
             "SKU": "FABPER0066",
@@ -2608,7 +2608,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "114"
         },
         {
             "SKU": "FABPER0067",
@@ -2618,7 +2618,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "115"
         },
         {
             "SKU": "FABPER0068",
@@ -2628,7 +2628,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "116"
         },
         {
             "SKU": "FABPER0069",
@@ -2638,7 +2638,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "117"
         },
         {
             "SKU": "FABPER0070",
@@ -2648,7 +2648,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "118"
         },
         {
             "SKU": "FABPER0071",
@@ -2658,7 +2658,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "119"
         },
         {
             "SKU": "FABPER0072",
@@ -2668,7 +2668,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "120"
         },
         {
             "SKU": "FABPER0073",
@@ -2678,7 +2678,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "121"
         },
         {
             "SKU": "FABPER0074",
@@ -2688,7 +2688,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "122"
         },
         {
             "SKU": "FABPER0075",
@@ -2698,7 +2698,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "123"
         },
         {
             "SKU": "FABPER0076",
@@ -2708,7 +2708,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "124"
         },
         {
             "SKU": "FABPER0077",
@@ -2718,7 +2718,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "125"
         },
         {
             "SKU": "FABPER0078",
@@ -2728,7 +2728,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "126"
         },
         {
             "SKU": "FABPER0079",
@@ -2738,7 +2738,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "127"
         },
         {
             "SKU": "FABPER0080",
@@ -2748,7 +2748,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "128"
         },
         {
             "SKU": "FABPER0081",
@@ -2758,7 +2758,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "129"
         },
         {
             "SKU": "FABPER0082",
@@ -2768,7 +2768,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "130"
         },
         {
             "SKU": "FABPER0083",
@@ -2778,7 +2778,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "131"
         },
         {
             "SKU": "FABPER0084",
@@ -2788,7 +2788,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "132"
         },
         {
             "SKU": "FABPER0085",
@@ -2798,7 +2798,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "133"
         },
         {
             "SKU": "FABPER0086",
@@ -2808,7 +2808,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "134"
         },
         {
             "SKU": "FABPER0087",
@@ -2818,7 +2818,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "135"
         },
         {
             "SKU": "FABPER0088",
@@ -2828,7 +2828,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "136"
         },
         {
             "SKU": "FABPER0089",
@@ -2838,7 +2838,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "137"
         },
         {
             "SKU": "FABPER0090",
@@ -2848,7 +2848,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "138"
         },
         {
             "SKU": "FABPER0091",
@@ -2858,7 +2858,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "139"
         },
         {
             "SKU": "FABPER0092",
@@ -2868,7 +2868,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "140"
         },
         {
             "SKU": "FABPER0093",
@@ -2878,7 +2878,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "141"
         },
         {
             "SKU": "FABPER0094",
@@ -2888,7 +2888,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "142"
         },
         {
             "SKU": "FABPER0095",
@@ -2898,7 +2898,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "143"
         },
         {
             "SKU": "FABPER0096",
@@ -2908,7 +2908,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "144"
         },
         {
             "SKU": "FABPER0097",
@@ -2918,7 +2918,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "145"
         },
         {
             "SKU": "FABPER0098",
@@ -2928,7 +2928,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "146"
         },
         {
             "SKU": "FABPER0099",
@@ -2938,7 +2938,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "147"
         },
         {
             "SKU": "FABPER0100",
@@ -2948,7 +2948,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "148"
         },
         {
             "SKU": "FABPER0101",
@@ -2958,7 +2958,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "149"
         },
         {
             "SKU": "FABPER0102",
@@ -2968,7 +2968,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "150"
         },
         {
             "SKU": "FABPER0103",
@@ -2978,7 +2978,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "151"
         },
         {
             "SKU": "FABPER0104",
@@ -2988,7 +2988,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "152"
         },
         {
             "SKU": "FABPER0105",
@@ -2998,7 +2998,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "153"
         },
         {
             "SKU": "FABPER0106",
@@ -3008,7 +3008,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "154"
         },
         {
             "SKU": "FABPER0107",
@@ -3018,7 +3018,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "155"
         },
         {
             "SKU": "FABPER0108",
@@ -3028,7 +3028,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "156"
         },
         {
             "SKU": "FABPER0109",
@@ -3038,7 +3038,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "157"
         },
         {
             "SKU": "FABPER0110",
@@ -3048,7 +3048,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "158"
         },
         {
             "SKU": "FABPER0111",
@@ -3058,7 +3058,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "159"
         },
         {
             "SKU": "FABPER0112",
@@ -3068,7 +3068,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "160"
         },
         {
             "SKU": "FABPER0113",
@@ -3078,7 +3078,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "161"
         },
         {
             "SKU": "FABPER0114",
@@ -3088,7 +3088,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "162"
         },
         {
             "SKU": "FABPER0115",
@@ -3098,7 +3098,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "163"
         },
         {
             "SKU": "FABPER0116",
@@ -3108,7 +3108,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "164"
         },
         {
             "SKU": "FABPER0117",
@@ -3118,7 +3118,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "165"
         },
         {
             "SKU": "FABPER0118",
@@ -3128,7 +3128,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "166"
         },
         {
             "SKU": "FABPER0119",
@@ -3138,7 +3138,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "167"
         },
         {
             "SKU": "FABPER0120",
@@ -3148,7 +3148,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "168"
         },
         {
             "SKU": "FABPER0121",
@@ -3158,7 +3158,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "169"
         },
         {
             "SKU": "FABPER0122",
@@ -3168,7 +3168,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "170"
         },
         {
             "SKU": "FABPER0123",
@@ -3178,7 +3178,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "171"
         },
         {
             "SKU": "FABPER0124",
@@ -3188,7 +3188,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "172"
         },
         {
             "SKU": "FABPER0125",
@@ -3198,7 +3198,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "173"
         },
         {
             "SKU": "FABPER0126",
@@ -3208,7 +3208,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "174"
         },
         {
             "SKU": "FABPER0127",
@@ -3218,7 +3218,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "175"
         },
         {
             "SKU": "FABPER0128",
@@ -3228,7 +3228,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "176"
         },
         {
             "SKU": "FABPER0129",
@@ -3238,7 +3238,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "177"
         },
         {
             "SKU": "FABPER0130",
@@ -3248,7 +3248,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "178"
         },
         {
             "SKU": "FABPER0131",
@@ -3258,7 +3258,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "179"
         },
         {
             "SKU": "FABPER0132",
@@ -3268,7 +3268,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "180"
         },
         {
             "SKU": "FABPER0133",
@@ -3278,7 +3278,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "181"
         },
         {
             "SKU": "FABPER0134",
@@ -3288,7 +3288,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "182"
         },
         {
             "SKU": "FABPER0135",
@@ -3298,7 +3298,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "183"
         },
         {
             "SKU": "FABPER0136",
@@ -3308,7 +3308,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "184"
         },
         {
             "SKU": "FABPER0137",
@@ -3318,7 +3318,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "185"
         },
         {
             "SKU": "FABPER0138",
@@ -3328,7 +3328,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "186"
         },
         {
             "SKU": "FABPER0139",
@@ -3338,7 +3338,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "187"
         },
         {
             "SKU": "FABPER0140",
@@ -3348,7 +3348,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "188"
         },
         {
             "SKU": "FABPER0141",
@@ -3358,7 +3358,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "189"
         },
         {
             "SKU": "FABPER0142",
@@ -3368,7 +3368,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "190"
         },
         {
             "SKU": "FABPER0143",
@@ -3378,7 +3378,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "191"
         },
         {
             "SKU": "FABPER0144",
@@ -3388,7 +3388,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "192"
         },
         {
             "SKU": "FABPER0145",
@@ -3398,7 +3398,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "193"
         },
         {
             "SKU": "FABPER0146",
@@ -3408,7 +3408,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "194"
         },
         {
             "SKU": "FABPER0147",
@@ -3418,7 +3418,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "195"
         },
         {
             "SKU": "FABPER0148",
@@ -3428,7 +3428,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "196"
         },
         {
             "SKU": "FABPER0149",
@@ -3438,7 +3438,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "197"
         },
         {
             "SKU": "FABPER0150",
@@ -3448,7 +3448,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "198"
         },
         {
             "SKU": "FABPER0151",
@@ -3458,7 +3458,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "199"
         },
         {
             "SKU": "FABPER0152",
@@ -3468,7 +3468,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "200"
         },
         {
             "SKU": "FABPER0153",
@@ -3478,7 +3478,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "201"
         },
         {
             "SKU": "FABPER0154",
@@ -3488,7 +3488,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "202"
         },
         {
             "SKU": "FABPER0155",
@@ -3498,7 +3498,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "203"
         },
         {
             "SKU": "FABPER0156",
@@ -3508,7 +3508,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "204"
         },
         {
             "SKU": "FABPER0157",
@@ -3518,7 +3518,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "205"
         },
         {
             "SKU": "FABPER0158",
@@ -3528,7 +3528,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "206"
         },
         {
             "SKU": "FABPER0159",
@@ -3538,7 +3538,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "207"
         },
         {
             "SKU": "FABPER0160",
@@ -3548,7 +3548,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "208"
         },
         {
             "SKU": "FABPER0161",
@@ -3558,7 +3558,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "209"
         },
         {
             "SKU": "FABPER0162",
@@ -3568,7 +3568,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "210"
         },
         {
             "SKU": "FABPER0163",
@@ -3578,7 +3578,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "211"
         },
         {
             "SKU": "FABPER0164",
@@ -3588,7 +3588,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "212"
         },
         {
             "SKU": "FABPER0165",
@@ -3598,7 +3598,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "213"
         },
         {
             "SKU": "FABPER0166",
@@ -3608,7 +3608,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "214"
         },
         {
             "SKU": "FABPER0167",
@@ -3618,7 +3618,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "215"
         },
         {
             "SKU": "FABPER0168",
@@ -3628,7 +3628,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "216"
         },
         {
             "SKU": "FABPER0169",
@@ -3638,7 +3638,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "217"
         },
         {
             "SKU": "FABPER0170",
@@ -3648,7 +3648,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "218"
         },
         {
             "SKU": "FABPER0171",
@@ -3658,7 +3658,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "219"
         },
         {
             "SKU": "FABPER0172",
@@ -3668,7 +3668,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "220"
         },
         {
             "SKU": "FABPER0173",
@@ -3678,7 +3678,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "221"
         },
         {
             "SKU": "FABPER0174",
@@ -3688,7 +3688,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "222"
         },
         {
             "SKU": "FABPER0175",
@@ -3698,7 +3698,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "223"
         },
         {
             "SKU": "FABPER0176",
@@ -3708,7 +3708,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "224"
         },
         {
             "SKU": "FABPER0177",
@@ -3718,7 +3718,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "225"
         },
         {
             "SKU": "FABPER0178",
@@ -3728,7 +3728,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "226"
         },
         {
             "SKU": "FABPER0179",
@@ -3738,7 +3738,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "227"
         },
         {
             "SKU": "FABPER0180",
@@ -3748,7 +3748,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "228"
         },
         {
             "SKU": "FABPER0181",
@@ -3758,7 +3758,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "229"
         },
         {
             "SKU": "FABPER0182",
@@ -3768,7 +3768,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "230"
         },
         {
             "SKU": "FABPER0183",
@@ -3778,7 +3778,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "231"
         },
         {
             "SKU": "FABPER0184",
@@ -3788,7 +3788,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "232"
         },
         {
             "SKU": "FABPER0185",
@@ -3798,7 +3798,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "233"
         },
         {
             "SKU": "FABPER0186",
@@ -3808,7 +3808,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "234"
         },
         {
             "SKU": "FABPER0187",
@@ -3818,7 +3818,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "235"
         },
         {
             "SKU": "FABPER0188",
@@ -3828,7 +3828,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "236"
         },
         {
             "SKU": "FABPER0189",
@@ -3838,7 +3838,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "237"
         },
         {
             "SKU": "FABPER0190",
@@ -3848,7 +3848,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "238"
         },
         {
             "SKU": "FABPER0191",
@@ -3858,7 +3858,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "239"
         },
         {
             "SKU": "FABPER0192",
@@ -3868,7 +3868,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "240"
         },
         {
             "SKU": "FABPER0193",
@@ -3878,7 +3878,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "241"
         },
         {
             "SKU": "FABPER0194",
@@ -3888,7 +3888,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "242"
         },
         {
             "SKU": "FABPER0195",
@@ -3898,7 +3898,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "243"
         },
         {
             "SKU": "FABPER0196",
@@ -3908,7 +3908,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "244"
         },
         {
             "SKU": "FABPER0197",
@@ -3918,7 +3918,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "245"
         },
         {
             "SKU": "FABPER0198",
@@ -3928,7 +3928,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "246"
         },
         {
             "SKU": "FABPER0199",
@@ -3938,7 +3938,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "247"
         },
         {
             "SKU": "FABPER0200",
@@ -3948,7 +3948,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "248"
         },
         {
             "SKU": "FABPER0201",
@@ -3958,7 +3958,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "249"
         },
         {
             "SKU": "FABPER0202",
@@ -3968,7 +3968,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "250"
         },
         {
             "SKU": "FABPER0203",
@@ -3978,7 +3978,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "251"
         },
         {
             "SKU": "FABPER0204",
@@ -3988,7 +3988,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "252"
         },
         {
             "SKU": "FABPER0205",
@@ -3998,7 +3998,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "253"
         },
         {
             "SKU": "FABPER0206",
@@ -4008,7 +4008,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "254"
         },
         {
             "SKU": "FABPER0207",
@@ -4018,7 +4018,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "255"
         },
         {
             "SKU": "FABPER0208",
@@ -4028,7 +4028,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "256"
         },
         {
             "SKU": "FABPER0209",
@@ -4038,7 +4038,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "257"
         },
         {
             "SKU": "FABPER0210",
@@ -4048,7 +4048,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "258"
         },
         {
             "SKU": "FABPER0211",
@@ -4058,7 +4058,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "259"
         },
         {
             "SKU": "FABPER0212",
@@ -4068,7 +4068,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "260"
         },
         {
             "SKU": "FABPER0213",
@@ -4078,7 +4078,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "261"
         },
         {
             "SKU": "FABPER0214",
@@ -4088,7 +4088,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "262"
         },
         {
             "SKU": "FABPER0215",
@@ -4098,7 +4098,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "263"
         },
         {
             "SKU": "FABPER0216",
@@ -4108,7 +4108,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "264"
         },
         {
             "SKU": "FABPER0217",
@@ -4118,7 +4118,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "265"
         },
         {
             "SKU": "FABPER0218",
@@ -4128,7 +4128,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "266"
         },
         {
             "SKU": "FABPER0219",
@@ -4138,7 +4138,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "267"
         },
         {
             "SKU": "FABPER0220",
@@ -4148,7 +4148,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "268"
         },
         {
             "SKU": "FABPER0221",
@@ -4158,7 +4158,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "269"
         },
         {
             "SKU": "FABPER0222",
@@ -4168,7 +4168,7 @@
             "measurementUnit": "CC",
             "price": 18501,
             "quantity": 0,
-            "description": ""
+            "properties": "270"
         },
         {
             "SKU": "IMPETA0010",
@@ -4178,7 +4178,7 @@
             "measurementUnit": "TB",
             "price": 1288784,
             "quantity": 0,
-            "description": ""
+            "properties": "271"
         },
         {
             "SKU": "IMPETA0011",
@@ -4188,7 +4188,7 @@
             "measurementUnit": "GF",
             "price": 121285,
             "quantity": 0,
-            "description": ""
+            "properties": "271"
         },
         {
             "SKU": "IMPETA0012",
@@ -4198,7 +4198,7 @@
             "measurementUnit": "GL",
             "price": 24304,
             "quantity": 0,
-            "description": ""
+            "properties": "271"
         },
         {
             "SKU": "IMPETA0013",
@@ -4208,7 +4208,7 @@
             "measurementUnit": "LT",
             "price": 6444,
             "quantity": 0,
-            "description": ""
+            "properties": "271"
         },
         {
             "SKU": "IMPGLI0014",
@@ -4218,7 +4218,7 @@
             "measurementUnit": "TB",
             "price": 1531700,
             "quantity": 0,
-            "description": ""
+            "properties": "272"
         },
         {
             "SKU": "IMPGLI0015",
@@ -4228,7 +4228,7 @@
             "measurementUnit": "GF",
             "price": 153170,
             "quantity": 0,
-            "description": ""
+            "properties": "272"
         },
         {
             "SKU": "IMPGLI0016",
@@ -4238,7 +4238,7 @@
             "measurementUnit": "GL",
             "price": 30634,
             "quantity": 0,
-            "description": ""
+            "properties": "272"
         },
         {
             "SKU": "IMPGLI0017",
@@ -4248,7 +4248,7 @@
             "measurementUnit": "LT",
             "price": 8251,
             "quantity": 0,
-            "description": ""
+            "properties": "272"
         },
         {
             "SKU": "IMPPER0019",
@@ -4258,7 +4258,7 @@
             "measurementUnit": "TB",
             "price": 1002760,
             "quantity": 0,
-            "description": ""
+            "properties": "273"
         },
         {
             "SKU": "IMPPER0020",
@@ -4268,7 +4268,7 @@
             "measurementUnit": "GF",
             "price": 100276,
             "quantity": 0,
-            "description": ""
+            "properties": "273"
         },
         {
             "SKU": "IMPPER0021",
@@ -4278,7 +4278,7 @@
             "measurementUnit": "GL",
             "price": 25069,
             "quantity": 0,
-            "description": ""
+            "properties": "273"
         },
         {
             "SKU": "IMPPER0022",
@@ -4288,7 +4288,7 @@
             "measurementUnit": "LT",
             "price": 8356,
             "quantity": 0,
-            "description": ""
+            "properties": "273"
         },
         {
             "SKU": "IMPALC0023",
@@ -4298,7 +4298,7 @@
             "measurementUnit": "TB",
             "price": 1560000,
             "quantity": 0,
-            "description": ""
+            "properties": "274"
         },
         {
             "SKU": "IMPALC0024",
@@ -4308,7 +4308,7 @@
             "measurementUnit": "GF",
             "price": 156606,
             "quantity": 0,
-            "description": ""
+            "properties": "274"
         },
         {
             "SKU": "IMPALC0025",
@@ -4318,7 +4318,7 @@
             "measurementUnit": "GL",
             "price": 31359,
             "quantity": 0,
-            "description": ""
+            "properties": "274"
         },
         {
             "SKU": "IMPALC0026",
@@ -4328,7 +4328,7 @@
             "measurementUnit": "LT",
             "price": 8293,
             "quantity": 0,
-            "description": ""
+            "properties": "274"
         },
         {
             "SKU": "IMPABO0032",
@@ -4338,7 +4338,7 @@
             "measurementUnit": "BL",
             "price": 145000,
             "quantity": 0,
-            "description": ""
+            "properties": "275"
         },
         {
             "SKU": "IMPABO0033",
@@ -4348,7 +4348,7 @@
             "measurementUnit": "KG",
             "price": 5800,
             "quantity": 0,
-            "description": ""
+            "properties": "275"
         },
         {
             "SKU": "IMPALI0034",
@@ -4358,7 +4358,7 @@
             "measurementUnit": "TB",
             "price": 860000,
             "quantity": 0,
-            "description": ""
+            "properties": "276"
         },
         {
             "SKU": "IMPALI0035",
@@ -4368,7 +4368,7 @@
             "measurementUnit": "GF",
             "price": 83000,
             "quantity": 0,
-            "description": ""
+            "properties": "276"
         },
         {
             "SKU": "IMPALI0036",
@@ -4378,7 +4378,7 @@
             "measurementUnit": "GL",
             "price": 17500,
             "quantity": 0,
-            "description": ""
+            "properties": "276"
         },
         {
             "SKU": "IMPALI0037",
@@ -4388,7 +4388,7 @@
             "measurementUnit": "LT",
             "price": 6500,
             "quantity": 0,
-            "description": ""
+            "properties": "276"
         },
         {
             "SKU": "IMPALM0038",
@@ -4398,7 +4398,7 @@
             "measurementUnit": "GF",
             "price": 135200,
             "quantity": 0,
-            "description": ""
+            "properties": "277"
         },
         {
             "SKU": "IMPALM0039",
@@ -4408,7 +4408,7 @@
             "measurementUnit": "GL",
             "price": 27800,
             "quantity": 0,
-            "description": ""
+            "properties": "277"
         },
         {
             "SKU": "IMPALM0040",
@@ -4418,7 +4418,7 @@
             "measurementUnit": "LT",
             "price": 8800,
             "quantity": 0,
-            "description": ""
+            "properties": "277"
         },
         {
             "SKU": "IMPAMI0041",
@@ -4428,7 +4428,7 @@
             "measurementUnit": "GF",
             "price": 101000,
             "quantity": 0,
-            "description": ""
+            "properties": "278"
         },
         {
             "SKU": "IMPAMI0042",
@@ -4438,7 +4438,7 @@
             "measurementUnit": "GL",
             "price": 21200,
             "quantity": 0,
-            "description": ""
+            "properties": "278"
         },
         {
             "SKU": "IMPAMI0043",
@@ -4448,7 +4448,7 @@
             "measurementUnit": "LT",
             "price": 7500,
             "quantity": 0,
-            "description": ""
+            "properties": "278"
         },
         {
             "SKU": "IMPAAC0044",
@@ -4458,7 +4458,7 @@
             "measurementUnit": "GF",
             "price": 47200,
             "quantity": 0,
-            "description": ""
+            "properties": "279"
         },
         {
             "SKU": "IMPAAC0045",
@@ -4468,7 +4468,7 @@
             "measurementUnit": "GL",
             "price": 21596,
             "quantity": 0,
-            "description": ""
+            "properties": "279"
         },
         {
             "SKU": "IMPCLO0046",
@@ -4478,7 +4478,7 @@
             "measurementUnit": "BL",
             "price": 203500,
             "quantity": 0,
-            "description": ""
+            "properties": "280"
         },
         {
             "SKU": "IMPCLO0047",
@@ -4488,7 +4488,7 @@
             "measurementUnit": "LB",
             "price": 5200,
             "quantity": 0,
-            "description": ""
+            "properties": "280"
         },
         {
             "SKU": "IMPANI0048",
@@ -4498,7 +4498,7 @@
             "measurementUnit": "GF",
             "price": 34800,
             "quantity": 0,
-            "description": ""
+            "properties": "281"
         },
         {
             "SKU": "IMPANI0049",
@@ -4508,7 +4508,7 @@
             "measurementUnit": "GL",
             "price": 7400,
             "quantity": 0,
-            "description": ""
+            "properties": "281"
         },
         {
             "SKU": "IMPVDE0050",
@@ -4518,7 +4518,7 @@
             "measurementUnit": "GF",
             "price": 92500,
             "quantity": 0,
-            "description": ""
+            "properties": "282"
         },
         {
             "SKU": "IMPVDE0051",
@@ -4528,7 +4528,7 @@
             "measurementUnit": "GL",
             "price": 19500,
             "quantity": 0,
-            "description": ""
+            "properties": "282"
         },
         {
             "SKU": "IMPVDE0052",
@@ -4538,7 +4538,7 @@
             "measurementUnit": "LT",
             "price": 7000,
             "quantity": 0,
-            "description": ""
+            "properties": "282"
         },
         {
             "SKU": "IMPSOC0053",
@@ -4548,7 +4548,7 @@
             "measurementUnit": "BL",
             "price": 81500,
             "quantity": 0,
-            "description": ""
+            "properties": "283"
         },
         {
             "SKU": "IMPSOC0054",
@@ -4558,7 +4558,7 @@
             "measurementUnit": "KG",
             "price": 4200,
             "quantity": 0,
-            "description": ""
+            "properties": "283"
         },
         {
             "SKU": "IMPSOL0055",
@@ -4568,7 +4568,7 @@
             "measurementUnit": "GF",
             "price": 67250,
             "quantity": 0,
-            "description": ""
+            "properties": "284"
         },
         {
             "SKU": "IMPSOL0056",
@@ -4578,7 +4578,7 @@
             "measurementUnit": "GL",
             "price": 15500,
             "quantity": 0,
-            "description": ""
+            "properties": "284"
         },
         {
             "SKU": "IMPSUL0057",
@@ -4588,7 +4588,7 @@
             "measurementUnit": "BL",
             "price": 59500,
             "quantity": 0,
-            "description": ""
+            "properties": "285"
         },
         {
             "SKU": "IMPSUL0058",
@@ -4598,7 +4598,7 @@
             "measurementUnit": "KG",
             "price": 3000,
             "quantity": 0,
-            "description": ""
+            "properties": "285"
         },
         {
             "SKU": "IMPPAR0059",
@@ -4608,7 +4608,7 @@
             "measurementUnit": "GF",
             "price": 117500,
             "quantity": 0,
-            "description": ""
+            "properties": "286"
         },
         {
             "SKU": "IMPPAR0060",
@@ -4618,7 +4618,7 @@
             "measurementUnit": "GL",
             "price": 25800,
             "quantity": 0,
-            "description": ""
+            "properties": "286"
         },
         {
             "SKU": "IMPVAS0061",
@@ -4628,7 +4628,7 @@
             "measurementUnit": "GF",
             "price": 100000,
             "quantity": 0,
-            "description": ""
+            "properties": "287"
         },
         {
             "SKU": "IMPVAS0062",
@@ -4638,7 +4638,7 @@
             "measurementUnit": "GL",
             "price": 21500,
             "quantity": 0,
-            "description": ""
+            "properties": "287"
         }
     ]
 }
