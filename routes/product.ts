@@ -14,29 +14,6 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
   'classificator',
   'quantity',
   'properties',
-  'model',
-  'physicalAspect',
-  'smell',
-  'color',
-  'fragance',
-  'gravity',
-  'viscosity',
-  'solubility',
-  'flammable',
-  'density',
-  'ph',
-  'activeComponent',
-  'weight',
-  'refractionIndex',
-  'dilution',
-  'isToxic',
-  'paragraph1',
-  'paragraph2',
-  'paragraph3',
-  'paragraph4',
-  'stepTitle',
-  'steps',
-  'promoTitle',
 ]);
 
 router.get(
@@ -85,8 +62,6 @@ router.get(
           });
         });
       });
-
-    // res.send(`Data: ${req.params.price}`).status(200);
   },
 );
 

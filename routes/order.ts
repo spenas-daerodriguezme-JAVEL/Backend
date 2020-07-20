@@ -1,8 +1,10 @@
 import express from 'express';
 import _ from 'lodash';
-import Order from '../models/order';
-import adminAuth from '../middleware/adminAuth';
+import axios from 'axios';
 import auth from '../middleware/auth';
+import { Order } from '../models/order';
+import { Product } from '../models/product';
+import adminAuth from '../middleware/adminAuth';
 
 const router = express.Router();
 
@@ -10,6 +12,8 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
   'name',
   'lastName',
   'email',
+  'identificationType',
+  'identificationNumber',
   'telephone',
   'address',
   'city',
@@ -19,17 +23,86 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
 // router.get('/', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 
 // })
+router.get('/allOrders', async (req: express.Request, res: express.Response) => {
+  try {
+    const orders = await Order.find({});
+    res.status(200).send({
+      orders,
+    });
+  } catch (error) {
+    res.status(500);
+  }
+});
 
-// router.post('/', async (req: express.Request, res: express.Response) => {
+router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
+  try {
+    const orders = await Order.find({ 'user.identificationNumber': req.params.id });
+    res.status(200).send(orders);
+  } catch (error) {
+    res.status(500).send('There was an error retrieving the orders by id');
+  }
+});
 
-//   const products = req.body.products as any[];
-//   const findProduct: { [key: string]:any } = {};
-//   products.forEach((item) => {
-//     product =
-//   })
+router.post('/createOrder', async (req: express.Request, res: express.Response) => {
+  const products = req.body.products as any[];
+  const incompleteQtyProducts = [] as any[];
 
-//   let order = new Order({
-//     user: pickParams(req),
-//     products:
-//     })
-// })
+  try {
+    const checkedProducts = products.map(async (item) => {
+      const product = await Product.findById(item.productId);
+      if (!product) return new Error('Error in product');
+      if (product.quantity < item.qty) {
+        incompleteQtyProducts.push({
+          // eslint-disable-next-line no-underscore-dangle
+          productId: product._id,
+          qty: product.quantity,
+        });
+      }
+      return {
+        productId: item.productId,
+        qty: item.qty,
+      };
+    });
+    const productsContent = await Promise.all(checkedProducts);
+    if (incompleteQtyProducts.length !== 0) {
+      return res.status(202).send({
+        message: 'The following products doesnt have the required quantities',
+        products: incompleteQtyProducts,
+      });
+    }
+    const order = new Order({
+      user: pickParams(req),
+      products: productsContent,
+      totalPrice: req.body.totalPrice,
+      status: 'created',
+    });
+    const response = await order.save();
+    return res.status(200).send({
+      createdProduct: response,
+    });
+  } catch (error) {
+    return res.status(500).send('Error creating order');
+  }
+});
+
+router.get('/pay-test', async (req: express.Request, res: express.Response) => {
+  const respo = await axios.post('https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu', {
+    merchantId: 508029,
+    ApiKey: '4Vj8eK4rloUd272L48hsrarnUA',
+    referenceCode: 'TestPayU',
+    accountId: 512321,
+    description: 'Test PAYU',
+    amount: 3,
+    tax: 0,
+    taxReturnBase: 0,
+    currency: 'USD',
+    signature: 'ba9ffa71559580175585e45ce70b6c37',
+    test: 1,
+    buyerEmail: 'test@test.com',
+  });
+  // console.log(respo);
+  res.set('Content-Type', 'text/html').send(respo.data);
+});
+export default {
+  router,
+};

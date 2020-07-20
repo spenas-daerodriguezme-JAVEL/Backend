@@ -1,5 +1,6 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 import Joi from 'joi';
+import { Product } from './product';
 
 const orderSchema = new mongoose.Schema({
   user: {
@@ -10,7 +11,7 @@ const orderSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 50,
       },
-      lastname: {
+      lastName: {
         type: String,
         required: true,
         minlength: 5,
@@ -21,7 +22,6 @@ const orderSchema = new mongoose.Schema({
         required: true,
         minlength: 8,
         maxlength: 255,
-        unique: true,
       },
       telephone: {
         type: String,
@@ -46,6 +46,9 @@ const orderSchema = new mongoose.Schema({
       city: {
         type: String,
       },
+      status: {
+        type: String,
+      },
     }),
   },
 
@@ -63,8 +66,8 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-const Order = mongoose.model('Order', orderSchema);
+export const Order = mongoose.model('Order', orderSchema);
 
-export default {
-  Order,
-};
+// export default {
+//   Order,
+// };

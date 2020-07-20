@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 50,
   },
-  lastname: {
+  lastName: {
     type: String,
     required: true,
     minlength: 5,
@@ -37,6 +37,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
     minlength: 7,
+    unique: true,
   },
   address: {
     type: String,

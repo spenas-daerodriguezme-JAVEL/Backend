@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import Joi from 'joi';
 
-const descriptionSchema = new mongoose.Schema({
+const descriptionSchema = new Schema({
   _id: Number,
   description: String,
   physicalAspect: String,
@@ -31,3 +31,60 @@ const descriptionSchema = new mongoose.Schema({
 });
 
 export const Description = mongoose.model('Description', descriptionSchema);
+
+export const validate = (description: Schema) => {
+  const schema = {
+    _id: Joi.number()
+      .required(),
+    description: Joi.string()
+      .min(5)
+      .max(500),
+    physicalAspect: Joi.string()
+      .min(5)
+      .max(255),
+    smell: Joi.string()
+      .max(255),
+    color: Joi.string()
+      .max(255),
+    fragance: Joi.string()
+      .max(255),
+    gravity: Joi.string()
+      .max(255),
+    viscosity: Joi.string()
+      .max(255),
+    solubility: Joi.string()
+      .max(255),
+    flammable: Joi.string()
+      .max(255),
+    density: Joi.string()
+      .max(255),
+    ph: Joi.string()
+      .max(255),
+    activeComponent: Joi.string()
+      .max(255),
+    weight: Joi.string()
+      .max(255),
+    refractionIndex: Joi.string()
+      .max(255),
+    dilution: Joi.string()
+      .max(255),
+    isToxic: Joi.string()
+      .max(255),
+    paragraph1: Joi.string()
+      .max(500),
+    paragraph2: Joi.string()
+      .max(500),
+    paragraph3: Joi.string()
+      .max(500),
+    paragraph4: Joi.string()
+      .max(500),
+    stepTitle: Joi.string()
+      .max(500),
+    steps: Joi.string()
+      .max(500),
+    promoTitle: Joi.string()
+      .max(100),
+  };
+
+  return Joi.validate(description, schema);
+};

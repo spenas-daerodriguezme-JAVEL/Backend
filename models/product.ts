@@ -1,7 +1,18 @@
 import mongoose, { Schema } from 'mongoose';
 import Joi from 'joi';
 
-const productSchema = new mongoose.Schema({
+export interface IProduct extends Document {
+  SKU: string,
+  name: string,
+  businessLine: string,
+  capacity: string,
+  measurementUnit: string,
+  price: number,
+  quantity: number,
+  properties: number
+}
+
+const productSchema = new Schema({
   SKU: {
     type: String,
     required: true,
@@ -35,6 +46,7 @@ const productSchema = new mongoose.Schema({
 
 });
 
+// export const Product = mongoose.model<IProduct>('Product', productSchema);
 export const Product = mongoose.model('Product', productSchema);
 
 export const validate = (product: Schema) => {
@@ -48,7 +60,6 @@ export const validate = (product: Schema) => {
       .max(50)
       .required(),
     price: Joi.number().required(),
-    classificator: Joi.number().required(),
     model: Joi.string().required(),
   };
 
