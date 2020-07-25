@@ -49,7 +49,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
 
   try {
     const checkedProducts = products.map(async (item) => {
-      const product = await Product.findById(item.productId);
+      const product = await Product.findById(item.productId) as any;
       if (!product) return new Error('Error in product');
       if (product.quantity < item.qty) {
         incompleteQtyProducts.push({

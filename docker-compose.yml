@@ -6,6 +6,8 @@ services:
       - "3000:3000"
     depends_on:
       - mongo
+    environment:
+      DB_CONTAINER: 'mongo'
   mongo:
     image: mongo
     volumes:

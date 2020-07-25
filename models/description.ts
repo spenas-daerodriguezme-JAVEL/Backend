@@ -34,8 +34,7 @@ export const Description = mongoose.model('Description', descriptionSchema);
 
 export const validate = (description: Schema) => {
   const schema = {
-    _id: Joi.number()
-      .required(),
+    _id: Joi.number(),
     description: Joi.string()
       .min(5)
       .max(500),
@@ -71,19 +70,18 @@ export const validate = (description: Schema) => {
     isToxic: Joi.string()
       .max(255),
     paragraph1: Joi.string()
-      .max(500),
+      .max(2000),
     paragraph2: Joi.string()
-      .max(500),
+      .max(2000),
     paragraph3: Joi.string()
-      .max(500),
+      .max(2000),
     paragraph4: Joi.string()
-      .max(500),
+      .max(2000),
     stepTitle: Joi.string()
-      .max(500),
-    steps: Joi.string()
       .max(500),
     promoTitle: Joi.string()
       .max(100),
+    steps: Joi.array(),
   };
 
   return Joi.validate(description, schema);

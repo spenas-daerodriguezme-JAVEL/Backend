@@ -10,7 +10,7 @@ const router = express.Router();
 const pickParams = (req: express.Request, isPost: Boolean) => {
   const parameters = [
     'name',
-    'lastname',
+    'lastName',
     'email',
     'telephone',
     'address',
@@ -23,13 +23,15 @@ const pickParams = (req: express.Request, isPost: Boolean) => {
   return _.pick(req.body, parameters);
 };
 
-router.get('/me', auth, async (req: express.Request, res: express.Response) => {
+// router.get('/me', auth, async (req: express.Request, res: express.Response) => {
+router.get('/me', async (req: express.Request, res: express.Response) => {
   // eslint-disable-next-line no-underscore-dangle
   const user = await User.findById(req.body._id).select('-password');
   res.status(200).send(user);
 });
 
-router.get('/allUsers', [auth], async (req: express.Request, res: express.Response) => {
+// router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.get('/allUsers', async (req: express.Request, res: express.Response) => {
   try {
     const users = await User.find({});
     return res.status(200).send(users);
@@ -41,13 +43,13 @@ router.get('/allUsers', [auth], async (req: express.Request, res: express.Respon
   }
 });
 
-router.get('/userById', [auth], async (req: express.Request, res: express.Response) => {
-  const { parameters } = req.body;
+// router.get('/userById/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.get('/userById/:identificationNumber', async (req: express.Request, res: express.Response) => {
   try {
-    const user = User.find({
-      identificationType: parameters.identificatonType,
+    const user = await User.find({
+      identificationNumber: req.params.identificationNumber,
     });
-    if (!user) return res.status(404).send('User not found');
+    if (user.length === 0) return res.status(404).send('User not found');
     return res.status(200).send(user);
   } catch (error) {
     return res.status(500).send({
@@ -64,6 +66,10 @@ router.post('/', async (req: express.Request, res: express.Response) => {
   try {
     let user = (await User.findOne({ email: req.body.email })) as any;
     if (user) return res.status(400).send('User already registered.');
+
+    const userById = await User.findOne({ identificationNumber: req.body.identificationNumber });
+    if (userById) return res.status(400).send('Identification Number cannot be duplicate.');
+
     user = new User(
       pickParams(req, true),
     );
@@ -76,47 +82,109 @@ router.post('/', async (req: express.Request, res: express.Response) => {
     res
       .header('x-auth-token', token)
       .send({ ..._.pick(user, ['_id', 'name', 'email']), token });
-  } catch (error) {
+  } catch (errorMessage) {
     return res.status(500).send({
       message: 'There was an error creating user',
-      error,
+      errorMessage,
     });
   }
 });
 
 router.put('/', auth, async (req: express.Request, res: express.Response) => {
+// router.put('/', async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
-  // eslint-disable-next-line no-underscore-dangle
-  const userId = (req as express.JRequest).user._id;
-
-  const user = await User.findByIdAndUpdate(userId, pickParams(req, false));
-
-  if (!user) return res.status(404).send('The user cannot be found');
-
-  return res.status(204).send({
-    message: 'Updated succesfully',
-  });
+  try {
+    // eslint-disable-next-line no-underscore-dangle
+    const userId = (req as express.JRequest).user._id;
+    console.log(userId);
+    const user = await User.findByIdAndUpdate(userId, pickParams(req, false));
+    if (!user) return res.status(404).send('The user cannot be found');
+    return res.status(200).send({
+      message: 'Updated succesfully',
+    });
+  } catch (errorMessage) {
+    return res.status(500).send({
+      message: 'There was an error updating user',
+      errorMessage,
+    });
+  }
 });
 
 router.put('/deactivate', auth, async (req: express.Request, res: express.Response) => {
+  // router.put('/deactivate', async (req: express.Request, res: express.Response) => {
   // eslint-disable-next-line no-underscore-dangle
   const userId = (req as express.JRequest).user._id;
-  const user = await User.findByIdAndUpdate(userId, {
-    isActive: false,
-  });
-
-  if (!user) return res.status(404).send('The user cannot be found');
-
-  return res.status(204).send('User deactivated succesfully');
+  try {
+    const user = await User.findByIdAndUpdate(userId, {
+      isActive: false,
+    });
+    if (!user) return res.status(404).send('The user cannot be found');
+    return res.status(204).send('User deactivated succesfully');
+  } catch (error) {
+    return res.status(500).send({
+      message: 'There was an error deactivating user',
+      error,
+    });
+  }
 });
 
-router.delete('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-  const user = await User.findByIdAndDelete(req.params.id);
+// router.put('/deactivate/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.put('/deactivate/:id', async (req: express.Request, res: express.Response) => {
+  // eslint-disable-next-line no-underscore-dangle
+  const userId = req.params.id;
+  try {
+    const user = await User.findByIdAndUpdate(userId, {
+      isActive: false,
+    });
+    if (!user) return res.status(404).send('The user cannot be found');
+    return res.status(204).send('User deactivated succesfully');
+  } catch (error) {
+    return res.status(500).send({
+      message: 'There was an error deactivating user',
+      error,
+    });
+  }
+});
+// router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.put('/:id', async (req: express.Request, res: express.Response) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  // eslint-disable-next-line no-underscore-dangle
+  const userId = req.params.id;
 
-  if (!user) return res.status(404).send('The user cannot be found');
+  try {
+    const user = await User.findByIdAndUpdate(userId, pickParams(req, false));
+    if (!user) return res.status(404).send('The user cannot be found');
+    return res.status(204).send({
+      message: 'Updated succesfully',
+    });
+  } catch (errorMessage) {
+    if (errorMessage.codeName === 'DuplicateKey') {
+      return res.status(400).send({
+        message: 'Email already in use. Cannot be duplicate',
+        errorMessage,
+      });
+    }
+    return res.status(500).send({
+      message: 'There was an error updating user',
+      errorMessage,
+    });
+  }
+});
 
-  res.status(204).send('User deleted succesfully');
+// router.delete('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.delete('/:id', async (req: express.Request, res: express.Response) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) return res.status(404).send('The user cannot be found');
+    return res.status(204).send('User deleted succesfully');
+  } catch (error) {
+    return res.status(500).send({
+      message: 'There was an error deleting user',
+      error,
+    });
+  }
 });
 
 export default {
