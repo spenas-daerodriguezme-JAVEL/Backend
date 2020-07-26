@@ -35,11 +35,11 @@ router.get('/allDescriptions', async (req: express.Request, res: express.Respons
   try {
     let from: any = req.query.from || 0;
     from = Number(from * 11);
-    const descriptions = Description.find({}).skip(from).limit(11);
-    const numDescriptions = Description.countDocuments({});
+    const descriptions = await Description.find({}).skip(from).limit(11).exec();
+    const numDescriptions = await Description.countDocuments({});
     res.status(200).send({
       descriptions,
-      pages: Math.ceil(await numDescriptions / 11),
+      pages: Math.ceil(numDescriptions / 11),
     });
   } catch (error) {
     res.status(500);
