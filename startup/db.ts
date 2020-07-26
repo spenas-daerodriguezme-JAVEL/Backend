@@ -8,6 +8,7 @@ if (process.env.APP_ENV === 'prod') {
 }
 
 console.log(stringConnection);
+console.log(process.env.APP_ENV);
 
 export default () => {
   mongoose
