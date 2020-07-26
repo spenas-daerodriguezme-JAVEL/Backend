@@ -66,9 +66,11 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.generateAuthToken = function () {
+  const key = process.env.JWT_KEY as string;
   const token = jwt.sign(
+    // eslint-disable-next-line no-underscore-dangle
     { _id: this._id, isAdmin: this.isAdmin },
-    'casa',
+    key,
     { expiresIn: '2h' },
   );
   return token;
