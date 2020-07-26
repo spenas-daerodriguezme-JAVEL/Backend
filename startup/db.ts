@@ -7,6 +7,8 @@ if (process.env.APP_ENV === 'prod') {
   stringConnection = 'mongodb://localhost:27017/javel';
 }
 
+console.log(stringConnection);
+
 export default () => {
   mongoose
     .connect(stringConnection, {

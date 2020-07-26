@@ -12,6 +12,7 @@ services:
       - MONGODB_DATABASE=$MONGODB_DATABASE
       - MONGODB_USERNAME=$MONGODB_USERNAME
       - MONGODB_PASSWORD=$MONGODB_PASSWORD
+      - JWT_KEY=$JWT_KEY
 
   mongo:
     image: mongo
