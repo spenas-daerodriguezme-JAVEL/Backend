@@ -6,10 +6,14 @@ services:
       - "3000:3000"
     depends_on:
       - mongo
-    environment:
-      DB_CONTAINER: 'mongo'
+    env_file:
+      - .env
   mongo:
     image: mongo
+    restart: always
+    command: mongod
+    env_file:
+      - .env 
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb

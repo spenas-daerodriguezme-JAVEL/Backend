@@ -1,3 +1,4 @@
 node_modules/
 images/product
 package-lock.json
+.env
