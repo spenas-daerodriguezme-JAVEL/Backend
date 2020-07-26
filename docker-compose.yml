@@ -6,14 +6,21 @@ services:
       - "3000:3000"
     depends_on:
       - mongo
-    env_file:
-      - .env
+    environment:
+      - APP_ENV=$APP_ENV
+      - DB_CONTAINER=$DB_CONTAINER
+      - MONGODB_DATABASE=$MONGODB_DATABASE
+      - MONGODB_USERNAME=$MONGODB_USERNAME
+      - MONGODB_PASSWORD=$MONGODB_PASSWORD
+
   mongo:
     image: mongo
     restart: always
     command: mongod
-    env_file:
-      - .env 
+    environment:
+      - MONGODB_DATABASE=$MONGODB_DATABASE
+      - MONGODB_USERNAME=$MONGODB_USERNAME
+      - MONGODB_PASSWORD=$MONGODB_PASSWORD 
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb
