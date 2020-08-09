@@ -21,7 +21,8 @@ services:
     environment:
       - MONGODB_DATABASE=$MONGODB_DATABASE
       - MONGODB_USERNAME=$MONGODB_USERNAME
-      - MONGODB_PASSWORD=$MONGODB_PASSWORD 
+      - MONGODB_PASSWORD=$MONGODB_PASSWORD
+    command: [--auth] 
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb
