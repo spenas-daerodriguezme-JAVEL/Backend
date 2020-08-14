@@ -1,14 +1,30 @@
 import express from 'express';
+import fs from 'fs';
 import fileUpload, { UploadedFile } from 'express-fileupload';
 // import  Product  from "../models/product";
 // import  User  from "../models/user";
-import fs from 'fs';
 import path from 'path';
+import { func } from 'joi';
 import { Description } from '../models/description';
 
 const router = express();
 
 router.use(fileUpload());
+
+function checkIfExists(filePath: string): boolean {
+  if (fs.existsSync(filePath)) {
+    return true;
+  }
+  return false;
+}
+
+function folderExists(filePath: string): boolean {
+  if (fs.existsSync(filePath)) {
+    return true;
+  }
+  fs.mkdirSync(filePath);
+  return false;
+}
 
 router.post('/upload/image/:id', async (req: express.Request, res: express.Response) => {
   const { id } = req.params;
@@ -28,6 +44,8 @@ router.post('/upload/image/:id', async (req: express.Request, res: express.Respo
   const indexes = [];
   try {
     let imagesReturn = [];
+    let filePath = `images/product/${id}`;
+    folderExists(filePath);
     // There are several images, images represent an array and we have to iterate
     if (images.length !== undefined) {
       for (let index = 0; index < images.length; index += 1) {
@@ -46,13 +64,16 @@ router.post('/upload/image/:id', async (req: express.Request, res: express.Respo
               },
             });
         }
-        const filePath = `images/product/${currentImage.name}`;
-        await currentImage.mv(filePath);
+        filePath = `images/product/${id}/${currentImage.name}`;
+        if (!checkIfExists(filePath)) {
+          await currentImage.mv(filePath);
+        }
         return filePath;
       });
       imagesReturn = await Promise.all(imagesPath);
-    } else { // There is only one image thus images is an object not an array
-      const filePath = `images/product/${images.name}`;
+    } else {
+      // There is only one image thus images is an object not an array
+      filePath = `images/product/${id}/${images.name}`;
       await images.mv(filePath);
       imagesReturn.push(filePath);
     }
