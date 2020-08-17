@@ -1,6 +1,7 @@
 import express from 'express';
 import fs from 'fs';
-import fileUpload, { UploadedFile } from 'express-fileupload';
+import fileUpload from 'express-fileupload';
+import sharp from 'sharp';
 // import  Product  from "../models/product";
 // import  User  from "../models/user";
 import path from 'path';
@@ -71,6 +72,17 @@ router.post('/upload/image/:id', async (req: express.Request, res: express.Respo
         return filePath;
       });
       imagesReturn = await Promise.all(imagesPath);
+      console.log(imagesReturn);
+      imagesReturn.forEach(async (imagename) => {
+        console.log(imagename);
+        const aja = imagename as string;
+        const name = aja.split('/')[3];
+        console.log(name);
+        await sharp(aja, { failOnError: true })
+          .resize(64, 64)
+          .withMetadata()
+          .toFile(`images/product/${id}/thumbnail-${name}`);
+      });
     } else {
       // There is only one image thus images is an object not an array
       filePath = `images/product/${id}/${images.name}`;
@@ -82,6 +94,7 @@ router.post('/upload/image/:id', async (req: express.Request, res: express.Respo
       return res.status(404).send('Description not found');
     }
     // search if the image already exists
+    console.log(imagesReturn);
     const unionArray = [...new Set([...imagesReturn, ...currentDescription.images])];
     const updatedDescription = await Description.findByIdAndUpdate(id, {
       images: unionArray,
