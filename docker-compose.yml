@@ -13,6 +13,9 @@ services:
       - MONGODB_USERNAME=$MONGODB_USERNAME
       - MONGODB_PASSWORD=$MONGODB_PASSWORD
       - JWT_KEY=$JWT_KEY
+      - SMTP_USER=$SMTP_USER
+      - SMTP_PWD=$SMTP_PWD
+      - SMTP_SERVER=$SMTP_SERVER
 
   mongo:
     image: mongo

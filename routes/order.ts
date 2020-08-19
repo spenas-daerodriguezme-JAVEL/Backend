@@ -5,6 +5,7 @@ import auth from '../middleware/auth';
 import { Order } from '../models/order';
 import { Product } from '../models/product';
 import adminAuth from '../middleware/adminAuth';
+import { transport } from '../startup/mailer';
 
 const router = express.Router();
 
@@ -77,8 +78,15 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
       status: 'created',
     });
     const response = await order.save();
+    const mail = await transport.sendMail({
+      from: process.env.SMTP_USER,
+      to: ['spenas@unal.edu.co'],
+      subject: 'servertest',
+      text: 'hola',
+    });
     return res.status(200).send({
       createdProduct: response,
+      mail,
     });
   } catch (error) {
     return res.status(500).send('Error creating order');
