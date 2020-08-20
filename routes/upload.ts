@@ -45,7 +45,7 @@ router.post('/upload/image/:id', async (req: express.Request, res: express.Respo
   const indexes = [];
   try {
     let imagesReturn = [];
-    let filePath = `images/product/${id}`;
+    let filePath = `assets/images/description/${id}`;
     folderExists(filePath);
     // There are several images, images represent an array and we have to iterate
     if (images.length !== undefined) {
@@ -65,7 +65,7 @@ router.post('/upload/image/:id', async (req: express.Request, res: express.Respo
               },
             });
         }
-        filePath = `images/product/${id}/${currentImage.name}`;
+        filePath = `assets/images/description/${id}/${currentImage.name}`;
         if (!checkIfExists(filePath)) {
           await currentImage.mv(filePath);
         }
@@ -81,11 +81,11 @@ router.post('/upload/image/:id', async (req: express.Request, res: express.Respo
         await sharp(aja, { failOnError: true })
           .resize(64, 64)
           .withMetadata()
-          .toFile(`images/product/${id}/thumbnail-${name}`);
+          .toFile(`assets/images/description/${id}/thumbnail-${name}`);
       });
     } else {
       // There is only one image thus images is an object not an array
-      filePath = `images/product/${id}/${images.name}`;
+      filePath = `assets/images/description/${id}/${images.name}`;
       await images.mv(filePath);
       imagesReturn.push(filePath);
     }

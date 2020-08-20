@@ -1,5 +1,5 @@
 node_modules/
-images/product
+assets/images/description
 package-lock.json
 .env
 *.cmd
