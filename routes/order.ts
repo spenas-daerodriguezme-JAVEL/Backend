@@ -1,6 +1,9 @@
 import express from 'express';
 import _ from 'lodash';
 import axios from 'axios';
+import Handlebars from 'handlebars';
+import path from 'path';
+import fs from 'fs';
 import auth from '../middleware/auth';
 import { Order } from '../models/order';
 import { Product } from '../models/product';
@@ -71,25 +74,37 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
         products: incompleteQtyProducts,
       });
     }
+    let newOrderId = await Order.countDocuments({}) as number;
+    newOrderId += 1;
     const order = new Order({
+      _id: newOrderId,
       user: pickParams(req),
       products: productsContent,
       totalPrice: req.body.totalPrice,
       status: 'created',
     });
     const response = await order.save();
-    const mail = await transport.sendMail({
-      from: process.env.SMTP_USER,
-      to: ['spenas@unal.edu.co'],
-      subject: 'servertest',
-      text: 'hola',
-    });
+
+    // const file = fs.readFileSync(path.resolve('./assets/emails/order/order.hbs'), 'utf-8').toString();
+    // const template = Handlebars.compile(file);
+    // const result = template({
+    //   bobba: 'Davif',
+    // });
+    // const mail = await transport.sendMail({
+    //   from: process.env.SMTP_USER,
+    //   to: ['spenas@unal.edu.co'],
+    //   subject: 'servertest',
+    //   html: result,
+    // });
     return res.status(200).send({
       createdProduct: response,
-      mail,
+      // mail,
     });
   } catch (error) {
-    return res.status(500).send('Error creating order');
+    return res.status(500).send({
+      message: 'Error creating order',
+      error,
+    });
   }
 });
 

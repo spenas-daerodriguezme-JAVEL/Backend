@@ -1,8 +1,9 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import Joi from 'joi';
+import Joi, { number } from 'joi';
 import { Product } from './product';
 
 const orderSchema = new mongoose.Schema({
+  _id: Number,
   user: {
     type: new mongoose.Schema({
       name: {
@@ -59,7 +60,10 @@ const orderSchema = new mongoose.Schema({
       required: true,
     },
   }],
-
+  archived: {
+    type: Boolean,
+    default: false,
+  },
   totalPrice: {
     type: Number,
     required: true,
