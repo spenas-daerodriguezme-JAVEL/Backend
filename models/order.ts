@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import Joi, { number } from 'joi';
+import Joi, { number, string } from 'joi';
 import { Product } from './product';
 
 const orderSchema = new mongoose.Schema({
@@ -59,6 +59,17 @@ const orderSchema = new mongoose.Schema({
       type: Number,
       required: true,
     },
+    price: {
+      type: Number,
+      required: true,
+    },
+    productName: {
+      type: String,
+    },
+    capacity: {
+      type: String,
+    },
+    images: Array,
   }],
   archived: {
     type: Boolean,

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import express from 'express';
 import _ from 'lodash';
 import axios from 'axios';
@@ -7,6 +8,7 @@ import fs from 'fs';
 import auth from '../middleware/auth';
 import { Order } from '../models/order';
 import { Product } from '../models/product';
+import { Description } from '../models/description';
 import adminAuth from '../middleware/adminAuth';
 import { transport } from '../startup/mailer';
 
@@ -55,6 +57,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
     const checkedProducts = products.map(async (item) => {
       const product = await Product.findById(item.productId) as any;
       if (!product) return new Error('Error in product');
+      const description = await Description.findById(product.properties) as any;
       if (product.quantity < item.qty) {
         incompleteQtyProducts.push({
           // eslint-disable-next-line no-underscore-dangle
@@ -64,7 +67,11 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
       }
       return {
         productId: item.productId,
+        productName: product.name,
         qty: item.qty,
+        images: description.images,
+        price: product.price,
+        capacity: product.capacity,
       };
     });
     const productsContent = await Promise.all(checkedProducts);
@@ -84,28 +91,87 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
       status: 'created',
     });
     const response = await order.save();
-
-    // const file = fs.readFileSync(path.resolve('./assets/emails/order/order.hbs'), 'utf-8').toString();
-    // const template = Handlebars.compile(file);
-    // const result = template({
-    //   bobba: 'Davif',
-    // });
-    // const mail = await transport.sendMail({
-    //   from: process.env.SMTP_USER,
-    //   to: ['spenas@unal.edu.co'],
-    //   subject: 'servertest',
-    //   html: result,
-    // });
     return res.status(200).send({
-      createdProduct: response,
-      // mail,
+      createdOrder: response,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).send({
       message: 'Error creating order',
       error,
     });
   }
+});
+
+function generateMailInfo(order:any) : any {
+  let cid = 1;
+  const attachments = [{
+    filename: 'logo',
+    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    cid: cid.toString(),
+  }];
+  // eslint-disable-next-line max-len
+  const productsList: { name: any; qty: number; price: number; cid: number; capacity: number }[] = [];
+  // eslint-disable-next-line max-len
+  order.products.forEach((product: { productName: any; qty: number; price: number; images:Array<string>; capacity: number }) => {
+    cid += 1;
+    let image = '';
+    if (product.images.length === 0) {
+      image = path.resolve('./assets/images/aguadejavel_logo.png');
+    } else {
+      image = path.resolve(product.images[0]);
+    }
+    productsList.push({
+      name: product.productName,
+      qty: product.qty,
+      price: product.price * product.qty,
+      cid,
+      capacity: product.capacity,
+    });
+    attachments.push({
+      filename: product.productName,
+      path: image,
+      cid: cid.toString(),
+    });
+  });
+  return { attachments, products: productsList };
+}
+
+router.put('/updateStatus/:id', async (req: express.Request, res: express.Response) => {
+  try {
+    const id = req.params.id as any;
+    const order = await Order.findById(id) as any;
+
+    // read template
+    const file = fs.readFileSync(path.resolve('./assets/emails/order.hbs'), 'utf-8').toString();
+    const { attachments, products } = generateMailInfo(order);
+    const template = Handlebars.compile(file);
+    const result = template({
+      name: order.user.name,
+      products,
+    });
+    const mail = await transport.sendMail({
+      from: process.env.SMTP_USER,
+      to: ['spenas@unal.edu.co'],
+      subject: `Confirmación de pedido #${order._id}`,
+      html: result,
+      attachments,
+    });
+    return res.status(200).send({
+      order,
+      mail,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      error,
+    });
+  }
+});
+
+router.post('aja', async (req: express.Request, res: express.Response) => {
+  console.log(req.body);
+  return res.status(200);
 });
 
 router.get('/pay-test', async (req: express.Request, res: express.Response) => {
