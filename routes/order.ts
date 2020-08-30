@@ -170,7 +170,7 @@ router.put('/updateStatus/:id', async (req: express.Request, res: express.Respon
 });
 
 router.post('/aja', async (req: express.Request, res: express.Response) => {
-  console.log(req.body);
+  console.log(req);
   return res.status(200);
 });
 
