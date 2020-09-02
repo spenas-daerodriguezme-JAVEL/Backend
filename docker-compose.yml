@@ -17,7 +17,7 @@ services:
       - SMTP_USER=$SMTP_USER
       - SMTP_PWD=$SMTP_PWD
       - SMTP_SERVER=$SMTP_SERVER
-
+      - SHP_KEY=$SHP_KEY
   mongo:
     image: mongo
     restart: always

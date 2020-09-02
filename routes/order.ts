@@ -5,6 +5,7 @@ import axios from 'axios';
 import Handlebars from 'handlebars';
 import path from 'path';
 import fs from 'fs';
+import md5 from 'md5';
 import auth from '../middleware/auth';
 import { Order } from '../models/order';
 import { Product } from '../models/product';
@@ -88,11 +89,16 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
       user: pickParams(req),
       products: productsContent,
       totalPrice: req.body.totalPrice,
-      status: 'created',
+      dateCreated: Date.now(),
+      status: 'PENDING',
     });
+    const apiKey = process.env.SHP_KEY;
+    const merchantId = process.env.MERCHANT_ID;
+    const signature = md5(`${apiKey}~${merchantId}~${order._id}~${req.body.totalPrice}~COP`);
     const response = await order.save();
     return res.status(200).send({
       createdOrder: response,
+      signature,
     });
   } catch (error) {
     console.log(error);
@@ -169,9 +175,59 @@ router.put('/updateStatus/:id', async (req: express.Request, res: express.Respon
   }
 });
 
-router.post('/aja', async (req: express.Request, res: express.Response) => {
-  console.log(req);
-  res.status(200).send({});
+router.post('/confirmTransaction', async (req: express.Request, res: express.Response) => {
+  try {
+    let updatedOrder;
+    if (!req.body) throw new Error('No ha llegado body');
+    const orderId = req.body.reference_sale;
+    if (req.body.state_pol === 1) {
+      const order = await Order.findById(orderId) as any;
+
+      // read template
+      const file = fs.readFileSync(path.resolve('./assets/emails/order.hbs'), 'utf-8').toString();
+      const { attachments, products } = generateMailInfo(order);
+      const template = Handlebars.compile(file);
+      const result = template({
+        name: order.user.name,
+        products,
+      });
+      const mail = await transport.sendMail({
+        from: process.env.SMTP_USER,
+        to: ['spenas@unal.edu.co'],
+        subject: `Confirmación de pedido #${order._id}`,
+        html: result,
+        attachments,
+      });
+      updatedOrder = await Order.findByIdAndUpdate(orderId, {
+        status: 'APPROVED',
+        dateUpdated: req.body.transaction_date,
+      });
+      return res.status(200).send({
+        updatedOrder,
+        mail,
+      });
+    }
+
+    if (req.body.state_pol === 6) {
+      updatedOrder = await Order.findByIdAndUpdate(orderId, {
+        status: 'DECLINED',
+        dateUpdated: req.body.transaction_date,
+      });
+    }
+    if (req.body.state_pol === 104) {
+      updatedOrder = await Order.findByIdAndUpdate(orderId, {
+        status: 'ERROR',
+        dateUpdated: req.body.transaction_date,
+      });
+    }
+    return res.status(400).send({
+      updatedOrder,
+    });
+  } catch (error) {
+    return res.status(500).send({
+      error,
+    });
+  }
 });
 
 router.get('/pay-test', async (req: express.Request, res: express.Response) => {

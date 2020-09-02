@@ -1,7 +1,11 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import _ from 'lodash';
+import Handlebars from 'handlebars';
+import path from 'path';
+import fs from 'fs';
 import { User, validate } from '../models/user';
+import { transport } from '../startup/mailer';
 import auth from '../middleware/auth';
 import adminAuth from '../middleware/adminAuth';
 
@@ -76,13 +80,33 @@ router.post('/', async (req: express.Request, res: express.Response) => {
 
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
-    await user.save();
 
+    const attachments = [{
+      filename: 'logo',
+      path: path.resolve('./assets/images/aguadejavel_logo.png'),
+      cid: '1',
+    }] as any;
+    // read template
+    const file = fs.readFileSync(path.resolve('./assets/emails/new_user.hbs'), 'utf-8').toString();
+    const template = Handlebars.compile(file);
+    const result = template({
+      name: user.name,
+    });
+    const mail = await transport.sendMail({
+      from: process.env.SMTP_USER,
+      to: [`${user.email}`],
+      subject: 'Bienvenido a Agua de Javel',
+      html: result,
+      attachments,
+    });
+
+    await user.save();
     const token = user.generateAuthToken();
     res
       .header('x-auth-token', token)
-      .send({ ..._.pick(user, ['_id', 'name', 'email']), token });
+      .send({ ..._.pick(user, ['_id', 'name', 'email']), token, mail });
   } catch (errorMessage) {
+    console.log(errorMessage);
     return res.status(500).send({
       message: 'There was an error creating user',
       errorMessage,
