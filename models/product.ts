@@ -9,6 +9,7 @@ export interface IProduct extends Document {
   measurementUnit: string,
   price: number,
   quantity: number,
+  position: Number,
   properties: number
 }
 
@@ -41,6 +42,7 @@ const productSchema = new Schema({
     type: Number,
     required: true,
   },
+  position: Number,
   quantity: Number,
   properties: { type: Number, ref: 'Description' },
 

@@ -30,15 +30,24 @@ const pickParams = (req: express.Request, isPost: Boolean) => {
 // router.get('/me', auth, async (req: express.Request, res: express.Response) => {
 router.get('/me', async (req: express.Request, res: express.Response) => {
   // eslint-disable-next-line no-underscore-dangle
-  const user = await User.findById(req.body._id).select('-password');
+  const id = req.header('id');
+  if (!id) return res.status(400);
+  const user = await User.findById(id).select('-password');
   res.status(200).send(user);
 });
 
 // router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 router.get('/allUsers', async (req: express.Request, res: express.Response) => {
   try {
-    const users = await User.find({});
-    return res.status(200).send(users);
+    const users = await User.find({}) as any;
+    const returnUsers = users.map((user:any) => ({
+      // eslint-disable-next-line no-underscore-dangle
+      id: user._id,
+      name: `${user.name} ${user.lastName}`,
+      idNumber: user.identificationNumber,
+
+    }));
+    return res.status(200).send(returnUsers);
   } catch (error) {
     return res.status(500).send({
       message: 'There was an error retrieving users',
@@ -54,6 +63,20 @@ router.get('/userById/:identificationNumber', async (req: express.Request, res: 
       identificationNumber: req.params.identificationNumber,
     });
     if (user.length === 0) return res.status(404).send('User not found');
+    return res.status(200).send(user);
+  } catch (error) {
+    return res.status(500).send({
+      message: 'There was an error retirving user',
+      error,
+    });
+  }
+});
+
+// router.get('/userById/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.get('/:id', async (req: express.Request, res: express.Response) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (user === null) return res.status(404).send('User not found');
     return res.status(200).send(user);
   } catch (error) {
     return res.status(500).send({

@@ -10,6 +10,7 @@ import auth from '../middleware/auth';
 import { Order } from '../models/order';
 import { Product } from '../models/product';
 import { Description } from '../models/description';
+import { User } from '../models/user';
 import adminAuth from '../middleware/adminAuth';
 import { transport } from '../startup/mailer';
 
@@ -32,9 +33,17 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
 // })
 router.get('/allOrders', async (req: express.Request, res: express.Response) => {
   try {
-    const orders = await Order.find({});
+    const orders = await Order.find({}) as any;
+    const ordersToReturn = orders.map((order: any) => ({
+      id: order._id,
+      publicId: order.publicId,
+      userIdentification: order.user.identificationNumber,
+      price: order.totalPrice,
+      date: order.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
+      status: order.status,
+    }));
     res.status(200).send({
-      orders,
+      ordersToReturn,
     });
   } catch (error) {
     res.status(500);
@@ -43,10 +52,39 @@ router.get('/allOrders', async (req: express.Request, res: express.Response) => 
 
 router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
   try {
-    const orders = await Order.find({ 'user.identificationNumber': req.params.id });
-    res.status(200).send(orders);
+    const orders = await Order.findById(req.params.id) as any;
+    // const orders = await Order.find({ 'user.identificationNumber': req.params.id }) as any;
+    const ordersToReturn = orders.map((order: any) => ({
+      id: order._id,
+      publicId: order.publicId,
+      price: order.totalPrice,
+      date: order.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
+      status: order.status,
+    }));
+    res.status(200).send(ordersToReturn);
   } catch (error) {
     res.status(500).send('There was an error retrieving the orders by id');
+  }
+});
+
+router.get('/byUserId/:id', async (req: express.Request, res: express.Response) => {
+  try {
+    const user = await User.findById(req.params.id) as any;
+    if (user === null) return res.status(404);
+    const orders = await Order.find({
+      'user.identificationNumber': user.identificationNumber,
+    });
+    const ordersToReturn = orders.map((order: any) => ({
+      id: order._id,
+      publicId: order.publicId,
+      price: order.totalPrice,
+      date: order.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
+      status: order.status,
+      userIdentification: order.user.identificationNumber,
+    }));
+    return res.status(200).send(ordersToReturn);
+  } catch (error) {
+    return res.status(500);
   }
 });
 
@@ -77,19 +115,21 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
     });
     const productsContent = await Promise.all(checkedProducts);
     if (incompleteQtyProducts.length !== 0) {
-      return res.status(202).send({
+      return res.status(400).send({
         message: 'The following products doesnt have the required quantities',
         products: incompleteQtyProducts,
       });
     }
-    let newOrderId = await Order.countDocuments({}) as number;
-    newOrderId += 1;
+    let newPublicId = await Order.countDocuments({}) as number;
+    newPublicId += 1;
+    const dateCreated = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString();
+    console.log(dateCreated);
     const order = new Order({
-      _id: newOrderId,
+      publicId: newPublicId,
       user: pickParams(req),
       products: productsContent,
       totalPrice: req.body.totalPrice,
-      dateCreated: Date.now(),
+      dateCreated,
       status: 'PENDING',
     });
     const apiKey = process.env.SHP_KEY;
@@ -98,6 +138,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
     const response = await order.save();
     return res.status(200).send({
       createdOrder: response,
+      merchantId,
       signature,
     });
   } catch (error) {

@@ -3,7 +3,7 @@ import Joi, { number, string } from 'joi';
 import { Product } from './product';
 
 const orderSchema = new mongoose.Schema({
-  _id: Number,
+  publicId: Number,
   user: {
     type: new mongoose.Schema({
       name: {

@@ -31,16 +31,36 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
   'promoTitle',
 ]);
 
+// router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
 router.get('/allDescriptions', async (req: express.Request, res: express.Response) => {
   try {
-    let from: any = req.query.from || 0;
-    from = Number(from * 11);
-    const descriptions = await Description.find({}).skip(from).limit(11).exec();
-    const numDescriptions = await Description.countDocuments({});
-    res.status(200).send({
-      descriptions,
-      pages: Math.ceil(numDescriptions / 11),
-    });
+    // const descriptions = await Description.find({}).skip(from).limit(11).exec();
+    const descriptions = await Description.find({}) as any;
+    // const numDescriptions = await Description.countDocuments({});
+    const descriptionsToReturn = descriptions.map((description: any) => ({
+      // eslint-disable-next-line no-underscore-dangle
+      id: description._id,
+      physicalAspect: description.physicalAspect,
+      smell: description.smell,
+      color: description.color,
+    }));
+    res.status(200).send(
+      descriptionsToReturn,
+      // pages: Math.ceil(numDescriptions / 11),
+    );
+  } catch (error) {
+    res.status(500);
+  }
+});
+
+router.get('/:id', async (req: express.Request, res: express.Response) => {
+  try {
+    const { id } = req.params;
+    const description = await Description.findById(id) as any;
+    if (description === null) return res.send(404);
+    res.status(200).send(
+      description,
+    );
   } catch (error) {
     res.status(500);
   }

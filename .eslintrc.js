@@ -20,5 +20,6 @@ module.exports = {
     'prefer-default-export': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'no-underscore-dangle': 'off',
   },
 };

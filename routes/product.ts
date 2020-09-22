@@ -111,6 +111,37 @@ router.get('/businesslinelist', (req: express.Request, res: express.Response) =>
 });
 
 // router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
+router.get('/allProducts', async (req: express.Request, res: express.Response) => {
+  try {
+    const products = await Product.find({}) as any;
+    const productsToReturn = products.map((product: any) => ({
+      SKU: product.SKU,
+      name: product.name,
+      link: product._id,
+      capacity: product.capacity,
+
+    }));
+    return res.status(200).send(productsToReturn);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
+  }
+});
+
+// router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
+router.get('/:id', async (req: express.Request, res: express.Response) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id) as any;
+    if (product === null) return res.status(404);
+    return res.status(200).send(product);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
+  }
+});
+
+// router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
 router.post('/', async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
