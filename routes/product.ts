@@ -119,6 +119,7 @@ router.get('/allProducts', async (req: express.Request, res: express.Response) =
       name: product.name,
       link: product._id,
       capacity: product.capacity,
+      position: product.position,
 
     }));
     return res.status(200).send(productsToReturn);
@@ -132,7 +133,7 @@ router.get('/allProducts', async (req: express.Request, res: express.Response) =
 router.get('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
-    const product = await Product.findById(id) as any;
+    const product = await Product.findById(id).populate('properties') as any;
     if (product === null) return res.status(404);
     return res.status(200).send(product);
   } catch (error) {
@@ -153,7 +154,23 @@ router.post('/', async (req: express.Request, res: express.Response) => {
     product,
   });
 });
-
+router.put('/insertPosition', async (req: express.Request, res: express.Response) => {
+  try {
+    const pro = await Product.find({}) as any;
+    let cont = 1;
+    pro.map((product:any) => {
+      const auxprod = product;
+      auxprod.position = cont;
+      console.log(auxprod);
+      cont += 1;
+      return auxprod.save();
+    });
+    await Promise.all(pro);
+    return res.status(200);
+  } catch (error) {
+    return res.status(500);
+  }
+});
 router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 // router.put("/:id", async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);

@@ -44,6 +44,10 @@ const productSchema = new Schema({
   },
   position: Number,
   quantity: Number,
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
   properties: { type: Number, ref: 'Description' },
 
 });
