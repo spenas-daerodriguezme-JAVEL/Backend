@@ -137,7 +137,7 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
     if (product === null) {
       return res.sendStatus(404);
     }
-    return res.sendStatus(200).send(product);
+    return res.status(200).send(product);
   } catch (error) {
     console.log(error);
     return res.sendStatus(500);
