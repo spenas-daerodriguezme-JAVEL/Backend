@@ -134,8 +134,10 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
     const product = await Product.findById(id).populate('properties') as any;
-    if (product === null) return res.status(404);
-    return res.status(200).send(product);
+    if (product === null) {
+      return res.sendStatus(404);
+    }
+    return res.sendStatus(200).send(product);
   } catch (error) {
     console.log(error);
     return res.sendStatus(500);

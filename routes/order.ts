@@ -42,9 +42,7 @@ router.get('/allOrders', async (req: express.Request, res: express.Response) => 
       date: order.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
       status: order.status,
     }));
-    res.status(200).send({
-      ordersToReturn,
-    });
+    res.status(200).send(ordersToReturn);
   } catch (error) {
     res.status(500);
   }
