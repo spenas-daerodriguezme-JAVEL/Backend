@@ -214,6 +214,11 @@ router.put('/updateStatus/:id', async (req: express.Request, res: express.Respon
   }
 });
 
+router.post('/aja', (req: express.Request, res: express.Response) => {
+ console.log(req.body);
+ return res.sendStatus(200);
+});
+
 router.post('/confirmTransaction', async (req: express.Request, res: express.Response) => {
   try {
     let updatedOrder;
@@ -269,24 +274,6 @@ router.post('/confirmTransaction', async (req: express.Request, res: express.Res
   }
 });
 
-router.get('/pay-test', async (req: express.Request, res: express.Response) => {
-  const respo = await axios.post('https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu', {
-    merchantId: 508029,
-    ApiKey: '4Vj8eK4rloUd272L48hsrarnUA',
-    referenceCode: 'TestPayU',
-    accountId: 512321,
-    description: 'Test PAYU',
-    amount: 3,
-    tax: 0,
-    taxReturnBase: 0,
-    currency: 'USD',
-    signature: 'ba9ffa71559580175585e45ce70b6c37',
-    test: 1,
-    buyerEmail: 'test@test.com',
-  });
-  // console.log(respo);
-  res.set('Content-Type', 'text/html').send(respo.data);
-});
 export default {
   router,
 };
