@@ -264,7 +264,7 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
       return res.status(400);
     }
 
-    const { transaction } = body.data.transaction;
+    const { transaction } = body.data;
     const dateUpdated = body.sent_at;
     const transactionCost = transaction.amount_in_cents;
     const wompiId = transaction.id;
