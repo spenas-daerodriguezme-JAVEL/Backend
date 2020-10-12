@@ -271,6 +271,7 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
     const id = transaction.reference;
 
     const order = await Order.findById(id) as any;
+    console.log(order);
 
     let errorMessage;
     let mail;
