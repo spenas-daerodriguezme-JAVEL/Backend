@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import express from 'express';
-import _ from 'lodash';
+import _, { reduce } from 'lodash';
 import axios from 'axios';
 import Handlebars from 'handlebars';
 import path from 'path';
@@ -28,6 +28,108 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
   'state',
 ]);
 
+function generateMailInfo(order:any) : any {
+  let cid = 1;
+  const attachments = [{
+    filename: 'logo',
+    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    cid: cid.toString(),
+  }];
+  // eslint-disable-next-line max-len
+  const productsList: { name: any; qty: number; price: number; cid: number; capacity: number }[] = [];
+  // eslint-disable-next-line max-len
+  order.products.forEach((product: { productName: any; qty: number; price: number; images:Array<string>; capacity: number }) => {
+    cid += 1;
+    let image = '';
+    if (product.images.length === 0) {
+      image = path.resolve('./assets/images/aguadejavel_logo.png');
+    } else {
+      image = path.resolve(product.images[0]);
+    }
+    productsList.push({
+      name: product.productName,
+      qty: product.qty,
+      price: product.price * product.qty,
+      cid,
+      capacity: product.capacity,
+    });
+    attachments.push({
+      filename: product.productName,
+      path: image,
+      cid: cid.toString(),
+    });
+  });
+  return { attachments, products: productsList };
+}
+
+async function sendSucessfulEmail(order:any) {
+  // read template
+  const file = fs.readFileSync(path.resolve('./assets/emails/order.hbs'), 'utf-8').toString();
+  const { attachments, products } = generateMailInfo(order);
+  const template = Handlebars.compile(file);
+  const result = template({
+    name: order.user.name,
+    products,
+  });
+  const mail = await transport.sendMail({
+    from: process.env.SMTP_USER,
+    to: [order.user.email],
+    // bcc: 'aguadejavel@gmail.com',
+    bcc: 'spenas@unal.edu.co',
+    subject: `Confirmación de pedido #${order.publicId}`,
+    html: result,
+    attachments,
+  });
+
+  return mail;
+}
+async function sendDeclinedEmail(order:any) {
+  // read template
+  const file = fs.readFileSync(path.resolve('./assets/emails/declined_transaction.hbs'), 'utf-8').toString();
+  const attachments = [{
+    filename: 'logo',
+    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    cid: '1',
+  }] as any;
+  const template = Handlebars.compile(file);
+  const result = template({
+    order: order.publicId,
+  });
+  const mail = await transport.sendMail({
+    from: process.env.SMTP_USER,
+    to: [order.user.email],
+    subject: 'Transacción rechazada',
+    html: result,
+    attachments,
+  });
+
+  return mail;
+}
+
+async function sendErrorEmail(order:any, errorMessage:string) {
+  // read template
+  const file = fs.readFileSync(path.resolve('./assets/emails/error_mail.hbs'), 'utf-8').toString();
+  const attachments = [{
+    filename: 'logo',
+    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    cid: '1',
+  }] as any;
+  const template = Handlebars.compile(file);
+  const result = template({
+    order: order.publicId,
+    errorMessage,
+  });
+  const mail = await transport.sendMail({
+    from: process.env.SMTP_USER,
+    // to: ['aguadejavel@gmail.com', 'spenas@unal.edu.co'],
+    to: ['spenas@unal.edu.co'],
+    subject: `Error en transacción #${order.publicId}`,
+    html: result,
+    attachments,
+  });
+
+  return mail;
+}
 // router.get('/', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 
 // })
@@ -95,6 +197,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
       const product = await Product.findById(item.productId) as any;
       if (!product) return new Error('Error in product');
       const description = await Description.findById(product.properties) as any;
+
       if (product.quantity < item.qty) {
         incompleteQtyProducts.push({
           // eslint-disable-next-line no-underscore-dangle
@@ -102,6 +205,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
           qty: product.quantity,
         });
       }
+
       return {
         productId: item.productId,
         productName: product.name,
@@ -111,25 +215,28 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
         capacity: product.capacity,
       };
     });
+
     const productsContent = await Promise.all(checkedProducts);
+
     if (incompleteQtyProducts.length !== 0) {
       return res.status(400).send({
         message: 'The following products doesnt have the required quantities',
         products: incompleteQtyProducts,
       });
     }
+
     let newPublicId = await Order.countDocuments({}) as number;
     newPublicId += 1;
     const dateCreated = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString();
-    console.log(dateCreated);
+
     const order = new Order({
       publicId: newPublicId,
       user: pickParams(req),
       products: productsContent,
       totalPrice: req.body.totalPrice,
       dateCreated,
-      status: 'PENDING',
     });
+
     const apiKey = process.env.SHP_KEY;
     const merchantId = process.env.MERCHANT_ID;
     const signature = md5(`${apiKey}~${merchantId}~${order._id}~${req.body.totalPrice}~COP`);
@@ -148,62 +255,51 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
   }
 });
 
-function generateMailInfo(order:any) : any {
-  let cid = 1;
-  const attachments = [{
-    filename: 'logo',
-    path: path.resolve('./assets/images/aguadejavel_logo.png'),
-    cid: cid.toString(),
-  }];
-  // eslint-disable-next-line max-len
-  const productsList: { name: any; qty: number; price: number; cid: number; capacity: number }[] = [];
-  // eslint-disable-next-line max-len
-  order.products.forEach((product: { productName: any; qty: number; price: number; images:Array<string>; capacity: number }) => {
-    cid += 1;
-    let image = '';
-    if (product.images.length === 0) {
-      image = path.resolve('./assets/images/aguadejavel_logo.png');
-    } else {
-      image = path.resolve(product.images[0]);
-    }
-    productsList.push({
-      name: product.productName,
-      qty: product.qty,
-      price: product.price * product.qty,
-      cid,
-      capacity: product.capacity,
-    });
-    attachments.push({
-      filename: product.productName,
-      path: image,
-      cid: cid.toString(),
-    });
-  });
-  return { attachments, products: productsList };
-}
-
-router.put('/updateStatus/:id', async (req: express.Request, res: express.Response) => {
+router.post('/updateStatus', async (req: express.Request, res: express.Response) => {
   try {
-    const id = req.params.id as any;
+    const { body } = req;
+    console.log(body);
+    if (body.event === null || body.event !== 'transaction.updated') {
+      return res.status(400);
+    }
+
+    const { transaction } = body.data;
+    const dateUpdated = body.sent_at;
+    const transactionCost = transaction.amount_in_cents;
+    const wompiId = transaction.id;
+    const transactionStatus = transaction.status;
+    const id = transaction.reference;
+
     const order = await Order.findById(id) as any;
 
-    // read template
-    const file = fs.readFileSync(path.resolve('./assets/emails/order.hbs'), 'utf-8').toString();
-    const { attachments, products } = generateMailInfo(order);
-    const template = Handlebars.compile(file);
-    const result = template({
-      name: order.user.name,
-      products,
-    });
-    const mail = await transport.sendMail({
-      from: process.env.SMTP_USER,
-      to: ['spenas@unal.edu.co'],
-      subject: `Confirmación de pedido #${order._id}`,
-      html: result,
-      attachments,
-    });
+    let errorMessage;
+    let mail;
+
+    if (transactionCost !== order.totalPrice * 100) {
+      errorMessage = `El precio de Wompi no coincide con el precio de la base de datos: Wompi $${transactionCost} - App $${order.totalPrice * 100} (centavos)`;
+      mail = await sendErrorEmail(order, errorMessage);
+    }
+
+    switch (transactionStatus) {
+      case 'APPROVED':
+        mail = await sendSucessfulEmail(order);
+        break;
+      case 'DECLINED':
+        mail = await sendDeclinedEmail(order);
+        break;
+      default:
+        errorMessage = `El estado de la transacción no es ni aprobado ni rechazado: ${transactionStatus}`;
+        mail = await sendErrorEmail(order, errorMessage);
+        return res.sendStatus(400);
+    }
+
+    order.status = transactionStatus;
+    order.dateUpdated = dateUpdated;
+    order.wompiId = wompiId;
+
+    const orderUpdated = await order.save();
     return res.status(200).send({
-      order,
+      orderUpdated,
       mail,
     });
   } catch (error) {
@@ -215,63 +311,8 @@ router.put('/updateStatus/:id', async (req: express.Request, res: express.Respon
 });
 
 router.post('/aja', (req: express.Request, res: express.Response) => {
- console.log(req.body);
- return res.sendStatus(200);
-});
-
-router.post('/confirmTransaction', async (req: express.Request, res: express.Response) => {
-  try {
-    let updatedOrder;
-    if (!req.body) throw new Error('No ha llegado body');
-    const orderId = req.body.reference_sale;
-    if (req.body.state_pol === 1) {
-      const order = await Order.findById(orderId) as any;
-
-      // read template
-      const file = fs.readFileSync(path.resolve('./assets/emails/order.hbs'), 'utf-8').toString();
-      const { attachments, products } = generateMailInfo(order);
-      const template = Handlebars.compile(file);
-      const result = template({
-        name: order.user.name,
-        products,
-      });
-      const mail = await transport.sendMail({
-        from: process.env.SMTP_USER,
-        to: ['spenas@unal.edu.co'],
-        subject: `Confirmación de pedido #${order._id}`,
-        html: result,
-        attachments,
-      });
-      updatedOrder = await Order.findByIdAndUpdate(orderId, {
-        status: 'APPROVED',
-        dateUpdated: req.body.transaction_date,
-      });
-      return res.status(200).send({
-        updatedOrder,
-        mail,
-      });
-    }
-
-    if (req.body.state_pol === 6) {
-      updatedOrder = await Order.findByIdAndUpdate(orderId, {
-        status: 'DECLINED',
-        dateUpdated: req.body.transaction_date,
-      });
-    }
-    if (req.body.state_pol === 104) {
-      updatedOrder = await Order.findByIdAndUpdate(orderId, {
-        status: 'ERROR',
-        dateUpdated: req.body.transaction_date,
-      });
-    }
-    return res.status(400).send({
-      updatedOrder,
-    });
-  } catch (error) {
-    return res.status(500).send({
-      error,
-    });
-  }
+  console.log(req.body);
+  return res.sendStatus(200);
 });
 
 export default {

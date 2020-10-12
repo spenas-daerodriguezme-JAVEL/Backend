@@ -82,6 +82,7 @@ const orderSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
+    default: 'PENDING',
   },
   dateCreated: {
     type: Date,
@@ -89,6 +90,9 @@ const orderSchema = new mongoose.Schema({
   },
   dateUpdated: {
     type: Date,
+  },
+  wompiId: {
+    type: String,
   },
 });
 
