@@ -154,15 +154,16 @@ router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
   try {
     const orders = await Order.findById(req.params.id) as any;
     // const orders = await Order.find({ 'user.identificationNumber': req.params.id }) as any;
-    const ordersToReturn = orders.map((order: any) => ({
-      id: order._id,
-      publicId: order.publicId,
-      price: order.totalPrice,
-      date: order.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
-      status: order.status,
-    }));
+    const ordersToReturn = {
+      id: orders._id,
+      publicId: orders.publicId,
+      price: orders.totalPrice,
+      date: orders.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
+      status: orders.status,
+    };
     res.status(200).send(ordersToReturn);
   } catch (error) {
+    console.log(error);
     res.status(500).send('There was an error retrieving the orders by id');
   }
 });
@@ -263,12 +264,13 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
       return res.status(400);
     }
 
-    const { transaction } = body.data;
+    const { transaction } = body.data.transaction;
     const dateUpdated = body.sent_at;
     const transactionCost = transaction.amount_in_cents;
     const wompiId = transaction.id;
     const transactionStatus = transaction.status;
     const id = transaction.reference;
+    console.log(id);
 
     const order = await Order.findById(id) as any;
     console.log(order);
