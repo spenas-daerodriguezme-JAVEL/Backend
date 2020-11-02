@@ -32,7 +32,7 @@ COPY package*.json ./
 COPY tsconfig*.json ./
 COPY . .
 RUN npm ci --quiet && npm run build
-
+ADD ./assets ./build/assets
 #
 # Production stage.
 # This state compile get back the JavaScript code from builder stage

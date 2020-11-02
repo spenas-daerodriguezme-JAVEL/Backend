@@ -1,8 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import express from 'express';
-import mongoose from 'mongoose';
 import _, { reduce } from 'lodash';
-import axios from 'axios';
 import Handlebars from 'handlebars';
 import path from 'path';
 import fs from 'fs';
@@ -33,7 +31,7 @@ function generateMailInfo(order:any) : any {
   let cid = 1;
   const attachments = [{
     filename: 'logo',
-    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
     cid: cid.toString(),
   }];
   // eslint-disable-next-line max-len
@@ -43,7 +41,7 @@ function generateMailInfo(order:any) : any {
     cid += 1;
     let image = '';
     if (product.images.length === 0) {
-      image = path.resolve('./assets/images/aguadejavel_logo.png');
+      image = path.resolve('./build/assets/images/aguadejavel_logo.png');
     } else {
       image = path.resolve(product.images[0]);
     }
@@ -65,7 +63,7 @@ function generateMailInfo(order:any) : any {
 
 async function sendSucessfulEmail(order:any) {
   // read template
-  const file = fs.readFileSync(path.resolve('./assets/emails/order.hbs'), 'utf-8').toString();
+  const file = fs.readFileSync(path.resolve('./build/assets/emails/order.hbs'), 'utf-8').toString();
   const { attachments, products } = generateMailInfo(order);
   const template = Handlebars.compile(file);
   const result = template({
@@ -86,10 +84,10 @@ async function sendSucessfulEmail(order:any) {
 }
 async function sendDeclinedEmail(order:any) {
   // read template
-  const file = fs.readFileSync(path.resolve('./assets/emails/declined_transaction.hbs'), 'utf-8').toString();
+  const file = fs.readFileSync(path.resolve('./build/assets/emails/declined_transaction.hbs'), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
@@ -109,10 +107,10 @@ async function sendDeclinedEmail(order:any) {
 
 async function sendErrorEmail(order:any, errorMessage:string) {
   // read template
-  const file = fs.readFileSync(path.resolve('./assets/emails/error_mail.hbs'), 'utf-8').toString();
+  const file = fs.readFileSync(path.resolve('./build/assets/emails/error_mail.hbs'), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
@@ -153,16 +151,17 @@ router.get('/allOrders', async (req: express.Request, res: express.Response) => 
 
 router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
   try {
-    const orders = await Order.findById(req.params.id) as any;
-    // const orders = await Order.find({ 'user.identificationNumber': req.params.id }) as any;
-    const ordersToReturn = {
-      id: orders._id,
-      publicId: orders.publicId,
-      price: orders.totalPrice,
-      date: orders.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
-      status: orders.status,
+    const order = await Order.findById(req.params.id) as any;
+    const orderToReturn = {
+      id: order._id,
+      publicId: order.publicId,
+      user: order.user,
+      products: order.products,
+      price: order.totalPrice,
+      date: order.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
+      status: order.status,
     };
-    res.status(200).send(ordersToReturn);
+    res.status(200).send(orderToReturn);
   } catch (error) {
     console.log(error);
     res.status(500).send('There was an error retrieving the orders by id');
@@ -212,7 +211,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
         productId: item.productId,
         productName: product.name,
         qty: item.qty,
-        images: description.images,
+        // images: description.images,
         price: product.price,
         capacity: product.capacity,
       };
@@ -220,12 +219,12 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
 
     const productsContent = await Promise.all(checkedProducts);
 
-    if (incompleteQtyProducts.length !== 0) {
-      return res.status(400).send({
-        message: 'The following products doesnt have the required quantities',
-        products: incompleteQtyProducts,
-      });
-    }
+    // if (incompleteQtyProducts.length !== 0) {
+    //   return res.status(400).send({
+    //     message: 'The following products doesnt have the required quantities',
+    //     products: incompleteQtyProducts,
+    //   });
+    // }
 
     let newPublicId = await Order.countDocuments({}) as number;
     newPublicId += 1;
@@ -270,7 +269,7 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
     const transactionCost = transaction.amount_in_cents;
     const wompiId = transaction.id;
     const transactionStatus = transaction.status;
-    const id = mongoose.Types.ObjectId(transaction.reference);
+    const id = transaction.reference;
     console.log(id);
 
     const order = await Order.findById(id) as any;

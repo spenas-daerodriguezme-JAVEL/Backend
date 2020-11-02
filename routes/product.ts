@@ -173,8 +173,8 @@ router.put('/insertPosition', async (req: express.Request, res: express.Response
     return res.status(500);
   }
 });
-router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-// router.put("/:id", async (req: express.Request, res: express.Response) => {
+// router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.put('/:id', async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 

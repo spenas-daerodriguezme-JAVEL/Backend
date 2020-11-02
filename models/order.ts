@@ -9,19 +9,19 @@ const orderSchema = new mongoose.Schema({
       name: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: 2,
         maxlength: 50,
       },
       lastName: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: 2,
         maxlength: 50,
       },
       email: {
         type: String,
         required: true,
-        minlength: 8,
+        minlength: 2,
         maxlength: 255,
       },
       telephone: {
@@ -36,7 +36,7 @@ const orderSchema = new mongoose.Schema({
       identificationNumber: {
         type: Number,
         required: true,
-        minlength: 7,
+        minlength: 2,
       },
       address: {
         type: String,
