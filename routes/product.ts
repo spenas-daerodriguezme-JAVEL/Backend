@@ -156,6 +156,7 @@ router.post('/', async (req: express.Request, res: express.Response) => {
     product,
   });
 });
+
 router.put('/insertPosition', async (req: express.Request, res: express.Response) => {
   try {
     const pro = await Product.find({}) as any;
@@ -175,8 +176,8 @@ router.put('/insertPosition', async (req: express.Request, res: express.Response
 });
 // router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 router.put('/:id', async (req: express.Request, res: express.Response) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  // const { error } = validate(req.body);
+  // if (error) return res.status(400).send(error.details[0].message);
 
   const product = await Product.findByIdAndUpdate(req.params.id, pickParams(req));
 
