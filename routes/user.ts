@@ -106,7 +106,7 @@ router.post('/', async (req: express.Request, res: express.Response) => {
 
     const attachments = [{
       filename: 'logo',
-      path: path.resolve('.build/assets/images/aguadejavel_logo.png'),
+      path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
       cid: '1',
     }] as any;
     // read template
