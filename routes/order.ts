@@ -2,6 +2,7 @@
 import express from 'express';
 import _, { reduce } from 'lodash';
 import Handlebars from 'handlebars';
+import mongoose from 'mongoose';
 import path from 'path';
 import fs from 'fs';
 import md5 from 'md5';
@@ -269,7 +270,7 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
     const transactionCost = transaction.amount_in_cents;
     const wompiId = transaction.id;
     const transactionStatus = transaction.status;
-    const id = transaction.reference;
+    const id = mongoose.Types.ObjectId(transaction.reference);
     console.log(id);
 
     const order = await Order.findById(id) as any;
