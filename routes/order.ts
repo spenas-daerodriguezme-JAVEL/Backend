@@ -270,8 +270,8 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
     const transactionCost = transaction.amount_in_cents;
     const wompiId = transaction.id;
     const transactionStatus = transaction.status;
+    // console.log(id);
     const id = mongoose.Types.ObjectId(transaction.reference);
-    console.log(id);
 
     const order = await Order.findById(id) as any;
     console.log(order);
