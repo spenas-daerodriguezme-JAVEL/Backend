@@ -103,7 +103,7 @@ router.post('/', async (req: express.Request, res: express.Response) => {
 
 router.put('/:id', async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  // if (error) return res.status(400).send(error.details[0].message);
   try {
     const description = await Description.findByIdAndUpdate(req.params.id, pickParams(req));
     if (!description) return res.status(404).send('The product cannot be found');

@@ -106,11 +106,11 @@ router.post('/', async (req: express.Request, res: express.Response) => {
 
     const attachments = [{
       filename: 'logo',
-      path: path.resolve('./assets/images/aguadejavel_logo.png'),
+      path: path.resolve('.build/assets/images/aguadejavel_logo.png'),
       cid: '1',
     }] as any;
     // read template
-    const file = fs.readFileSync(path.resolve('./assets/emails/new_user.hbs'), 'utf-8').toString();
+    const file = fs.readFileSync(path.resolve('./build/assets/emails/new_user.hbs'), 'utf-8').toString();
     const template = Handlebars.compile(file);
     const result = template({
       name: user.name,
