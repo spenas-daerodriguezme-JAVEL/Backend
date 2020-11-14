@@ -66,7 +66,6 @@ export const validate = (product: Schema) => {
       .max(50)
       .required(),
     price: Joi.number().required(),
-    model: Joi.string().required(),
   };
 
   return Joi.validate(product, schema);
