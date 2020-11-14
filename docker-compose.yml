@@ -4,11 +4,8 @@ services:
     build: .
     ports:
       - "3000:3000"
-    depends_on:
-      - mongo
     environment:
       - APP_ENV=$APP_ENV
-      - DB_CONTAINER=$DB_CONTAINER
       - MONGODB_DATABASE=$MONGODB_DATABASE
       - MONGODB_USERNAME=$MONGODB_USERNAME
       - MONGODB_PASSWORD=$MONGODB_PASSWORD
