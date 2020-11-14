@@ -3,3 +3,4 @@ assets/images/description
 package-lock.json
 .env
 *.cmd
+*.pem
