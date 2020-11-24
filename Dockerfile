@@ -32,7 +32,7 @@ COPY package*.json ./
 COPY tsconfig*.json ./
 COPY . .
 RUN npm ci --quiet && npm run build
-ADD ./certs ./build/certs
+# ADD ./certs ./build/certs
 ADD ./assets ./build/assets
 #
 # Production stage.

@@ -5,8 +5,14 @@ import sharp from 'sharp';
 // import  User  from "../models/user";
 import path from 'path';
 import { func } from 'joi';
+import multer from 'multer';
+import sendUploadToGCS from '../middleware/uploadTest';
 import uploadController from '../middleware/uploadimages';
 import { Description } from '../models/description';
+
+const Multer = multer({
+  storage: multer.memoryStorage(),
+});
 
 const router = express();
 
@@ -34,6 +40,11 @@ router.post(
     });
   },
 );
+
+router.post('/imagenes', Multer.array('image'), sendUploadToGCS, (req: any, res:any, next:any) => {
+  const responsetodo = req.files.map((file:any) => file.cloudStoragePublicUrl);
+  res.status(200).json({ files: responsetodo });
+});
 
 export default {
   router,
