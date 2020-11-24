@@ -1,38 +1,18 @@
 version: "2.1"
 services:
   web:
-    #image: daerodriguezme/javel_back:latest
     build: .
     ports:
       - "3000:3000"
-    depends_on:
-      - mongo
     environment:
-      - APP_ENV=dev
-      - DB_CONTAINER=$DB_CONTAINER
+      - APP_ENV=$APP_ENV
       - MONGODB_DATABASE=$MONGODB_DATABASE
       - MONGODB_USERNAME=$MONGODB_USERNAME
       - MONGODB_PASSWORD=$MONGODB_PASSWORD
+      - MONGODB_HOST=$MONGODB_HOST
       - JWT_KEY=$JWT_KEY
       - SMTP_USER=$SMTP_USER
       - SMTP_PWD=$SMTP_PWD
       - SMTP_SERVER=$SMTP_SERVER
       - SHP_KEY=$SHP_KEY
-  mongo:
-    image: mongo
-    restart: always
-    command: mongod
-    # environment:
-    #   - MONGODB_DATABASE=$MONGODB_DATABASE
-    #   - MONGODB_USERNAME=$MONGODB_USERNAME
-    #   - MONGODB_PASSWORD=$MONGODB_PASSWORD
-    # command: [--auth] 
-    volumes:
-      - mongodb:/data/db
-      - mongodb_config:/data/configdb
-    ports:
-      - "27017:27017"
 
-volumes:
-  mongodb:
-  mongodb_config:
