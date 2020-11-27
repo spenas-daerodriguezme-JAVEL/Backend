@@ -5,3 +5,4 @@ package-lock.json
 *.cmd
 *.pem
 config/cles.json
+dev/

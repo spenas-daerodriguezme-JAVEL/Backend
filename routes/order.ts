@@ -71,8 +71,7 @@ async function sendSucessfulEmail(order:any) {
     name: order.user.name,
     products,
   });
-  console.log('products result');
-  console.log(products);
+
   const mail = await transport.sendMail({
     from: process.env.SMTP_USER,
     to: [order.user.email],
