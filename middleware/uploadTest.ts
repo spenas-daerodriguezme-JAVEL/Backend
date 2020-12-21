@@ -1,3 +1,6 @@
+import sharp from 'sharp';
+import { Description } from '../models/description';
+
 const { Storage } = require('@google-cloud/storage');
 
 const { CLOUD_BUCKET } = process.env;
@@ -9,28 +12,53 @@ const bucket = storage.bucket(CLOUD_BUCKET);
 
 const getPublicUrl = (filename:any) => `https://storage.googleapis.com/${CLOUD_BUCKET}/${filename}`;
 
+const resizeImages = async (req: any, res: any, next: any) => {
+  if (!req.files) return next();
+  req.body.images = [];
+  await Promise.all(
+    req.files.map(async (file: any) => {
+      const filename = file.originalname.replace(/\..+$/, '');
+      const originalFilename = `${filename}.jpeg`;
+      const thumbnailFilename = `thumbnail-${filename}.jpeg`;
+
+      const thumbnailImage = await sharp(file.buffer)
+        .resize(640, 320)
+        .toBuffer();
+
+      const originalImage = await sharp(file.buffer)
+        .resize(320, 160)
+        .toBuffer();
+
+      req.body.images.push({
+        originalname: originalFilename,
+        buffer: thumbnailImage,
+      });
+      req.body.images.push({
+        originalname: thumbnailFilename,
+        buffer: originalImage,
+      });
+    }),
+  );
+  return next();
+};
+
 const sendUploadToGCS = (req:any, res:any, next:any) => {
   if (!req.files) {
     return next();
   }
-
   let promises = [] as any;
-  req.files.forEach((image:any, index:any) => {
+  req.body.images.forEach((image:any, index:any) => {
     const gcsname = Date.now() + image.originalname;
     const file = bucket.file(gcsname);
 
     const promise = new Promise((resolve, reject) => {
-      const stream = file.createWriteStream({
-        metadata: {
-          contentType: image.mimetype,
-        },
-      });
+      const stream = file.createWriteStream({});
 
       stream.on('finish', async () => {
         try {
-          req.files[index].cloudStorageObject = gcsname;
+          req.body.images[index].cloudStorageObject = gcsname;
           await file.makePublic();
-          req.files[index].cloudStoragePublicUrl = getPublicUrl(gcsname);
+          req.body.images[index].cloudStoragePublicUrl = getPublicUrl(gcsname);
           resolve();
         } catch (error) {
           reject(error);
@@ -38,7 +66,7 @@ const sendUploadToGCS = (req:any, res:any, next:any) => {
       });
 
       stream.on('error', (err:any) => {
-        req.files[index].cloudStorageError = err;
+        req.body.images[index].cloudStorageError = err;
         reject(err);
       });
 
@@ -56,4 +84,27 @@ const sendUploadToGCS = (req:any, res:any, next:any) => {
     .catch(next);
 };
 
-export default sendUploadToGCS;
+const modifyPrevious = async (req: any, res: any, next: any) => {
+  const { id } = req.body;
+  try {
+    const description:any = await Description.findById(id);
+    const deletionsPromise = description.images.map((element:any) => {
+      const image = element.split('/')[4];
+      bucket.file(image).delete();
+    });
+    const deletions = Promise.all(deletionsPromise);
+    description.images = req.body.images.map((file:any) => file.cloudStoragePublicUrl);
+    await description.save();
+    if (deletions) {
+      return next();
+    }
+  } catch (error) {
+    return res.send(error);
+  }
+};
+
+export {
+  sendUploadToGCS,
+  resizeImages,
+  modifyPrevious,
+};
