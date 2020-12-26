@@ -85,12 +85,12 @@ const sendUploadToGCS = (req:any, res:any, next:any) => {
 };
 
 const modifyPrevious = async (req: any, res: any, next: any) => {
-  const { id } = req.body;
+  const { id, positions } = req.body;
   try {
     const description:any = await Description.findById(id);
     const deletionsPromise = description.images.map((element:any) => {
       const image = element.split('/')[4];
-      bucket.file(image).delete();
+      return bucket.file(image).delete();
     });
     const deletions = Promise.all(deletionsPromise);
     description.images = req.body.images.map((file:any) => file.cloudStoragePublicUrl);
