@@ -147,8 +147,9 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
 // router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
 router.post('/', async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-  const product = new Product(pickParams(req));
+  // if (error) return res.status(400).send(error.details[0].message);
+  console.log(req.body);
+  const product = new Product(req.body);
 
   await product.save();
   res.status(200).send({

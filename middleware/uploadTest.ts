@@ -85,7 +85,7 @@ const sendUploadToGCS = (req:any, res:any, next:any) => {
 };
 
 const modifyPrevious = async (req: any, res: any, next: any) => {
-  const { id, positions } = req.body;
+  const { id } = req.body;
   try {
     const description:any = await Description.findById(id);
     const deletionsPromise = description.images.map((element:any) => {
