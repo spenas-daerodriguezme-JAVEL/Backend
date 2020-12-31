@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import config from 'config';
 import jwt from 'jsonwebtoken';
 import Joi from 'joi';
+import crypto from 'crypto';
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -62,6 +63,15 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  resetPasswordToken: {
+      type: String,
+      required: false
+  },
+
+  resetPasswordExpires: {
+      type: Date,
+      required: false
+  }
 
 });
 
@@ -74,6 +84,12 @@ userSchema.methods.generateAuthToken = function () {
     { expiresIn: '2h' },
   );
   return token;
+};
+
+userSchema.methods.generatePasswordReset = function() {
+  this.resetPasswordToken = crypto.randomBytes(20).toString('hex');
+  this.resetPasswordExpires = Date.now() + 3600000; //expires in an hour
+  return null;
 };
 
 export const User = mongoose.model('User', userSchema);
