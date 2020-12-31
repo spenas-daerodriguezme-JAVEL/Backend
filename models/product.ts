@@ -62,7 +62,7 @@ export const validate = (product: Schema) => {
       .max(50)
       .required(),
     businessLine: Joi.string()
-      .min(5)
+      .min(3)
       .max(50)
       .required(),
     price: Joi.number().required(),

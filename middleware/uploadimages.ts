@@ -2,6 +2,7 @@ import multer from 'multer';
 import sharp from 'sharp';
 import fs, { readdirSync } from 'fs';
 import { nextTick } from 'process';
+const { Storage } = require('@google-cloud/storage');
 
 const multerStorage = multer.memoryStorage();
 

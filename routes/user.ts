@@ -5,6 +5,7 @@ import Handlebars from 'handlebars';
 import path from 'path';
 import fs from 'fs';
 import { User, validate } from '../models/user';
+import { Reset } from '../models/resetPassword';
 import { transport } from '../startup/mailer';
 import auth from '../middleware/auth';
 import adminAuth from '../middleware/adminAuth';
@@ -117,7 +118,7 @@ router.post('/', async (req: express.Request, res: express.Response) => {
     });
     const mail = await transport.sendMail({
       from: process.env.SMTP_USER,
-      to: [`${user.email}`],
+      to: [user.email],
       subject: 'Bienvenido a Agua de Javel',
       html: result,
       attachments,
@@ -234,6 +235,18 @@ router.delete('/:id', async (req: express.Request, res: express.Response) => {
   }
 });
 
+router.post('/reset-password', async (req: express.Request, res: express.Response) => {
+  const { email } = req.body;
+  const user = await User.findOne({
+    where: { email },
+  });
+  if (!user) {
+    return res.sendStatus(404);
+  }
+  const resetPassword = await Reset.findOne({
+    where: { userId: user._id, status: 0 },
+  });
+});
 export default {
   router,
 };

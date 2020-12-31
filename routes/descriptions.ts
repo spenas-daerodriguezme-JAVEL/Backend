@@ -94,9 +94,10 @@ router.post('/', async (req: express.Request, res: express.Response) => {
       description,
     });
   } catch (errorMessage) {
+    console.log(errorMessage);
     return res.status(500).send({
       message: 'There was an error creating description',
-      error,
+      errorMessage,
     });
   }
 });

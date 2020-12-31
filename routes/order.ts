@@ -71,6 +71,7 @@ async function sendSucessfulEmail(order:any) {
     name: order.user.name,
     products,
   });
+
   const mail = await transport.sendMail({
     from: process.env.SMTP_USER,
     to: [order.user.email],
@@ -124,6 +125,30 @@ async function sendErrorEmail(order:any, errorMessage:string) {
     // to: ['aguadejavel@gmail.com', 'spenas@unal.edu.co'],
     to: ['spenas@unal.edu.co'],
     subject: `Error en transacción #${order.publicId}`,
+    html: result,
+    attachments,
+  });
+
+  return mail;
+}
+
+async function sendCreatedOrderEmail(order:any) {
+  // read template
+  const file = fs.readFileSync(path.resolve('./build/assets/emails/order_created.hbs'), 'utf-8').toString();
+  const attachments = [{
+    filename: 'logo',
+    path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
+    cid: '1',
+  }] as any;
+  const template = Handlebars.compile(file);
+  const result = template({
+    name: order.user.name,
+  });
+
+  const mail = await transport.sendMail({
+    from: process.env.SMTP_USER,
+    to: [order.user.email],
+    subject: 'Transacción en proceso',
     html: result,
     attachments,
   });
@@ -239,14 +264,11 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
       dateCreated,
     });
 
-    const apiKey = process.env.SHP_KEY;
-    const merchantId = process.env.MERCHANT_ID;
-    const signature = md5(`${apiKey}~${merchantId}~${order._id}~${req.body.totalPrice}~COP`);
     const response = await order.save();
+    const mail = await sendCreatedOrderEmail(order);
     return res.status(200).send({
       createdOrder: response,
-      merchantId,
-      signature,
+      mail,
     });
   } catch (error) {
     console.log(error);

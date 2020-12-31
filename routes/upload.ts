@@ -5,8 +5,23 @@ import sharp from 'sharp';
 // import  User  from "../models/user";
 import path from 'path';
 import { func } from 'joi';
+import multer from 'multer';
+import { sendUploadToGCS, resizeImages, modifyPrevious } from '../middleware/uploadTest';
 import uploadController from '../middleware/uploadimages';
 import { Description } from '../models/description';
+
+const multerFilter = (req: any, file: any, cb: any) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb('Only images are allowed', false);
+  }
+};
+
+const Multer = multer({
+  storage: multer.memoryStorage(),
+  fileFilter: multerFilter,
+});
 
 const router = express();
 
@@ -34,6 +49,18 @@ router.post(
     });
   },
 );
+
+router.post('/imagenes', Multer.array('image'), resizeImages, sendUploadToGCS, modifyPrevious, (req: any, res:any) => {
+// router.post('/imagenes', Multer.array('image'), resizeImages, (req: any, res:any, next:any) => {
+  try {
+    const responsetodo = req.body.images.map((file:any) => file.cloudStoragePublicUrl);
+    return res.status(200).json({ files: responsetodo });
+    // return res.status(200);
+  } catch (error) {
+    console.log(`error ${error}`);
+    return res.status(500);
+  }
+});
 
 export default {
   router,
