@@ -105,30 +105,31 @@ router.post('/', async (req: express.Request, res: express.Response) => {
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
 
-    const attachments = [{
-      filename: 'logo',
-      path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
-      cid: '1',
-    }] as any;
-    // read template
-    const file = fs.readFileSync(path.resolve('./build/assets/emails/new_user.hbs'), 'utf-8').toString();
-    const template = Handlebars.compile(file);
-    const result = template({
-      name: user.name,
-    });
-    const mail = await transport.sendMail({
-      from: process.env.SMTP_USER,
-      to: [user.email],
-      subject: 'Bienvenido a Agua de Javel',
-      html: result,
-      attachments,
-    });
+    // const attachments = [{
+    //   filename: 'logo',
+    //   path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
+    //   cid: '1',
+    // }] as any;
+    // // read template
+    // const file = fs.readFileSync(path.resolve('./build/assets/emails/new_user.hbs'), 'utf-8').toString();
+    // const template = Handlebars.compile(file);
+    // const result = template({
+    //   name: user.name,
+    // });
+    // const mail = await transport.sendMail({
+    //   from: process.env.SMTP_USER,
+    //   to: [`${user.email}`],
+    //   subject: 'Bienvenido a Agua de Javel',
+    //   html: result,
+    //   attachments,
+    // });
 
     await user.save();
     const token = user.generateAuthToken();
     res
       .header('x-auth-token', token)
-      .send({ ..._.pick(user, ['_id', 'name', 'email']), token, mail });
+      // .send({ ..._.pick(user, ['_id', 'name', 'email']), token, mail });
+      .send({ ..._.pick(user, ['_id', 'name', 'email']), token });
   } catch (errorMessage) {
     console.log(errorMessage);
     return res.status(500).send({
