@@ -28,8 +28,8 @@ const pickParams = (req: express.Request, isPost: Boolean) => {
   return _.pick(req.body, parameters);
 };
 
-// router.get('/me', auth, async (req: express.Request, res: express.Response) => {
-router.get('/me', async (req: express.Request, res: express.Response) => {
+router.get('/me', auth, async (req: express.Request, res: express.Response) => {
+// router.get('/me', async (req: express.Request, res: express.Response) => {
   // eslint-disable-next-line no-underscore-dangle
   const id = req.header('id');
   if (!id) return res.status(400);
@@ -37,8 +37,8 @@ router.get('/me', async (req: express.Request, res: express.Response) => {
   res.status(200).send(user);
 });
 
-// router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-router.get('/allUsers', async (req: express.Request, res: express.Response) => {
+router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+// router.get('/allUsers', async (req: express.Request, res: express.Response) => {
   try {
     const users = await User.find({}) as any;
     const returnUsers = users.map((user:any) => ({
@@ -57,8 +57,8 @@ router.get('/allUsers', async (req: express.Request, res: express.Response) => {
   }
 });
 
-// router.get('/userById/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-router.get('/userById/:identificationNumber', async (req: express.Request, res: express.Response) => {
+router.get('/userById/:identificationNumber', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+// router.get('/userById/:identificationNumber', async (req: express.Request, res: express.Response) => {
   try {
     const user = await User.find({
       identificationNumber: req.params.identificationNumber,
@@ -73,8 +73,8 @@ router.get('/userById/:identificationNumber', async (req: express.Request, res: 
   }
 });
 
-// router.get('/userById/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-router.get('/:id', async (req: express.Request, res: express.Response) => {
+router.get('/userById/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+// router.get('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const user = await User.findById(req.params.id);
     if (user === null) return res.status(404).send('User not found');
@@ -178,8 +178,8 @@ router.put('/deactivate', auth, async (req: express.Request, res: express.Respon
   }
 });
 
-// router.put('/deactivate/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-router.put('/deactivate/:id', async (req: express.Request, res: express.Response) => {
+router.put('/deactivate/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+// router.put('/deactivate/:id', async (req: express.Request, res: express.Response) => {
   // eslint-disable-next-line no-underscore-dangle
   const userId = req.params.id;
   try {
@@ -195,8 +195,8 @@ router.put('/deactivate/:id', async (req: express.Request, res: express.Response
     });
   }
 });
-// router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-router.put('/:id', async (req: express.Request, res: express.Response) => {
+router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+// router.put('/:id', async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   // eslint-disable-next-line no-underscore-dangle
@@ -222,8 +222,8 @@ router.put('/:id', async (req: express.Request, res: express.Response) => {
   }
 });
 
-// router.delete('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-router.delete('/:id', async (req: express.Request, res: express.Response) => {
+router.delete('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+// router.delete('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) return res.status(404).send('The user cannot be found');
