@@ -155,10 +155,8 @@ async function sendCreatedOrderEmail(order:any) {
 
   return mail;
 }
-// router.get('/', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 
-// })
-router.get('/allOrders', async (req: express.Request, res: express.Response) => {
+router.get('/allOrders', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   try {
     const orders = await Order.find({}) as any;
     const ordersToReturn = orders.map((order: any) => ({
@@ -175,9 +173,11 @@ router.get('/allOrders', async (req: express.Request, res: express.Response) => 
   }
 });
 
-router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
+router.get('/byId/:id', auth, async (req: express.Request, res: express.Response) => {
   try {
-    const order = await Order.findById(req.params.id) as any;
+    const order = await Order.findById(req.params.id) as any; 
+    if (order === null) return res.status(404).send('Order was not found');
+   
     const orderToReturn = {
       id: order._id,
       publicId: order.publicId,
@@ -187,14 +187,23 @@ router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
       date: order.dateCreated.toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString(),
       status: order.status,
     };
-    res.status(200).send(orderToReturn);
+
+    const { user } = req as express.JRequest;
+    let userFromDB;
+    userFromDB = await User.findById(user._id) as any;
+
+    if (!user.isAdmin && order.user.identificationNumber !== userFromDB.identificationNumber)  {
+      return res.status(403).send('Access denied.');
+    }
+
+    return res.status(200).send(orderToReturn);
   } catch (error) {
     console.log(error);
-    res.status(500).send('There was an error retrieving the orders by id');
+    return res.status(500).send('There was an error retrieving the orders by id');
   }
 });
 
-router.get('/byUserId/:id', async (req: express.Request, res: express.Response) => {
+router.get('/byUserId/:id', auth, async (req: express.Request, res: express.Response) => {
   try {
     const user = await User.findById(req.params.id) as any;
     if (user === null) return res.status(404);
@@ -209,6 +218,13 @@ router.get('/byUserId/:id', async (req: express.Request, res: express.Response) 
       status: order.status,
       userIdentification: order.user.identificationNumber,
     }));
+
+    const infoRequest = req as express.JRequest;
+    
+    if (!infoRequest.user.isAdmin && infoRequest.user._id !== user._id.toString()) {
+      return res.status(403).send('Access denied');
+    }
+
     return res.status(200).send(ordersToReturn);
   } catch (error) {
     return res.status(500);
