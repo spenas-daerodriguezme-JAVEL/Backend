@@ -1,6 +1,9 @@
 import express from 'express';
 import _ from 'lodash';
 import { Description, validate } from '../models/description';
+import adminAuth from '../middleware/adminAuth';
+import auth from '../middleware/auth';
+
 
 const router = express.Router();
 
@@ -32,7 +35,7 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
 ]);
 
 // router.post("/", [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
-router.get('/allDescriptions', async (req: express.Request, res: express.Response) => {
+router.get('/allDescriptions', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   try {
     // const descriptions = await Description.find({}).skip(from).limit(11).exec();
     const descriptions = await Description.find({}) as any;
@@ -53,7 +56,7 @@ router.get('/allDescriptions', async (req: express.Request, res: express.Respons
   }
 });
 
-router.get('/:id', async (req: express.Request, res: express.Response) => {
+router.get('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
     const description = await Description.findById(id) as any;
@@ -66,7 +69,7 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
   }
 });
 
-router.post('/', async (req: express.Request, res: express.Response) => {
+router.post('/', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   // if (error) return res.status(400).send(error.details[0].message);
 
@@ -102,7 +105,7 @@ router.post('/', async (req: express.Request, res: express.Response) => {
   }
 });
 
-router.put('/:id', async (req: express.Request, res: express.Response) => {
+router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   // if (error) return res.status(400).send(error.details[0].message);
   try {
@@ -120,7 +123,7 @@ router.put('/:id', async (req: express.Request, res: express.Response) => {
   }
 });
 
-router.delete('/:id', async (req: express.Request, res: express.Response) => {
+router.delete('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   try {
     const description = await Description.findByIdAndDelete(req.params.id);
     if (!description) return res.status(404).send('Description to delete cannot be found');

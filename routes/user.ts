@@ -33,8 +33,14 @@ router.get('/me', auth, async (req: express.Request, res: express.Response) => {
   // eslint-disable-next-line no-underscore-dangle
   const id = req.header('id');
   if (!id) return res.status(400);
-  const user = await User.findById(id).select('-password');
-  res.status(200).send(user);
+  const userFromDB = await User.findById(id).select('-password');
+  
+  const { user } = req as express.JRequest;
+  if (user._id !== userFromDB?._id) {
+    return res.status(400).send('Access denied');
+  }
+
+  res.status(200).send(userFromDB);
 });
 
 router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
@@ -236,18 +242,18 @@ router.delete('/:id', [auth, adminAuth], async (req: express.Request, res: expre
   }
 });
 
-router.post('/reset-password', async (req: express.Request, res: express.Response) => {
-  const { email } = req.body;
-  const user = await User.findOne({
-    where: { email },
-  });
-  if (!user) {
-    return res.sendStatus(404);
-  }
-  const resetPassword = await Reset.findOne({
-    where: { userId: user._id, status: 0 },
-  });
-});
+// router.post('/reset-password', async (req: express.Request, res: express.Response) => {
+//   const { email } = req.body;
+//   const user = await User.findOne({
+//     where: { email },
+//   });
+//   if (!user) {
+//     return res.sendStatus(404);
+//   }
+//   const resetPassword = await Reset.findOne({
+//     where: { userId: user._id, status: 0 },
+//   });
+// });
 export default {
   router,
 };
