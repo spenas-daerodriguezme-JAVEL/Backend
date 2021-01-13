@@ -40,7 +40,7 @@ router.get('/me', auth, async (req: express.Request, res: express.Response) => {
     return res.status(400).send('Access denied');
   }
 
-  res.status(200).send(userFromDB);
+  return res.status(200).send(userFromDB);
 });
 
 router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
