@@ -13,14 +13,16 @@ const bucket = storage.bucket(CLOUD_BUCKET);
 const getPublicUrl = (filename:any) => `https://storage.googleapis.com/${CLOUD_BUCKET}/${filename}`;
 
 const resizeImages = async (req: any, res: any, next: any) => {
+  const { id } = req.body;
   if (!req.files) return next();
   req.body.images = [];
+  let idx = 0;
   await Promise.all(
     req.files.map(async (file: any) => {
-      const filename = file.originalname.replace(/\..+$/, '');
-      const originalFilename = `${filename}.jpeg`;
-      const thumbnailFilename = `thumbnail-${filename}.jpeg`;
-
+      // const filename = file.originalname.replace(/\..+$/, '');
+      const originalFilename = `${id}-${idx}.webp`;
+      const thumbnailFilename = `thumbnail-${id}-${idx}.webp`;
+      idx += 1;
       const thumbnailImage = await sharp(file.buffer)
         .resize(640, 320)
         .toBuffer();
@@ -48,7 +50,7 @@ const sendUploadToGCS = (req:any, res:any, next:any) => {
   }
   let promises = [] as any;
   req.body.images.forEach((image:any, index:any) => {
-    const gcsname = Date.now() + image.originalname;
+    const gcsname = `${Date.now()}-${image.originalname}`;
     const file = bucket.file(gcsname);
 
     const promise = new Promise((resolve, reject) => {

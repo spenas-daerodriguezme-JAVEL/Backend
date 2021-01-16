@@ -118,6 +118,8 @@ export const validate = (user: Schema) => {
     state: Joi.string(),
     city: Joi.string(),
     address: Joi.string(),
+    isAdmin: Joi.boolean(),
+    isActive: Joi.boolean(),
   };
 
   return Joi.validate(user, schema);

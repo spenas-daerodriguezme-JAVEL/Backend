@@ -34,9 +34,8 @@ router.get('/me', auth, async (req: express.Request, res: express.Response) => {
   const id = req.header('id');
   if (!id) return res.status(400);
   const userFromDB = await User.findById(id).select('-password');
-  
   const { user } = req as express.JRequest;
-  if (user._id !== userFromDB?._id) {
+  if (userFromDB?._id.toString() !== user._id) {
     return res.status(400).send('Access denied');
   }
 
@@ -152,7 +151,6 @@ router.put('/', auth, async (req: express.Request, res: express.Response) => {
   try {
     // eslint-disable-next-line no-underscore-dangle
     const userId = (req as express.JRequest).user._id;
-    console.log(userId);
     const user = await User.findByIdAndUpdate(userId, pickParams(req, false));
     if (!user) return res.status(404).send('The user cannot be found');
     return res.status(200).send({
