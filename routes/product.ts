@@ -111,7 +111,6 @@ router.get('/businesslinelist', (req: express.Request, res: express.Response) =>
 });
 
 router.get('/allProducts', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-//router.get('/allProducts', async (req: express.Request, res: express.Response) => {
   try {
     const products = await Product.find({}) as any;
     const productsToReturn = products.map((product: any) => ({
@@ -129,7 +128,6 @@ router.get('/allProducts', [auth, adminAuth], async (req: express.Request, res: 
   }
 });
 
-
 router.get('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
@@ -144,8 +142,7 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
   }
 });
 
-router.post('/', [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
-//router.post('/', async (req: express.Request, res: express.Response) => {
+router.post('/', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   const { error } = validate(req.body);
   // if (error) return res.status(400).send(error.details[0].message);
   console.log(req.body);
@@ -158,8 +155,7 @@ router.post('/', [auth, adminAuth],  async (req: express.Request, res: express.R
   });
 });
 
-router.put('/insertPosition', [auth, adminAuth],  async (req: express.Request, res: express.Response) => {
-//router.put('/insertPosition', async (req: express.Request, res: express.Response) => {
+router.put('/insertPosition', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   try {
     const pro = await Product.find({}) as any;
     let cont = 1;
@@ -178,22 +174,19 @@ router.put('/insertPosition', [auth, adminAuth],  async (req: express.Request, r
 });
 
 router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-//router.put('/:id', async (req: express.Request, res: express.Response) => {
   // const { error } = validate(req.body);
   // if (error) return res.status(400).send(error.details[0].message);
-
-  const product = await Product.findByIdAndUpdate(req.params.id, pickParams(req));
+  const product = await Product.findByIdAndUpdate(req.params.id, req.body);
 
   if (!product) return res.status(404).send('The product cannot be found.');
 
-  res.status(200).send({
+  return res.status(200).send({
     message: 'Updated succesfully',
     product,
   });
 });
 
-router.delete("/:id", [auth, adminAuth], async(req: express.Request, res: express.Response) => {
-//router.delete('/:id', async (req: express.Request, res: express.Response) => {
+router.delete('/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
   const product = await Product.findByIdAndDelete(req.params.id);
 
   if (!product) res.status(404).send('The product cannot be found');

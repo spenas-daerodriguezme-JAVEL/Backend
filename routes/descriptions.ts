@@ -74,7 +74,7 @@ router.post('/', [auth, adminAuth], async (req: express.Request, res: express.Re
   // if (error) return res.status(400).send(error.details[0].message);
 
   try {
-    const descriptionsParams = pickParams(req);
+    const descriptionsParams = req.body;
     let descriptionId = await Description.countDocuments({}) as number;
     descriptionId += 1;
     let idIsAvailable = false;
@@ -109,7 +109,7 @@ router.put('/:id', [auth, adminAuth], async (req: express.Request, res: express.
   const { error } = validate(req.body);
   // if (error) return res.status(400).send(error.details[0].message);
   try {
-    const description = await Description.findByIdAndUpdate(req.params.id, pickParams(req));
+    const description = await Description.findByIdAndUpdate(req.params.id, req.body);
     if (!description) return res.status(404).send('The product cannot be found');
     return res.status(200).send({
       message: 'Succesful update',

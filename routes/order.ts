@@ -173,11 +173,12 @@ router.get('/allOrders', [auth, adminAuth], async (req: express.Request, res: ex
   }
 });
 
+// router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
 router.get('/byId/:id', auth, async (req: express.Request, res: express.Response) => {
   try {
     const order = await Order.findById(req.params.id) as any; 
     if (order === null) return res.status(404).send('Order was not found');
-   
+
     const orderToReturn = {
       id: order._id,
       publicId: order.publicId,
@@ -189,8 +190,7 @@ router.get('/byId/:id', auth, async (req: express.Request, res: express.Response
     };
 
     const { user } = req as express.JRequest;
-    let userFromDB;
-    userFromDB = await User.findById(user._id) as any;
+    const userFromDB = await User.findById(user._id) as any;
 
     if (!user.isAdmin && order.user.identificationNumber !== userFromDB.identificationNumber)  {
       return res.status(403).send('Access denied.');
@@ -220,7 +220,6 @@ router.get('/byUserId/:id', auth, async (req: express.Request, res: express.Resp
     }));
 
     const infoRequest = req as express.JRequest;
-    
     if (!infoRequest.user.isAdmin && infoRequest.user._id !== user._id.toString()) {
       return res.status(403).send('Access denied');
     }
@@ -350,11 +349,6 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
       error,
     });
   }
-});
-
-router.post('/aja', (req: express.Request, res: express.Response) => {
-  console.log(req.body);
-  return res.sendStatus(200);
 });
 
 export default {
