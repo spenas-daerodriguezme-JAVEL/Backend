@@ -12,6 +12,8 @@ const router = express.Router();
 router.post('/', auth, async (req: express.Request, res: express.Response) => {
     try {
         const { body } = req;
+        const textTruncated = truncateText(body.message, 2000);
+
         const { user } = req as express.JRequest;
 
         const userFromDB = await User.findById(user._id) as any;
@@ -19,7 +21,7 @@ router.post('/', auth, async (req: express.Request, res: express.Response) => {
             return res.status(200).send("User was not found. Creation aborted.");
         }
         const pqrsToCreate = {
-            message: body.message,
+            message: textTruncated,
             user: {
                 name: userFromDB.name,
                 lastName: userFromDB.lastName,
@@ -72,6 +74,14 @@ router.post('/', auth, async (req: express.Request, res: express.Response) => {
         });
     }
 });
+
+function truncateText(text: string, length: number) {
+    if (text.length <= length) {
+        return text;
+    }
+
+    return text.substr(0, length);
+}
 
 export default {
   router,
