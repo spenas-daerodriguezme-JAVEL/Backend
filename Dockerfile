@@ -34,6 +34,7 @@ COPY . .
 RUN npm ci --quiet && npm run build
 ADD ./certs ./build/certs
 ADD ./assets ./build/assets
+ADD ./config ./build/config
 #
 # Production stage.
 # This state compile get back the JavaScript code from builder stage
