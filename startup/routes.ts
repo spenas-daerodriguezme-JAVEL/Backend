@@ -7,6 +7,7 @@ import seed from '../routes/seed';
 import upload from '../routes/upload';
 import orders from '../routes/order';
 import requisitions from '../routes/requisitions';
+import pqrs from '../routes/pqrs';
 
 export default (app: express.Express) => {
   app.use(express.json());
@@ -22,4 +23,5 @@ export default (app: express.Express) => {
     .post('/', async (req: express.Request, res: express.Response) => {
       res.send('Javel OK xD test final? alfina?');
     }));
+  app.use('/api/pqrs', pqrs.router);
 };
