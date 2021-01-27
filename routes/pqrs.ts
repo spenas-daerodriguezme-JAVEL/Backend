@@ -44,7 +44,7 @@ router.post('/', auth, async (req: express.Request, res: express.Response) => {
         const result = template({
             content: pqrsToCreate.message,
             name: pqrsToCreate.user.name,
-            email: pqrsToCreate.user.email,
+            user: pqrsToCreate.user,
         });
         let cid = 1;
         const attachments = [{
