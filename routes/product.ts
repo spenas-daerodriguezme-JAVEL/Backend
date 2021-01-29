@@ -1,9 +1,13 @@
 import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import Handlebars from 'handlebars';
 import _ from 'lodash';
 import { Product, validate } from '../models/product';
 import adminAuth from '../middleware/adminAuth';
 import auth from '../middleware/auth';
-import user from './user';
+import { User } from '../models/user';
+import { transport } from '../startup/mailer';
 
 const router = express.Router();
 
@@ -139,6 +143,57 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
   } catch (error) {
     console.log(error);
     return res.sendStatus(500);
+  }
+});
+
+router.post('/request-products', auth, async (req: express.Request, res: express.Response) => {
+  try {
+    const { products } = req.body;
+
+    const { user } = req as express.JRequest;
+
+    const userFromDB = await User.findById(user._id) as any;
+    if (!userFromDB) {
+      return res.status(400).send('User was not found. Creation aborted.');
+    }
+
+    // Send email
+    const file = fs.readFileSync(
+      path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/admin_products_requirements.hbs`),
+      'utf-8',
+    ).toString();
+
+    const template = Handlebars.compile(file);
+    const result = template({
+      name: userFromDB.name,
+      products,
+      user: userFromDB,
+    });
+    const cid = 1;
+    const attachments = [{
+      filename: 'logo',
+      path: path.resolve('./assets/images/aguadejavel_logo.png'),
+      cid: cid.toString(),
+    }];
+
+    const mail = await transport.sendMail({
+      from: process.env.SMTP_USER,
+      to: userFromDB.email,
+      subject: 'Solicitud de productos',
+      html: result,
+      attachments,
+    });
+    return res.status(200).send({
+      message: 'Product request created succesfully',
+      mail,
+    });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(500).send({
+      message: 'There was an error creating PQRS.',
+      error,
+    });
   }
 });
 

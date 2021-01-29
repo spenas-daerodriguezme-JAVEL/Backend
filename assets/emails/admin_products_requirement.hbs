@@ -266,7 +266,7 @@
         .product-entry .text h3 {
             margin-bottom: 0;
             padding-bottom: 0;
-           
+
         }
 
         .product-entry .text p {
@@ -339,8 +339,8 @@
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 {{!-- <td class="logo" style="text-align: left;">
-			            <h1><a href="#">Shop</a></h1>
-			          </td> --}}
+                                    <h1><a href="#">Shop</a></h1>
+                                </td> --}}
                                 <td class="logo" style="text-align: left;">
                                     <img src="cid:1" alt=""
                                         style="width: 325px; max-width: 600px; height: 70px; margin-bottom: 20px; display: block;">
@@ -356,9 +356,9 @@
                             <tr>
                                 <td style="padding: 0 2.5em; text-align: left;">
                                     <div class="text">
-                                        <h3>{{name}} ¡Gracias por tu compra!</h2>
-                                            <h4>A continuación un resumen de tu compra
-                                        </h3>
+                                        <h2>Hola {{name}}, tu solicitud de productos fue creada exitosamente</h2>
+                                        <h4>Los productos son los siguientes
+                                            </h3>
                                     </div>
                                 </td>
                             </tr>
@@ -375,13 +375,11 @@
                                 style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Precio
                             </th>
                         </tr>
-                        
+
                         {{#each products}}
                         <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
                             <td valign="middle" width="100%" style="text-align:left; padding: 0 2.5em;">
                                 <div class="product-entry">
-                                    <img src="cid:{{this.cid}}" alt=""
-                                        style="width: 100px; max-width: 600px; height: auto; margin-bottom: 20px; display: block;">
                                     <div class="text">
                                         <h3>{{this.name}}</h3>
                                         <span>{{this.capacity}}</span>
@@ -389,15 +387,35 @@
                                     </div>
                                 </div>
                             </td>
-                            <td valign="middle" width="20%" style="text-align:left; padding: 0 2.5em;">
-                                <span class="price" style="color: #000; font-size: 20px;">${{this.price}}</span>
-                            </td>
+
                         </tr>
                         {{/each}}
-                        
+
                     </table>
+                </tr>
+                <tr>
+                    <td valign="middle" class="hero bg_white" style="padding: 2em 0 2em 0;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td style="padding: 0 2.5em; text-align: left;">
+                                    <div class="text">
+                                        <h3>
+                                            Nuestro equipo revisará la disponibilidad de estos productos y se comunicará
+                                            contigo lo antes posible
+                                        </h3>
+                                        <h4>Los datos con los que nos pondremos en contacto contigo son:</h4>
+                                        <div>
+                                            {{user.name}}
+                                            {{user.email}}
+                                            {{user.telephone}}
+                                        </div>
+                                        <h3><b>¡Gracias por confiar en The Chemical Science Company!</b></h3>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
                 </tr><!-- end tr -->
-                <!-- 1 Column Text + Button : END -->
             </table>
             <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
                 style="margin: auto;">
@@ -410,7 +428,8 @@
                                         <tr>
                                             <td style="text-align: left; padding-right: 10px;">
                                                 <h3 class="heading">Nosotros</h3>
-                                                <p class="txt_light">Fabricación de jabones y detergentes, preparados para limpiar y pulir; perfumes y preparados de tocador.</p>
+                                                <p class="txt_light">Fabricación de jabones y detergentes, preparados
+                                                    para limpiar y pulir; perfumes y preparados de tocador.</p>
                                             </td>
                                         </tr>
                                     </table>
@@ -421,7 +440,8 @@
                                             <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
                                                 <h3 class="heading">Contáctanos</h3>
                                                 <ul>
-                                                    <li><span class="text txt_light">Cr 55 # 5A - 04 LOC 100, Barrio Colón, Bogotá Colombia</span></li>
+                                                    <li><span class="text txt_light">Cr 55 # 5A - 04 LOC 100, Barrio
+                                                            Colón, Bogotá Colombia</span></li>
                                                     <li><span class="text txt_light">+57 3186939685</span></a></li>
                                                 </ul>
                                             </td>
