@@ -79,7 +79,7 @@ router.post('/recover', async (req: express.Request, res: express.Response) => {
 
     let userSaved: any = await user.save();
     
-    let link = "http://" + req.headers.host + "/reset-password/" + userSaved.resetPasswordToken;
+    let link = req.headers.origin + "/new-password/" + userSaved.resetPasswordToken;
 
     const file = fs.readFileSync( 
       path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/recover_pass.hbs`),
