@@ -370,7 +370,11 @@
                     <h3>Contenido de la solicitud:</h3>
                     <p style="color: black;"> {{ content }} </p>                    
                     <p style="font-size: 0.6rem; color: black;">
-                      Correo de radicación de solicitud: {{ email }}
+                      <span style="font-weight: 600;"> Datos del usuario: </span> <br>
+                      Email: {{ user.email }} <br>
+                      Nombre: {{ user.name }} {{ user.lastName }} <br>
+                      Teléfono: {{ user.telephone }} <br>
+                      Identificación: {{ user.identificationType }} {{ user.identificationNumber }} <br>
                     </p>
                   </div>
                 </td>

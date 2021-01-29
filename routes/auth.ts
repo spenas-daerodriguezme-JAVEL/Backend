@@ -6,6 +6,7 @@ import { transport } from '../startup/mailer';
 import Handlebars from 'handlebars';
 import path from 'path';
 import fs from 'fs';
+import auth from '../middleware/auth';
 
 const router = express.Router();
 
@@ -30,6 +31,21 @@ function validateResetPassword(req: express.Request) {
     token: Joi.string()
       .required(),
     password: Joi.string()
+      .min(5)
+      .max(255)
+      .required(),
+  };
+
+  return Joi.validate(req, schema);
+}
+
+function validateChangePassword(req: express.Request) {
+  const schema = {
+    oldPassword: Joi.string()
+      .min(5)
+      .max(255)
+      .required(),
+    newPassword: Joi.string()
       .min(5)
       .max(255)
       .required(),
@@ -63,7 +79,7 @@ router.post('/recover', async (req: express.Request, res: express.Response) => {
 
     let userSaved: any = await user.save();
     
-    let link = "http://" + req.headers.host + "/reset-password/" + userSaved.resetPasswordToken;
+    let link = req.headers.origin + "/new-password/" + userSaved.resetPasswordToken;
 
     const file = fs.readFileSync( 
       path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/recover_pass.hbs`),
@@ -129,6 +145,28 @@ router.post('/reset-password', async (req: express.Request, res: express.Respons
 
   } catch (error) {
     return res.status(500).json({message: error.message});
+  }
+});
+
+router.post('/change-password', auth, async (req: express.Request, res: express.Response) => {
+  const { error } = validateChangePassword(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  try {
+    const { user } = req as express.JRequest;
+    const userFromBD = await User.findById(user._id) as any;
+    if (!userFromBD) return res.status(404).send('User not found.');
+    
+    const validPassword = await bcrypt.compare(req.body.oldPassword, userFromBD.password);
+    if (!validPassword) return res.status(400).send('It was a problem in the password validation.');
+    
+    const salt = await bcrypt.genSalt(10);
+    userFromBD.password = await bcrypt.hash(req.body.newPassword, salt);
+
+    await userFromBD.save();
+    
+    return res.status(200).send('Password was change successfully');
+  } catch ( error ) {
+    return res.status(500).send('Something was wrong. Try later.');
   }
 });
 
