@@ -73,58 +73,6 @@ router.post('/', auth, async (req: express.Request, res: express.Response) => {
             error,
         });
     }
-    const pqrsToCreate = {
-      message: textTruncated,
-      user: {
-        name: userFromDB.name,
-        lastName: userFromDB.lastName,
-        email: userFromDB.email,
-        telephone: userFromDB.telephone,
-        identificationType: userFromDB.identificationType,
-        identificationNumber: userFromDB.identificationNumber,
-      },
-    };
-    const pqrs = new PQRS(pqrsToCreate);
-    await pqrs.save();
-
-    // Send email
-    const file = fs.readFileSync(
-      path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/pqrs.hbs`),
-      'utf-8',
-    ).toString();
-
-    const template = Handlebars.compile(file);
-    const result = template({
-      content: pqrsToCreate.message,
-      name: pqrsToCreate.user.name,
-      email: pqrsToCreate.user.email,
-    });
-    const cid = 1;
-    const attachments = [{
-      filename: 'logo',
-      path: path.resolve('./assets/images/aguadejavel_logo.png'),
-      cid: cid.toString(),
-    }];
-
-    const mail = await transport.sendMail({
-      from: process.env.SMTP_USER,
-      to: [pqrsToCreate.user.email],
-      subject: 'Radicación de solicitud',
-      html: result,
-      attachments,
-    });
-    return res.status(200).send({
-      message: 'PQRS created succesfully',
-      pqrs,
-    });
-  } catch (error) {
-    console.log(error);
-
-    return res.status(500).send({
-      message: 'There was an error creating PQRS.',
-      error,
-    });
-  }
 });
 
 function truncateText(text: string, length: number) {
