@@ -64,7 +64,7 @@ function generateMailInfo(order:any) : any {
 
 async function sendSucessfulEmail(order:any) {
   // read template
-  const file = fs.readFileSync(path.resolve('./build/assets/emails/order.hbs'), 'utf-8').toString();
+  const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/order.hbs`), 'utf-8').toString();
   const { attachments, products } = generateMailInfo(order);
   const template = Handlebars.compile(file);
   const result = template({
@@ -86,7 +86,7 @@ async function sendSucessfulEmail(order:any) {
 }
 async function sendDeclinedEmail(order:any) {
   // read template
-  const file = fs.readFileSync(path.resolve('./build/assets/emails/declined_transaction.hbs'), 'utf-8').toString();
+  const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/declined_transaction.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
     path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
@@ -109,7 +109,7 @@ async function sendDeclinedEmail(order:any) {
 
 async function sendErrorEmail(order:any, errorMessage:string) {
   // read template
-  const file = fs.readFileSync(path.resolve('./build/assets/emails/error_mail.hbs'), 'utf-8').toString();
+  const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/error_mail.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
     path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
@@ -134,10 +134,11 @@ async function sendErrorEmail(order:any, errorMessage:string) {
 
 async function sendCreatedOrderEmail(order:any) {
   // read template
-  const file = fs.readFileSync(path.resolve('./build/assets/emails/order_created.hbs'), 'utf-8').toString();
+  const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/order_created.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
+    path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    // path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);

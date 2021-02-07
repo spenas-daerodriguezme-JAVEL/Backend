@@ -357,7 +357,7 @@
                                 <td style="padding: 0 2.5em; text-align: left;">
                                     <div class="text">
                                         <h2>Hola {{name}}, tu solicitud de productos fue creada exitosamente</h2>
-                                        <h4>Los productos son los siguientes
+                                        <h4>Los productos requeridos son los siguientes
                                             </h3>
                                     </div>
                                 </td>
@@ -368,26 +368,31 @@
                 <tr>
                     <table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                            <th width="80%"
+                            <th 
                                 style="text-align:left; padding: 0 2.5em; color: #000; padding-bottom: 20px">Producto
                             </th>
-                            <th width="20%"
-                                style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Precio
+                            <th 
+                                style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Presentación
+                            </th>
+                            <th 
+                                style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Cantidad
                             </th>
                         </tr>
 
                         {{#each products}}
                         <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                            <td valign="middle" width="100%" style="text-align:left; padding: 0 2.5em;">
-                                <div class="product-entry">
-                                    <div class="text">
+                            <td style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">
+                          
                                         <h3>{{this.name}}</h3>
-                                        <span>{{this.capacity}}</span>
-                                        <p>{{this.qty}} Und</p>
-                                    </div>
-                                </div>
+                              
                             </td>
-
+                            <td style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">
+                                     <span>{{this.capacity}}</span>
+                                     
+                            </td>
+                            <td style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">
+                                   <p>{{this.qty}} Und</p>
+                            </td>
                         </tr>
                         {{/each}}
 
@@ -398,16 +403,20 @@
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td style="padding: 0 2.5em; text-align: left;">
-                                    <div class="text">
+                                    <div class="text" style="color: #000;">
                                         <h3>
                                             Nuestro equipo revisará la disponibilidad de estos productos y se comunicará
                                             contigo lo antes posible
                                         </h3>
                                         <h4>Los datos con los que nos pondremos en contacto contigo son:</h4>
                                         <div>
-                                            {{user.name}}
-                                            {{user.email}}
-                                            {{user.telephone}}
+                                            Nombre: {{user.name}} {{user.lastName}}
+                                        </div>
+                                        <div>
+                                            Email: {{user.email}}
+                                        </div>
+                                        <div>
+                                            Teléfono: {{user.telephone}}
                                         </div>
                                         <h3><b>¡Gracias por confiar en The Chemical Science Company!</b></h3>
                                     </div>

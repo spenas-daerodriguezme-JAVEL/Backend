@@ -47,9 +47,11 @@ router.get(
       };
       findObj.price = priceObj;
     }
+    findObj.isActive = true;
 
     Product.find(findObj)
       .skip(from)
+      .sort('position')
       .populate('properties')
       .limit(11)
       .exec(async (err, products) => {
@@ -82,11 +84,13 @@ router.get('/search/:search', async (req: express.Request, res: express.Response
       { model: search },
       { description: search },
     ],
+
   };
 
   await Product.find(findObj)
     .skip(from)
     .limit(11)
+    .populate('properties')
     .exec((err, products) => {
       if (err) {
         res.status(500).send({
@@ -132,6 +136,19 @@ router.get('/allProducts', [auth, adminAuth], async (req: express.Request, res: 
   }
 });
 
+router.get('/extreme-values', async (req: express.Request, res: express.Response) => {
+  try {
+    const minimumValue = await Product.find({}).sort({ price: -1 }).limit(1).lean() as any;
+    const maximumValue = await Product.find({}).sort({ price: 1 }).limit(1).lean() as any;
+    return res.status(200).send({
+      minValue: minimumValue[0].price,
+      maxValue: maximumValue[0].price,
+    });
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+});
+
 router.get('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const { id } = req.params;
@@ -148,18 +165,18 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
 
 router.post('/request-products', auth, async (req: express.Request, res: express.Response) => {
   try {
-    const { products } = req.body;
-
+    const products = req.body;
     const { user } = req as express.JRequest;
 
-    const userFromDB = await User.findById(user._id) as any;
+    const userFromDB = await User.findById(user._id).lean() as any;
+    console.log(userFromDB);
     if (!userFromDB) {
       return res.status(400).send('User was not found. Creation aborted.');
     }
 
     // Send email
     const file = fs.readFileSync(
-      path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/admin_products_requirements.hbs`),
+      path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/admin_products_requirement.hbs`),
       'utf-8',
     ).toString();
 
