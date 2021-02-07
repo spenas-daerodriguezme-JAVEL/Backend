@@ -108,6 +108,23 @@ router.get('/search/:search', async (req: express.Request, res: express.Response
     });
 });
 
+router.get('/carousel', async (req: express.Request, res: express.Response) => {
+  // _id is returned by default
+  const fieldsToReturn = {
+    name: 1,
+    capacity: 1,
+    price: 1,
+    properties: 1
+  }
+  try {
+    const products = await Product.find({isInCarousel: true}).limit(6).populate('properties');
+    return res.status(200).send(products);
+  } 
+  catch(error) {
+    return res.status(500).send('Something was wrong with carousel products');
+  }
+})
+
 router.get('/businesslinelist', (req: express.Request, res: express.Response) => {
   Product.find()
     .distinct('businessLine', (err, businessLines) => {

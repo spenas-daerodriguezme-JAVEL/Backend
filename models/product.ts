@@ -10,7 +10,8 @@ export interface IProduct extends Document {
   price: number,
   quantity: number,
   position: Number,
-  properties: number
+  properties: Number,
+  isInCarousel: Boolean,
 }
 
 const productSchema = new Schema({
@@ -49,7 +50,10 @@ const productSchema = new Schema({
     default: true,
   },
   properties: { type: Number, ref: 'Description' },
-
+  isInCarousel: { 
+    type: Boolean,
+    default: false,
+  }
 });
 
 // export const Product = mongoose.model<IProduct>('Product', productSchema);
