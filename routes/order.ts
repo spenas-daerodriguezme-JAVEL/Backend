@@ -13,6 +13,7 @@ import { Description } from '../models/description';
 import { User } from '../models/user';
 import adminAuth from '../middleware/adminAuth';
 import { transport } from '../startup/mailer';
+import { any } from 'joi';
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
   'state',
 ]);
 
-function generateMailInfo(order:any) : any {
+function generateMailInfo(order: any): any {
   let cid = 1;
   const attachments = [{
     filename: 'logo',
@@ -38,7 +39,7 @@ function generateMailInfo(order:any) : any {
   // eslint-disable-next-line max-len
   const productsList: { name: any; qty: number; price: number; cid: number; capacity: number }[] = [];
   // eslint-disable-next-line max-len
-  order.products.forEach((product: { productName: any; qty: number; price: number; images:Array<string>; capacity: number }) => {
+  order.products.forEach((product: { productName: any; qty: number; price: number; images: Array<string>; capacity: number }) => {
     cid += 1;
     let image = '';
     if (product.images.length === 0) {
@@ -62,7 +63,7 @@ function generateMailInfo(order:any) : any {
   return { attachments, products: productsList };
 }
 
-async function sendSucessfulEmail(order:any) {
+async function sendSucessfulEmail(order: any) {
   // read template
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/order.hbs`), 'utf-8').toString();
   const { attachments, products } = generateMailInfo(order);
@@ -84,7 +85,7 @@ async function sendSucessfulEmail(order:any) {
 
   return mail;
 }
-async function sendDeclinedEmail(order:any) {
+async function sendDeclinedEmail(order: any) {
   // read template
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/declined_transaction.hbs`), 'utf-8').toString();
   const attachments = [{
@@ -107,7 +108,7 @@ async function sendDeclinedEmail(order:any) {
   return mail;
 }
 
-async function sendErrorEmail(order:any, errorMessage:string) {
+async function sendErrorEmail(order: any, errorMessage: string) {
   // read template
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/error_mail.hbs`), 'utf-8').toString();
   const attachments = [{
@@ -132,7 +133,7 @@ async function sendErrorEmail(order:any, errorMessage:string) {
   return mail;
 }
 
-async function sendCreatedOrderEmail(order:any) {
+async function sendCreatedOrderEmail(order: any) {
   // read template
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/order_created.hbs`), 'utf-8').toString();
   const attachments = [{
@@ -174,13 +175,31 @@ router.get('/allOrders', [auth, adminAuth], async (req: express.Request, res: ex
   }
 });
 
-// router.get('/byId/:id', async (req: express.Request, res: express.Response) => {
 router.get('/byId/:id', auth, async (req: express.Request, res: express.Response) => {
   try {
-    const order = await Order.findById(req.params.id) as any; 
+    let order = await Order.findById(req.params.id) as any;
+
     if (order === null) return res.status(404).send('Order was not found');
 
-    const orderToReturn = {
+    // This section of code is for retriving images from each product
+    let productIds: any = [];
+    order.products.forEach((product: any) => {
+      productIds.unshift(mongoose.Types.ObjectId(product.productId)); //add element to beginning of array
+    });
+
+    const productsFromDB: any = await Product.find({ "_id": { "$in": productIds } }, 'SKU').populate('properties', 'images');
+
+    if (productsFromDB) {
+      productsFromDB.forEach((product: any) => {
+        let index = order.products.findIndex((prod: any) => String(prod.productId) === String(product._id));
+        if (index >= 0) {
+          order.products[index].images = product.properties.images;
+        }
+      });
+    }
+    // end of retriving image per product
+
+    let orderToReturn = {
       id: order._id,
       publicId: order.publicId,
       user: order.user,
@@ -193,7 +212,7 @@ router.get('/byId/:id', auth, async (req: express.Request, res: express.Response
     const { user } = req as express.JRequest;
     const userFromDB = await User.findById(user._id) as any;
 
-    if (!user.isAdmin && order.user.identificationNumber !== userFromDB.identificationNumber)  {
+    if (!user.isAdmin && order.user.identificationNumber !== userFromDB.identificationNumber) {
       return res.status(403).send('Access denied.');
     }
 
