@@ -155,8 +155,8 @@ router.get('/allProducts', [auth, adminAuth], async (req: express.Request, res: 
 
 router.get('/extreme-values', async (req: express.Request, res: express.Response) => {
   try {
-    const minimumValue = await Product.find({}).sort({ price: -1 }).limit(1).lean() as any;
-    const maximumValue = await Product.find({}).sort({ price: 1 }).limit(1).lean() as any;
+    const minimumValue = await Product.find({}).sort({ price: 1 }).limit(1).lean() as any;
+    const maximumValue = await Product.find({}).sort({ price: -1 }).limit(1).lean() as any;
     return res.status(200).send({
       minValue: minimumValue[0].price,
       maxValue: maximumValue[0].price,
