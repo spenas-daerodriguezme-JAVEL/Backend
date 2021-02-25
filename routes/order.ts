@@ -251,11 +251,31 @@ router.get('/byUserId/:id', auth, async (req: express.Request, res: express.Resp
 });
 
 router.post('/createOrder', async (req: express.Request, res: express.Response) => {
+  const MAX_VALUE_PER_DAY = 40000000;
   const MAX_VALUE_PER_TRANSACTION = 10000000;
 
   if(req.body.totalPrice > MAX_VALUE_PER_TRANSACTION){
     return res.status(406).send('Order price exceeds value allowed.');
   }
+
+  // Validate maximum value of transactions per day
+  try {
+    let today = new Date();
+    today.setHours(0,0,0,0);
+    const orderSumPrices = await Order.aggregate([
+      { $match: { dateCreated: { $gte: today } } },
+      { $group: { _id: null,  total: { $sum: '$totalPrice' } } }
+    ]) as any;
+    if (orderSumPrices.length > 0) {
+      const totalOrderPricePerDay = orderSumPrices[0].total + req.body.totalPrice;
+      if (totalOrderPricePerDay > MAX_VALUE_PER_DAY) {
+        return res.status(409).send('Maximum value of trasactions per day reached');
+      }
+    }
+  } catch (error) {
+    return res.status(500).send("Something was wrong. Try again later");
+  }
+  // --------------- end validation maximum value of transactions per day
 
   const products = req.body.products as any[];
   const incompleteQtyProducts = [] as any[];
