@@ -251,6 +251,12 @@ router.get('/byUserId/:id', auth, async (req: express.Request, res: express.Resp
 });
 
 router.post('/createOrder', async (req: express.Request, res: express.Response) => {
+  const MAX_VALUE_PER_TRANSACTION = 10000000;
+
+  if(req.body.totalPrice > MAX_VALUE_PER_TRANSACTION){
+    return res.status(406).send('Order price exceeds value allowed.');
+  }
+
   const products = req.body.products as any[];
   const incompleteQtyProducts = [] as any[];
 
