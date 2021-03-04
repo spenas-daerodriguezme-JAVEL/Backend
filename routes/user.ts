@@ -98,10 +98,16 @@ router.post('/', async (req: express.Request, res: express.Response) => {
 
   try {
     let user = (await User.findOne({ email: req.body.email })) as any;
-    if (user) return res.status(400).send('User already registered.');
+    if (user) return res.status(406).send({
+      message:'User already registered.',
+      key: 'email'
+    });
 
     const userById = await User.findOne({ identificationNumber: req.body.identificationNumber });
-    if (userById) return res.status(400).send('Identification Number cannot be duplicate.');
+    if (userById) return res.status(406).send({
+      message: 'Identification Number cannot be duplicate.',
+      key: 'id'
+    });
 
     user = new User(
       pickParams(req, true),
