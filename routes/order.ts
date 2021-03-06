@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import path from 'path';
 import fs from 'fs';
 import md5 from 'md5';
+import { any } from 'joi';
 import auth from '../middleware/auth';
 import { Order } from '../models/order';
 import { Product } from '../models/product';
@@ -13,7 +14,6 @@ import { Description } from '../models/description';
 import { User } from '../models/user';
 import adminAuth from '../middleware/adminAuth';
 import { transport } from '../startup/mailer';
-import { any } from 'joi';
 
 const router = express.Router();
 
@@ -177,21 +177,24 @@ router.get('/allOrders', [auth, adminAuth], async (req: express.Request, res: ex
 
 router.get('/byId/:id', auth, async (req: express.Request, res: express.Response) => {
   try {
-    let order = await Order.findById(req.params.id) as any;
+    const order = await Order.findById(req.params.id) as any;
 
     if (order === null) return res.status(404).send('Order was not found');
 
     // This section of code is for retriving images from each product
-    let productIds: any = [];
+    const productIds: any = [];
     order.products.forEach((product: any) => {
-      productIds.unshift(mongoose.Types.ObjectId(product.productId)); //add element to beginning of array
+      // add element to beginning of array
+      productIds.unshift(mongoose.Types.ObjectId(product.productId)); 
     });
 
-    const productsFromDB: any = await Product.find({ "_id": { "$in": productIds } }, 'SKU').populate('properties', 'images');
+    const productsFromDB: any = await Product.find({ _id: { $in: productIds } }, 'SKU').populate('properties', 'images');
 
     if (productsFromDB) {
       productsFromDB.forEach((product: any) => {
-        let index = order.products.findIndex((prod: any) => String(prod.productId) === String(product._id));
+        const index = order.products.findIndex(
+          (prod: any) => String(prod.productId) === String(product._id),
+        );
         if (index >= 0) {
           order.products[index].images = product.properties.images;
         }
@@ -199,7 +202,7 @@ router.get('/byId/:id', auth, async (req: express.Request, res: express.Response
     }
     // end of retriving image per product
 
-    let orderToReturn = {
+    const orderToReturn = {
       id: order._id,
       publicId: order.publicId,
       user: order.user,
@@ -254,17 +257,17 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
   const MAX_VALUE_PER_DAY = 40000000;
   const MAX_VALUE_PER_TRANSACTION = 10000000;
 
-  if(req.body.totalPrice > MAX_VALUE_PER_TRANSACTION){
+  if (req.body.totalPrice > MAX_VALUE_PER_TRANSACTION) {
     return res.status(406).send('Order price exceeds value allowed.');
   }
 
   // Validate maximum value of transactions per day
   try {
-    let today = new Date();
-    today.setHours(0,0,0,0);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
     const orderSumPrices = await Order.aggregate([
       { $match: { dateCreated: { $gte: today } } },
-      { $group: { _id: null,  total: { $sum: '$totalPrice' } } }
+      { $group: { _id: null, total: { $sum: '$totalPrice' } } },
     ]) as any;
     if (orderSumPrices.length > 0) {
       const totalOrderPricePerDay = orderSumPrices[0].total + req.body.totalPrice;
@@ -273,7 +276,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
       }
     }
   } catch (error) {
-    return res.status(500).send("Something was wrong. Try again later");
+    return res.status(500).send('Something was wrong. Try again later');
   }
   // --------------- end validation maximum value of transactions per day
 
@@ -357,7 +360,6 @@ router.post('/updateStatus', async (req: express.Request, res: express.Response)
     const id = mongoose.Types.ObjectId(transaction.reference);
 
     const order = await Order.findById(id) as any;
-    console.log(order);
 
     let errorMessage;
     let mail;
