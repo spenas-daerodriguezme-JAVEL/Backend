@@ -301,7 +301,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
         productId: item.productId,
         productName: product.name,
         qty: item.qty,
-        // images: description.images,
+        images: description.images,
         price: product.price,
         capacity: product.capacity,
       };
