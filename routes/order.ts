@@ -138,8 +138,8 @@ async function sendCreatedOrderEmail(order: any) {
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/order_created.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve('./assets/images/aguadejavel_logo.png'),
-    // path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
+    // path: path.resolve('./assets/images/aguadejavel_logo.png'),
+    path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
