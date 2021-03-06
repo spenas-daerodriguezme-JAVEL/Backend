@@ -45,7 +45,7 @@ function generateMailInfo(order: any): any {
     if (product.images.length === 0) {
       image = path.resolve('./build/assets/images/aguadejavel_logo.png');
     } else {
-      image = path.resolve(product.images[0]);
+      image = product.images[0];
     }
     productsList.push({
       name: product.productName,
