@@ -52,9 +52,11 @@ function generateMailInfo(order: any): any {
     cid += 1;
     let image = '';
     if (product.images.length === 0) {
-      image = path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`);
-    } else {
       image = selectGenericImage(product.businessLine);
+      console.log(product.businessLine);
+      console.log(image);
+    } else {
+      image = product.images[0];
     }
     productsList.push({
       name: product.productName,
@@ -313,6 +315,7 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
         images: description.images,
         price: product.price,
         capacity: product.capacity,
+        businessLine: product.businessLine,
       };
     });
 

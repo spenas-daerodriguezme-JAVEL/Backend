@@ -70,6 +70,7 @@ const orderSchema = new mongoose.Schema({
       type: String,
     },
     images: Array,
+    businessLine: String,
   }],
   archived: {
     type: Boolean,
