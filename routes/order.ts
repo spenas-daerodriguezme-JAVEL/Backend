@@ -30,6 +30,14 @@ const pickParams = (req: express.Request) => _.pick(req.body, [
   'state',
 ]);
 
+function selectGenericImage(businessLine: any) {
+  if (businessLine === 'Fragancias') return 'https://storage.googleapis.com/thechemcie/Fragancia%20gen%C3%A9rica%20perfumes.webp';
+  if (businessLine === 'Doméstica') return 'https://storage.googleapis.com/thechemcie/Imagen%20gen%C3%A9rica%20difusores.webp';
+  if (businessLine === 'Industrial') return 'https://storage.googleapis.com/thechemcie/Im%C3%A1gen%20gen%C3%A9rica%20cat%C3%A1logo%20industrial.webp';
+  if (businessLine === 'Perfumería') return 'https://storage.googleapis.com/thechemcie/Imagen%20gen%C3%A9rica%20humidificador.webp';
+  return path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/logo-mobile.png`);
+}
+
 function generateMailInfo(order: any): any {
   let cid = 1;
   const attachments = [{
@@ -40,13 +48,13 @@ function generateMailInfo(order: any): any {
   // eslint-disable-next-line max-len
   const productsList: { name: any; qty: number; price: number; cid: number; capacity: number }[] = [];
   // eslint-disable-next-line max-len
-  order.products.forEach((product: { productName: any; qty: number; price: number; images: Array<string>; capacity: number }) => {
+  order.products.forEach((product: { productName: any; qty: number; price: number; images: Array<string>; capacity: number; businessLine: any }) => {
     cid += 1;
     let image = '';
     if (product.images.length === 0) {
       image = path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`);
     } else {
-      image = product.images[0];
+      image = selectGenericImage(product.businessLine);
     }
     productsList.push({
       name: product.productName,
