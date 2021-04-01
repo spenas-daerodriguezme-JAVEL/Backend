@@ -34,7 +34,7 @@ function generateMailInfo(order: any): any {
   let cid = 1;
   const attachments = [{
     filename: 'logo',
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`),
     cid: cid.toString(),
   }];
   // eslint-disable-next-line max-len
@@ -44,7 +44,7 @@ function generateMailInfo(order: any): any {
     cid += 1;
     let image = '';
     if (product.images.length === 0) {
-      image = path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`);
+      image = path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`);
     } else {
       image = product.images[0];
     }
@@ -91,7 +91,7 @@ async function sendDeclinedEmail(order: any) {
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/declined_transaction.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
@@ -114,7 +114,7 @@ async function sendErrorEmail(order: any, errorMessage: string) {
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/error_mail.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
@@ -139,8 +139,8 @@ async function sendCreatedOrderEmail(order: any) {
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/order_created.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    // path: path.resolve('./assets/images/thechem_logo.png'),
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
+    // path: path.resolve('./assets/images/thechem_logo.PNG'),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);

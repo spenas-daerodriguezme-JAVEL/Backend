@@ -93,7 +93,7 @@ router.post('/recover', async (req: express.Request, res: express.Response) => {
     const cid = 1;
     const attachments = [{
       filename: 'logo',
-      path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
+      path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.PNG`),
       cid: cid.toString(),
     }];
 
