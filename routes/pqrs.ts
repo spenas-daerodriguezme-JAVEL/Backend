@@ -49,7 +49,7 @@ router.post('/', auth, async (req: express.Request, res: express.Response) => {
     const cid = 1;
     const attachments = [{
       filename: 'logo',
-      path: path.resolve('./build/assets/images/aguadejavel_logo.png'),
+      path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
       cid: cid.toString(),
     }];
 

@@ -35,10 +35,6 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
-  measurementUnit: {
-    type: String,
-    required: true,
-  },
   price: {
     type: Number,
     required: true,

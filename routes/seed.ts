@@ -16,6 +16,7 @@ router.post('/seeds', async (req: express.Request, res: express.Response) => {
       console.log('>>>> Seeds created');
     } catch (error) {
       console.log('>>>> There was a problem creating seeds');
+      console.log(error);
       res.send('Something went wrong');
     }
   });

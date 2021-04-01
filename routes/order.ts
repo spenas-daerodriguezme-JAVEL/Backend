@@ -1,12 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 import express from 'express';
 import _, { reduce } from 'lodash';
-import Handlebars from 'handlebars';
+// import Handlebars from 'handlebars';
 import mongoose from 'mongoose';
 import path from 'path';
 import fs from 'fs';
 import md5 from 'md5';
 import { any } from 'joi';
+import Handlebars from '../startup/Handlebars';
 import auth from '../middleware/auth';
 import { Order } from '../models/order';
 import { Product } from '../models/product';
@@ -33,7 +34,7 @@ function generateMailInfo(order: any): any {
   let cid = 1;
   const attachments = [{
     filename: 'logo',
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/aguadejavel_logo.png`),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
     cid: cid.toString(),
   }];
   // eslint-disable-next-line max-len
@@ -43,7 +44,7 @@ function generateMailInfo(order: any): any {
     cid += 1;
     let image = '';
     if (product.images.length === 0) {
-      image = path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/aguadejavel_logo.png`);
+      image = path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`);
     } else {
       image = product.images[0];
     }
@@ -90,7 +91,7 @@ async function sendDeclinedEmail(order: any) {
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/declined_transaction.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/aguadejavel_logo.png`),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
@@ -113,7 +114,7 @@ async function sendErrorEmail(order: any, errorMessage: string) {
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/error_mail.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/aguadejavel_logo.png`),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
@@ -138,8 +139,8 @@ async function sendCreatedOrderEmail(order: any) {
   const file = fs.readFileSync(path.resolve(`${process.env.EMAIL_TEMPLATES_PATH}/order_created.hbs`), 'utf-8').toString();
   const attachments = [{
     filename: 'logo',
-    // path: path.resolve('./assets/images/aguadejavel_logo.png'),
-    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/aguadejavel_logo.png`),
+    // path: path.resolve('./assets/images/thechem_logo.png'),
+    path: path.resolve(`${process.env.IMAGES_TEMPLATE_PATH}/thechem_logo.png`),
     cid: '1',
   }] as any;
   const template = Handlebars.compile(file);
@@ -185,7 +186,7 @@ router.get('/byId/:id', auth, async (req: express.Request, res: express.Response
     const productIds: any = [];
     order.products.forEach((product: any) => {
       // add element to beginning of array
-      productIds.unshift(mongoose.Types.ObjectId(product.productId)); 
+      productIds.unshift(mongoose.Types.ObjectId(product.productId));
     });
 
     const productsFromDB: any = await Product.find({ _id: { $in: productIds } }, 'SKU').populate('properties', 'images');
