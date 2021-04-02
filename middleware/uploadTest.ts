@@ -48,6 +48,7 @@ const sendUploadToGCS = (req:any, res:any, next:any) => {
   if (!req.files) {
     return next();
   }
+
   let promises = [] as any;
   req.body.images.forEach((image:any, index:any) => {
     const gcsname = `${Date.now()}-${image.originalname}`;
@@ -89,11 +90,14 @@ const sendUploadToGCS = (req:any, res:any, next:any) => {
 const modifyPrevious = async (req: any, res: any, next: any) => {
   const { id } = req.body;
   try {
+    console.log(req.body.images);
     const description:any = await Description.findById(id);
-    const deletionsPromise = description.images.map((element:any) => {
+    const deletionsPromise = description.images.map(async (element:any) => {
       const image = element.split('/')[4];
       return bucket.file(image).delete();
     });
+    console.log('req.body.images.map :>> ', req.body.images.map);
+    console.log('description.images :>> ', description.images);
     const deletions = Promise.all(deletionsPromise);
     description.images = req.body.images.map((file:any) => file.cloudStoragePublicUrl);
     await description.save();

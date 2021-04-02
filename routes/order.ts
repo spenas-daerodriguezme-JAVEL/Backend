@@ -87,8 +87,7 @@ async function sendSucessfulEmail(order: any) {
   const mail = await transport.sendMail({
     from: process.env.SMTP_USER,
     to: [order.user.email],
-    // bcc: 'aguadejavel@gmail.com',
-    bcc: 'spenas@unal.edu.co',
+    bcc: 'ceo@thechemicalsciencecompany.com',
     subject: `Confirmación de pedido #${order.publicId}`,
     html: result,
     attachments,
@@ -135,7 +134,7 @@ async function sendErrorEmail(order: any, errorMessage: string) {
   const mail = await transport.sendMail({
     from: process.env.SMTP_USER,
     // to: ['aguadejavel@gmail.com', 'spenas@unal.edu.co'],
-    to: ['spenas@unal.edu.co'],
+    to: ['ceo@thechemicalsciencecompany.com'],
     subject: `Error en transacción #${order.publicId}`,
     html: result,
     attachments,
@@ -212,7 +211,6 @@ router.get('/byId/:id', auth, async (req: express.Request, res: express.Response
       });
     }
     // end of retriving image per product
-
     const orderToReturn = {
       id: order._id,
       publicId: order.publicId,
