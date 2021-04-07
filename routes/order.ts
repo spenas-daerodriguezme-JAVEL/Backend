@@ -267,7 +267,10 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
   const MAX_VALUE_PER_TRANSACTION = 10000000;
 
   if (req.body.totalPrice > MAX_VALUE_PER_TRANSACTION) {
-    return res.status(406).send('Order price exceeds value allowed.');
+    return res.status(406).send({
+      name_error: 'max_value',
+      message: 'Order price exceeds value allowed.'
+    });
   }
 
   // Validate maximum value of transactions per day
@@ -302,6 +305,8 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
         incompleteQtyProducts.push({
           // eslint-disable-next-line no-underscore-dangle
           productId: product._id,
+          name: product.name,
+          cap: product.capacity,
           qty: product.quantity,
         });
       }
@@ -319,18 +324,19 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
 
     const productsContent = await Promise.all(checkedProducts);
 
-    // if (incompleteQtyProducts.length !== 0) {
-    //   return res.status(400).send({
-    //     message: 'The following products doesnt have the required quantities',
-    //     products: incompleteQtyProducts,
-    //   });
-    // }
+    if (incompleteQtyProducts.length > 0) {
+      return res.status(406).send({
+        name_error: 'not_products',
+        message: 'The following products doesnt have the required quantities',
+        products: incompleteQtyProducts,
+      });
+    }
 
     let newPublicId = await Order.countDocuments({}) as number;
     newPublicId += 1;
     const dateCreated = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }).toString();
 
-    const order = new Order({
+    const order: any = new Order({
       publicId: newPublicId,
       user: pickParams(req),
       products: productsContent,
@@ -340,6 +346,14 @@ router.post('/createOrder', async (req: express.Request, res: express.Response) 
 
     const response = await order.save();
     const mail = await sendCreatedOrderEmail(order);
+
+    let bulk = Product.collection.initializeUnorderedBulkOp();
+    order.products.map( (product: any) => {
+      const quantityRequested = -1*product.qty;
+      // Decrease the quantity of the product because quantityRequested is negative
+      bulk.find( {_id: product.productId} ).update( {$inc: {quantity: quantityRequested} } );
+    })
+    bulk.execute()
     return res.status(200).send({
       createdOrder: response,
       mail,
