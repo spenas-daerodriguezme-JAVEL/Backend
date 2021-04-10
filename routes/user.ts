@@ -78,7 +78,7 @@ router.get('/userById/:identificationNumber', [auth, adminAuth], async (req: exp
   }
 });
 
-router.get('/userById/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
+router.get('/userByIdBson/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
 // router.get('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const user = await User.findById(req.params.id);
