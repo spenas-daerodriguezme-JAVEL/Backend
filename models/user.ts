@@ -13,8 +13,7 @@ const userSchema = new mongoose.Schema({
   },
   lastName: {
     type: String,
-    required: true,
-    minlength: 2,
+    required: false,
     maxlength: 50,
   },
   email: {
@@ -99,9 +98,7 @@ export const validate = (user: Schema) => {
     name: Joi.string()
       .min(2)
       .max(50),
-    lastName: Joi.string()
-      .min(2)
-      .max(50),
+    lastName: Joi.string().allow(null, ''),
     email: Joi.string()
       .min(5)
       .max(255)

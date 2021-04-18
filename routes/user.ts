@@ -29,7 +29,6 @@ const pickParams = (req: express.Request, isPost: Boolean) => {
 };
 
 router.get('/me', auth, async (req: express.Request, res: express.Response) => {
-// router.get('/me', async (req: express.Request, res: express.Response) => {
   // eslint-disable-next-line no-underscore-dangle
   const id = req.header('id');
   if (!id) return res.status(400);
@@ -43,7 +42,6 @@ router.get('/me', auth, async (req: express.Request, res: express.Response) => {
 });
 
 router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-// router.get('/allUsers', async (req: express.Request, res: express.Response) => {
   try {
     const users = await User.find({}) as any;
     const returnUsers = users.map((user:any) => ({
@@ -63,7 +61,6 @@ router.get('/allUsers', [auth, adminAuth], async (req: express.Request, res: exp
 });
 
 router.get('/userById/:identificationNumber', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-// router.get('/userById/:identificationNumber', async (req: express.Request, res: express.Response) => {
   try {
     const user = await User.find({
       identificationNumber: req.params.identificationNumber,
@@ -79,7 +76,6 @@ router.get('/userById/:identificationNumber', [auth, adminAuth], async (req: exp
 });
 
 router.get('/userByIdBson/:id', [auth, adminAuth], async (req: express.Request, res: express.Response) => {
-// router.get('/:id', async (req: express.Request, res: express.Response) => {
   try {
     const user = await User.findById(req.params.id);
     if (user === null) return res.status(404).send('User not found');
