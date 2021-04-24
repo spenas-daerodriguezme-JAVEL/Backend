@@ -20,7 +20,6 @@ const router = express.Router();
 
 const pickParams = (req: express.Request) => _.pick(req.body, [
   'name',
-  'lastName',
   'email',
   'identificationType',
   'identificationNumber',

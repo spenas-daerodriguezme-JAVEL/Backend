@@ -14,7 +14,7 @@ const orderSchema = new mongoose.Schema({
       },
       lastName: {
         type: String,
-        required: true,
+        required: false,
         minlength: 2,
         maxlength: 50,
       },
